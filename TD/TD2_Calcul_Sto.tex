@@ -1,0 +1,308 @@
+\documentclass[11pts]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsopn, color, tikz, mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{tipa}
+\usepackage{hyperref}
+
+
+% Style
+\setlength\parindent{0pt}
+\shadedsolutions
+
+% Define course info
+\def\semester{Semestre 2}
+\def\course{Calcul stochastique M1 DUAS}
+\def\name{P.-O. Goffard}
+%\def\quizdate{10/5, 10/6}
+\def\hwknum{}
+%\def\title{\MakeUppercase{Homework \hwknum -- quiz \quizdate }}
+\def\title{\MakeUppercase{TD 2: Processus en temps continu et Martingale}}
+% Distributions.
+\newcommand*{\UnifDist}{\mathsf{Unif}}
+\newcommand*{\ExpDist}{\mathsf{Exp}}
+\newcommand*{\DepExpDist}{\mathsf{DepExp}}
+\newcommand*{\GammaDist}{\mathsf{Gamma}}
+\newcommand*{\LognormalDist}{\mathsf{LogNorm}}
+\newcommand*{\WeibullDist}{\mathsf{Weib}}
+\newcommand*{\ParetoDist}{\mathsf{Par}}
+\newcommand*{\NormalDist}{\mathsf{Normal}}
+
+\newcommand*{\GeometricDist}{\mathsf{Geom}}
+\newcommand*{\NegBinomialDist}{\mathsf{NegBin}}
+\newcommand*{\BinomialDist}{\mathsf{Bin}}
+\newcommand*{\PoissonDist}{\mathsf{Poisson}}
+
+% Sets of numbers.
+\newcommand*{\RL}{\mathbb{R}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\NZ}{\mathbb{N}_0}
+% \newcommand*{\NL}{\mathbb{N}_+}
+
+\newcommand*{\cond}{\mid}
+\newcommand*{\given}{\,;\,}
+
+%Probability symbols
+\newcommand*{\Prob}{\mathbb{P}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\E}{\mathbb{E}}
+\newcommand*{\F}{\mathcal{F}}
+% Regarding spacing and abbreviations.
+\usepackage{xspace}
+
+% Acronyms
+% \@\xspace doesn't add space if next char is punctuation
+% However, these will give 2 .'s if used at end of sentence.
+\newcommand*{\eg}{e.g.\@\xspace}
+\newcommand*{\ps}{p.s.\@\xspace}
+\newcommand*{\ie}{i.e.\@\xspace}
+\newcommand*{\va}{v.a.\@\xspace}
+\newcommand*{\iid}{i.i.d.\@\xspace}
+\newcommand*{\ssi}{s.s.i.\@\xspace}
+\newcommand*{\cf}{c.f.\@\xspace}
+\newcommand*{\pdf}{p.d.f.\@\xspace}
+\newcommand*{\pmf}{p.m.f.\@\xspace}
+\newcommand*{\cdf}{c.d.f.\@\xspace}
+\newcommand*{\SMC}{\textbf{SMC}\@\xspace}
+\newcommand*{\MCMC}{\textbf{MCMC}\@\xspace}
+\newcommand*{\VF}{\textbf{VF}\@\xspace}
+
+
+\newcommand*{\iidSim}{\overset{\mathrm{i.i.d.}}{\sim}}
+\newcommand*{\bt}{\bm{\theta}}
+\newcommand*{\bTheta}{\bm{\Theta}}
+\newcommand*{\bbeta}{\bm{\beta}}
+\newcommand*{\bx}{\mathbf{x}}
+\newcommand*{\bs}{\bm{s}}
+\newcommand*{\bu}{\bm{u}}
+\newcommand*{\bn}{\bm{n}}
+
+% Roman versions of things.
+\newcommand*{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand*{\e}{\mathrm{e}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theo}{Theorem}
+\newtheorem{coro}{Corollary}
+\newtheorem{prop}{Proposition}
+
+\newcommand*{\norm}[1]{\lVert{} #1\rVert}
+
+% \DeclarePairedDelimiterXPP{\ind}[1]{\ind_}{\{}{\}}{}{#1}
+\newcommand*{\ind}{\mathbb{I}}
+\def\euro{\mbox{\raisebox{.25ex}{{\it =}}\hspace{-.5em}{\sf C}}}
+  \everymath{\displaystyle}
+% \newcommand{\limsup}{\overline{\lim}\,}            % blackboard P
+% \newcommand{\liminf}{\underline{\lim}\,}            % blackboard P
+
+\begin{document}
+
+% Heading
+{\center \textsc{\Large\title}\\
+	\vspace*{1em}
+	\course -- \semester\\
+	\name\\
+	\vspace*{2em}
+	\hrule
+\vspace*{2em}}
+\begin{questions}
+\question 
+\begin{parts}
+\part[2]
+Soit $(N_t)_{t\geq0}$ un processus de Poisson d'intensité $\lambda$. Le processus
+$$
+X_n = N_n,\text{ }n\geq0
+$$
+définit-il une chaine de Markov? Justifier votre réponse, s'il s'avère que $(X_n)_{n\geq0}$ est une chaine de Markov alors on donnera sa matrice des transition et son espace d'état.
+\begin{solution}
+On note que 
+$$
+X_{n+1} = X_n+(N_{n+1}-N_n),
+$$
+La suite $\xi_n = N_{n+1}-N_n,\text{ }n\geq 1$ forme une suite de va iid puisque $N_t$ est un processus de Poisson. On en déduit que $(X_n)_{n\geq0}$ est une CMH en vertu du théorème qui introduit le protocole générateur de chaine de Markov. L'espace d'état est $E = \mathbb{N}$ et la matrice des transition est donnée par 
+$$
+p(i,j) = \begin{cases}
+\frac{e^{-\lambda}\lambda^{j-i}}{(j-i)!}, &j\geq i\\
+0,&\text{ Sinon}.
+\end{cases}
+$$ 
+\end{solution} 
+\part[2] Soit le processus 
+
+$$
+M_t = U_1+\ldots+  U_{N_t}
+$$
+où $U_1,\ldots, U_{N_t}$ sont iid de loi normale $\text{Normal}(\mu ,\sigma^2 )$ et indépendants de $(N_t)_{t\geq 0}$. Montrer que 
+$$
+\mathbb{E}\left(\frac{M_t}{N_t}\Big\rvert N_t>0\right) = \frac{\mathbb{E}(M_t)}{\mathbb{E}(N_t)}
+$$
+\begin{solution}
+On a 
+\begin{eqnarray*}
+\mathbb{E}\left(\frac{M_t}{N_t}\Big\rvert N_t>0\right)&=& \frac{\mathbb{E}\left(\frac{M_t}{N_t}\mathbb{I}_{N_t>0}\right)}{\mathbb{P}(N_t>0)}\\
+&=&\frac{1}{1-e^{-\lambda t}}\mathbb{E}\left(\sum_{k = 1}^{+\infty}\frac{U_1+\ldots U_k}{k}\mathbb{I}_{N_t=k}\right)\\
+&=&\frac{1}{1-e^{-\lambda t}}\mu\sum_{k = 1}^{+\infty}\mathbb{P}(N_t=k)=\mu\\
+\end{eqnarray*}
+L'intervertion série intégrale est justifié grâce au résultat suivant:
+\begin{prop}
+Soit $(f_k)_{k\geq 1}$ une suite d'application mesurables telle que 
+$$
+\sum_{k\geq 1}\E|f_k|<\infty
+$$
+alors $\sum_{k\geq 1}f_k$ est intégrable et 
+$$
+\E\sum_{k\geq 1}f_k=\sum_{k\geq1}\E(f_k).
+$$
+\end{prop}
+0Ici, on définit $f_k = \frac{U_1+\ldots+ U_k}{k}\ind_{N_t = k}$ et on note que 
+$$
+|f_k|\leq\frac{|U_1|+\ldots+ |U_k|}{k}\ind_{N_t = k}
+$$
+par l'inégalité triangulaire. Le passage à l'espérance donne 
+$$
+\E(|f_k|)\leq\E(|U|)\Prob(N_t = k).
+$$
+La sommation donne 
+$$
+\sum_{k\geq 1}\E(|f_k|)\leq\E(|U|)\Prob(N_t > 0)<\infty.
+$$
+On peut également utiliser la loi de l'espérance totale pour ne pas s'embéter avec une interversion limite intégrale. En effet, 
+\begin{eqnarray*}
+\mathbb{E}\left(\frac{M_t}{N_t}\Big\rvert N_t>0\right)&=& \frac{\mathbb{E}\left(\frac{M_t}{N_t}\mathbb{I}_{N_t>0}\right)}{\mathbb{P}(N_t>0)}\\
+&=&\frac{\mathbb{E}\left[\mathbb{E}\left(\frac{M_t}{N_t}\mathbb{I}_{N_t>0}|N_t\right)\right]}{\mathbb{P}(N_t>0)}\\
+&=&\frac{\mathbb{E}\left[\mathbb{E}\left(M_t|N_t\right)\frac{\mathbb{I}_{N_t>0}}{N_t}\right]}{\mathbb{P}(N_t>0)}\\
+&=&\frac{\mathbb{E}\left[N_t\mathbb{E}\left(U_1|N_t\right)\frac{\mathbb{I}_{N_t>0}}{N_t}\right]}{\mathbb{P}(N_t>0)}\\
+&=&\frac{\mathbb{E}\left[\mu\mathbb{I}_{N_t>0}\right]}{\mathbb{P}(N_t>0)}\\
+&=&\frac{\mu\mathbb{E}\left[\mathbb{I}_{N_t>0}\right]}{\mathbb{P}(N_t>0)}\\
+&=&\frac{\mu\mathbb{P}\left[N_t>0\right]}{\mathbb{P}(N_t>0)}\\
+&=&\mu
+\end{eqnarray*}
+On a également
+\begin{eqnarray*} 
+\frac{\mathbb{E}(M_t)}{\mathbb{E}(N_t)}&=& \frac{\mathbb{E}(\mathbb{E}(M_t|N_t))}{\lambda t}\\
+&=& \frac{\mathbb{E}(N_t)\mathbb{E}(U)}{\lambda t} = \mu
+\end{eqnarray*}
+d'où l'égalité 
+$$
+\mathbb{E}\left(\frac{M_t}{N_t}\Big\rvert N_t>0\right) = \frac{\mathbb{E}(M_t)}{\mathbb{E}(N_t)}.
+$$
+\end{solution}
+\end{parts}
+\question Soit $(M_t)_{t\geq 0}$ une martingale telle que $\E(M_t^2)<\infty$ pour tout $0\leq s< t$.
+\begin{parts}
+\part Montrer que 
+$$
+\E\left[(M_t-M_s)^2\right] = \E(M_t^2)-\E(M_s^2)
+$$
+\begin{solution}
+On a 
+\begin{eqnarray*}
+\E\left[(M_t-M_s)^2\right]&=&\E\left[M_t^2 - 2M_tM_s +M_s^2\right]\\
+&=&\E\left[\E(M_t^2 - 2M_tM_s +M_s^2|\mathcal{F}_s)\right]\\
+&=&\E\left[\E(M_t^2 - 2 M_t M_s + M_s^2|\mathcal{F}_s)\right]\\
+&=& \E\left[\E(M_t^2|\F_s) - 2M_s^2 + M_S^2\right]\\
+&=& \E\left[\E(M_t^2|\F_s)\right] - \E(M_s^2) \\
+&=& \E(M_t^2) - \E(M_s^2)
+\end{eqnarray*}
+\end{solution}
+\part En déduire que $t\mapsto \phi(t) = \E(M_t^2)$ est croissante.
+\begin{solution}
+Soit $h>0$, on a 
+\begin{eqnarray*}
+\phi(t+h) - \phi(t) &=& \E(M_{t+h}^2) - \E(M_t^2)\\
+&=& \E\left[(M_{t+h}-M_t)^2\right]\geq 0\\
+\end{eqnarray*}
+\end{solution}
+\end{parts}
+\question Soit $(M_t)_{t\geq 0}$ une martingale continue telle que $M_0 = a$ et $\underset{t\rightarrow\infty}{\lim M_t} = 0$. Montrer que $\underset{t\geq 0}{\sup}M_t\sim \frac{a}{U}$, où $U\sim\UnifDist([0, 1])$.\\
+\underline{Indication:} Quel est le lien entre $\underset{t\geq 0}{\sup}M_t$ et $$
+\tau_y^+ = \inf\{t\geq 0\text{ ; }M_t>y\},\text{ pour }y>	a.
+$$
+\begin{solution}
+On note que 
+$$
+\Prob(\underset{t\geq 0}{\sup}M_t >y) = \Prob(\tau_y^+ <\infty),
+$$
+On applique le théorème du temps d'arrêt optionnel au temps $\tau_y^+\land t$, ce qui donne
+\begin{eqnarray*}
+a&=&\E(M_0)\\
+&=&\E(M_{\tau_y^+\land t})\\
+&=&\E(M_{\tau_y^+}\ind_{\tau_y^+ < t} + M_{t}\ind_{\tau_y^+ \geq t})\\
+&=&\E(y\ind_{\tau_y^+ < t} + M_{t}\ind_{\tau_y^+ \geq t})\\
+\end{eqnarray*}
+On fait tendre $t$ vers $\infty$ pour obtenir
+$$
+\Prob(\tau_y^+ < \infty) = \frac ay,
+$$
+ce qui correspond à la fonction de survie de $\frac aU$.
+\end{solution}
+\question Les longueurs de deux branches concurrentes de la blockchain sont modélisées par deux processus de Poisson $(N_t)_{t\geq 0}$ et $(M_t)_{t\geq 0}$ indépendants, d'intensité respectives $\lambda$ et $\mu$. On se place dans le scénario d'une attaque par double dépense et on suppose que la branche malhonnête est celle dont la longueur est modélisée par $M$. Les mineurs malhonnêtes ne détiennent pas la majorité des ressources de calculs ce qui se traduit par $\mu < \lambda$. La branche honnête possède $z\geq 0$ bloc d'avance sur la chaine malhonnête. La double dépense se produit si la chaine malhonnête rattrape la chaine honnête, c'est à dire à l'instant aléatoire 
+$$
+\tau_z = \inf\{t\geq 0\text{ ; }z + N_t - M_t = 0\}.
+$$
+On définit la probabilité d'une double dépense par 
+$$
+\phi(z) = \Prob(\tau_z <\infty).
+$$
+On définit le processus $Y_t = M_t - N_t,\text{ }t\geq 0$.
+\begin{parts}
+\part $Y$ est-il un processus de Lévy?
+\begin{solution}
+\begin{enumerate}
+	\item $Y_0 = 0$
+	\item les trajectoires de $Y_t$ son càdlàg
+	\item Accroissement indépendants
+	\item Accroissement stationnaires
+\end{enumerate}
+\end{solution}
+\part Que vaut $\underset{t\rightarrow \infty}{\lim} Y_t$?
+\begin{solution}
+$-\infty$
+\end{solution}
+\part Donner l'exposant de Laplace 
+$$
+\kappa(\theta) = \log\E(e^{\theta Y_1}).
+$$
+
+de $Y$.
+\begin{solution}
+\begin{eqnarray*}
+\kappa(\theta) &=&\log\E\left(e^{\theta (M_1 - N_1)}\right)\\
+&=&\log\E\left(e^{\theta M_1}\right)+\log\E\left(e^{-\theta N_1}\right)\\
+&=&\mu(\e^\theta - 1)+\lambda(\e^{-\theta} - 1)\\
+\end{eqnarray*}
+\end{solution}
+\part Montrer que 
+$$
+\phi(z) = \left(\frac{\mu}{\lambda}\right)^z.
+$$
+\underline{Indication:} Il faut trouver $\theta^\ast>0$ tel que $\e^{\theta^\ast Y_t}$ soit une martingale puis appliquer le théorème du temps d'arrêt optimal.
+\begin{solution}
+On cherche $\theta^\ast$ tel que 
+$$
+\kappa(\theta^\ast) = 0\Leftrightarrow \mu(\e^\theta - 1)+\lambda(\e^{-\theta} - 1) = 0.
+$$
+On pose $u  =\e^\theta$, l'équation devient 
+$\mu(\e^\theta - 1)+\lambda(\e^{-\theta} - 1) = 0$
+Les solutions sont $1$ et $\lambda/\mu$. La seule solution strictement positive de l'équation initiale est donc $\theta^\ast = \log \lambda / \mu$. On note que 
+$$
+\tau_z=\inf\{t\geq 0\text{ ; } Y_t = z\}.
+$$
+
+Par application du théorème du temps d'arrêt optionnel au temps $\tau_z\land t$ sur le processus $\e^{\theta^\ast Y_t}$, il vient 
+\begin{eqnarray*}
+1 &=&\E(\e^{\theta^\ast Y_0})\\
+&=&\E(\e^{\theta^\ast Y_{\tau_z\land t}})\\
+&=&\E(\e^{\theta^\ast Y_{\tau_z}}\ind_{\tau_z < t}+\e^{\theta^\ast Y_{t}}\ind_{\tau_z \geq t})
+\end{eqnarray*}
+On fait tendre $t$ vers $+\infty$ pour obtenir
+$$
+\Prob(\tau_z <\infty) = \e^{-\theta^\ast z} = \left(\frac{\mu}{\lambda}\right)^z.
+$$
+\end{solution}
+\end{parts}
+\end{questions}
+\end{document}

@@ -1,0 +1,281 @@
+\documentclass[11pts, answers]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsopn, color, tikz, mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{tipa}
+\usepackage{hyperref}
+
+
+% Style
+\setlength\parindent{0pt}
+\shadedsolutions
+
+% Define course info
+\def\semester{Semestre 2}
+\def\course{Calcul stochastique M1 DUAS}
+\def\name{P.-O. Goffard}
+%\def\quizdate{10/5, 10/6}
+\def\hwknum{}
+%\def\title{\MakeUppercase{Homework \hwknum -- quiz \quizdate }}
+\def\title{\MakeUppercase{TD 4: Mouvement Brownien}}
+% Distributions.
+\newcommand*{\UnifDist}{\mathsf{Unif}}
+\newcommand*{\ExpDist}{\mathsf{Exp}}
+\newcommand*{\DepExpDist}{\mathsf{DepExp}}
+\newcommand*{\GammaDist}{\mathsf{Gamma}}
+\newcommand*{\LognormalDist}{\mathsf{LogNorm}}
+\newcommand*{\WeibullDist}{\mathsf{Weib}}
+\newcommand*{\ParetoDist}{\mathsf{Par}}
+\newcommand*{\NormalDist}{\mathsf{Normal}}
+
+\newcommand*{\GeometricDist}{\mathsf{Geom}}
+\newcommand*{\NegBinomialDist}{\mathsf{NegBin}}
+\newcommand*{\BinomialDist}{\mathsf{Bin}}
+\newcommand*{\PoissonDist}{\mathsf{Poisson}}
+\newcommand*{\Cov}{\mathsf{Cov}}
+
+% Sets of numbers.
+\newcommand*{\RL}{\mathbb{R}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\NZ}{\mathbb{N}_0}
+% \newcommand*{\NL}{\mathbb{N}_+}
+
+\newcommand*{\cond}{\mid}
+\newcommand*{\given}{\,;\,}
+
+%Probability symbols
+\newcommand*{\Prob}{\mathbb{P}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\E}{\mathbb{E}}
+\newcommand*{\F}{\mathcal{F}}
+% Regarding spacing and abbreviations.
+\usepackage{xspace}
+
+% Acronyms
+% \@\xspace doesn't add space if next char is punctuation
+% However, these will give 2 .'s if used at end of sentence.
+\newcommand*{\eg}{e.g.\@\xspace}
+\newcommand*{\ps}{p.s.\@\xspace}
+\newcommand*{\ie}{i.e.\@\xspace}
+\newcommand*{\va}{v.a.\@\xspace}
+\newcommand*{\iid}{i.i.d.\@\xspace}
+\newcommand*{\ssi}{s.s.i.\@\xspace}
+\newcommand*{\cf}{c.f.\@\xspace}
+\newcommand*{\pdf}{p.d.f.\@\xspace}
+\newcommand*{\pmf}{p.m.f.\@\xspace}
+\newcommand*{\cdf}{c.d.f.\@\xspace}
+\newcommand*{\SMC}{\textbf{SMC}\@\xspace}
+\newcommand*{\MCMC}{\textbf{MCMC}\@\xspace}
+\newcommand*{\VF}{\textbf{VF}\@\xspace}
+
+
+\newcommand*{\iidSim}{\overset{\mathrm{i.i.d.}}{\sim}}
+\newcommand*{\bt}{\bm{\theta}}
+\newcommand*{\bTheta}{\bm{\Theta}}
+\newcommand*{\bbeta}{\bm{\beta}}
+\newcommand*{\bx}{\mathbf{x}}
+\newcommand*{\bs}{\bm{s}}
+\newcommand*{\bu}{\bm{u}}
+\newcommand*{\bn}{\bm{n}}
+
+% Roman versions of things.
+\newcommand*{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand*{\e}{\mathrm{e}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand*{\norm}[1]{\lVert{} #1\rVert}
+
+% \DeclarePairedDelimiterXPP{\ind}[1]{\ind_}{\{}{\}}{}{#1}
+\newcommand*{\ind}{\mathbb{I}}
+\def\euro{\mbox{\raisebox{.25ex}{{\it =}}\hspace{-.5em}{\sf C}}}
+  \everymath{\displaystyle}
+% \newcommand{\limsup}{\overline{\lim}\,}            % blackboard P
+% \newcommand{\liminf}{\underline{\lim}\,}            % blackboard P
+
+\begin{document}
+
+% Heading
+{\center \textsc{\Large\title}\\
+	\vspace*{1em}
+	\course -- \semester\\
+	\name\\
+	\vspace*{2em}
+	\hrule
+\vspace*{2em}}
+\begin{questions}
+\question Soit $(B_t)_{t\geq 0}$ un mouvement brownien. On note $\phi$ la fonction de répartition de la loi normal centrée réduite. Calculer (en fonction de $\phi$ si besoin)
+\begin{parts}
+\part $\Prob(B_2\leq 1)$
+\begin{solution}
+$\phi(1/\sqrt{2})$
+\end{solution}
+\part $\E(B_4|B1 =x)$
+\begin{solution}
+ $x$
+\end{solution}
+\part $\text{Corr}(B_{t+s}, B_s)$ pour $s,t> 0$.
+\begin{solution}
+$s / \sqrt{(t+s)s}$
+\end{solution}
+\part $\Prob(B_3 \leq 5|B_1 = 2)$
+\begin{solution}
+On a 
+$$
+f_{B_3|B_1}(x|y)= f_{B_3,B_1}(x, y)/ f_{B_1}(y) = f_{B_3-B_1}(x- y).
+$$
+On en déduit que 
+\begin{eqnarray*}
+\Prob(B_3 \leq 5|B_1 = 2) &=& \Prob(B_3 - B_1 \leq 3)\\
+&=& \Prob((B_3 - B_1)/\sqrt{2} \leq 3/\sqrt{2})\\
+&=& \phi(3/\sqrt{2})
+\end{eqnarray*}
+\end{solution}
+\end{parts}
+\question Soit $(B_t)_{t\geq 0}$ un mouvement brownien. Soit le processus défini par 
+ $$
+ X_t = B_t - t\cdot B_1,\text{ pour }0\leq t\leq 1.
+ $$
+ \begin{parts}
+ \part Montrer que $X = (X_t)_{t\geq 0}$ est un processus gaussien et donner sa fonction de moyenne et de covariance.
+ \begin{solution}
+ Pour tout $t_1,\ldots, t_n\geq 0$ et $a_1,\ldots, a_n$, la \va $\sum_i a_i X_{t_{i}}$ est gaussienne. Le processus $X_t$ est donc un processus gaussien. On a 
+ $$
+\E(X_t) = 0
+ $$
+ et 
+ \begin{eqnarray*}
+ \Cov(X_t, X_s) &=&\E(X_tX_s)\\ 
+ &=&\E((B_t- tB_1)(B_s-sB_1))\\
+ &=&\E(B_tB_s - sB_tB_1 -tB_1B_s + stB_1^2)\\
+ &=&s\land t - st - st + st\\
+ &=&s\land t - st 
+ \end{eqnarray*}
+ \end{solution}
+ \part Pour quel $t\in [0,1]$ la variance de $X$ est elle maximale?
+ \begin{solution}
+La variance de $X$ est donnée par 
+ $$
+ V(t)  = \Cov(t,t) = t-t^2
+ $$
+ On résout 
+ $$
+ V'(t)=0\Leftrightarrow 1-2t = 0\Leftrightarrow t^\ast=1/2.
+ $$
+ On vérifie que $V''(t)= - 2<0$ pour tout $0\leq t\leq 1$.
+ \end{solution}
+ \end{parts} 
+ \question Soit $(B_t)_{t\geq 0}$ un mouvement brownien et $S_t = \sup_{s\leq t} B_s$ son maximum courant. 
+\begin{parts}
+ \part Montrer que
+ $$
+ \Prob(S_t\leq x, B_t \leq y) = \phi(x/\sqrt{t}) + \phi((2x - y)/\sqrt{t}) - 1,
+ $$
+ pour $x\geq 0$ et $y\leq x$. $\phi$ désigne la fonction de répartition de la loi normale centrée-réduite.
+ \begin{solution}
+ \begin{eqnarray*}
+ \Prob(S_t\leq x, B_t \leq y) &=& \Prob(S_t\leq x| B_t \leq y)\Prob(B_t \leq y)\\
+ &=& [1-\Prob(S_t> x| B_t \leq y)]\Prob(B_t \leq y)\\
+ &=& [1-\Prob(S_t> x, B_t \leq y) / \Prob(B_t \leq y)]\Prob(B_t \leq y)\\
+ &=& \Prob(B_t \leq y)-\Prob(B_t \geq 2x - y)\\
+ &=& \Prob(B_t /\sqrt{t} \leq y /\sqrt{t})-\Prob(B_t/\sqrt{t} \geq (2x - y)/\sqrt{t})\\
+ &=& \phi(y /\sqrt{t})+\phi( (2x - y)/\sqrt{t})-1
+ \end{eqnarray*}
+ \end{solution}
+ \part En déduire que la densité jointe du couple $(S_t, B_t)$ s'écrit 
+ $$
+ f_{(S_t, B_t)}(x,y) = \sqrt{\frac{2}{\pi t^3}}(2x-y)\exp\left(-\frac{(2x-y)^2}{2t}\right)
+ $$
+ \begin{solution}
+ L'expression précédente est la fonction de répartition, on dérive donc par rapport à chacune des variables pour obtenir la densité jointe. 
+ \end{solution}
+ \end{parts}
+ \question Dans sa thèse théorie de la spéculation Louis Bachelier \cite{Bachelier1900} a modélisé le prix des actions par le mouvement brownien arithmétique défini par 
+ $$
+ X_t = X_0(1+\mu t+\sigma B_t),\text{ }t\geq 0,
+ $$
+ avec $(B_t)_{t\geq 0}$ un mouvement brownien, $\mu\in\RL$ et $\sigma>0$. Un \textit{call} est une option d'achat à un prix $K$ (\textit{strike}) à l'horizon $T$ (\textit{maturity}). Le valeur attendue du flux de trésorerie sortant pour le vendeur est donnée par 
+ $$
+\E[(X_T - K)_+]= \E[\max(X_T - K, 0)].
+ $$
+ En supposant que $\mu = 0$, donner l'expression de l'espérance du \textit{pay-off} du \textit{call} en fonction de $K$, $T$, $\sigma$, $\phi$ et $\phi'$, où $\phi$ est la fonction de répartition de la loi normale centrée réduite. 
+ \begin{solution}
+ $$
+X_0\sigma\sqrt{T}\phi'\left(\frac{X_0 - K}{X_0\sigma\sqrt{T}}\right) + (X_0-K)\sqrt{T}\phi\left(\frac{X_0 - K}{X_0\sigma\sqrt{T}}\right)
+ $$
+ \end{solution}
+\question Soit $(B_t)_{t\geq 0}$ un mouvement brownien et $a>0$. Soit 
+$$
+\tau_a = \inf\{t\geq 0\text{ ; }B_t = a\}, 
+$$
+Appliquer le théorème du temps d'arrêt optionnel à une martingale bien choisie pour montrer que 
+$$
+\E(\e^{-\lambda \tau_a}) = \e^{-\sqrt{2\lambda}\cdot a},\text{ pour }\lambda>0.
+$$
+\begin{solution}
+La martingale en question est la martingale de Wald
+$$
+M_t = \exp(\theta B_t - t\theta^2/2)
+$$
+Soit $\theta = \sqrt{2\cdot \lambda}$, l'application du théorème du temps d'arrêt optionnel au temps $\tau_a$ donne 
+$$
+1 = \E(M_0) = \E(M_{\tau_a}) = \e^{a\sqrt{2\lambda}}\E(\e^{-\lambda \tau_a})
+$$
+\end{solution}
+\question Soit le mouvement brownien avec drift 
+$$
+X_t = \mu t + \sigma B_t
+$$
+avec $\mu\in\RL$ et $\sigma>0$. Soit
+$$
+\tau_a = \inf\{t\geq 0\text{ ; }X_t = a\}
+$$
+\begin{parts}
+\part Calculer $\E(\tau_a)$ en appliquant le théorème du temps d'arrêt optionnel à une martingale bien choisie.
+\begin{solution}
+On note que 
+$$
+\tau_a = \inf\{t\geq 0\text{ ; }B_t = (a-\mu t)/\sigma\}
+$$
+On applique le théorème sur $B_t$ au temps $\tau_a$ pour obtenir
+$$
+\E(\tau_a) = a/\mu.
+$$
+\end{solution}
+\part Calculer $\mathbb{V}(\tau_a)$ en appliquant le théorème du temps d'arrêt optionnel à une martingale bien choisie.
+\begin{solution}
+On applique le théorème du temps d'arrêt à la martingale 
+$$
+B_t^2 - t.
+$$
+On trouve 
+$$
+\mathbb{V}(\tau_a) = a\sigma^2 / \mu^3.
+$$
+
+\end{solution}
+% \part Le processus $X$ est-il un processus de Lévy. Dans l'affirmative donner son exposant de Laplace 
+% $$
+% \kappa(\theta) = \log\E(\e^{\theta X_1})
+% $$
+% \begin{solution}
+% $X$ est un processus càd-làg, avec des accroissemnt stationnaires et indépendants et tel que $X_0 = 0$. Il s'agit donc d'un processus de Lévy. Son exposant de Laplace est donnée par 
+% $$
+% \kappa(\theta) = \mu \theta+\sigma^2\frac{\theta^2}{2}
+% $$
+% \end{solution}
+% \part Soit
+% $$
+% \tau_a = \inf\{t\geq 0\text{ ; }X_t = a\}
+% $$
+% Déterminer la densité de $\tau_a$ en utilisant le temps d'arrêt optionnel sur une martingale bien choisie.
+% \begin{solution}
+
+% \end{solution}
+\end{parts}
+\end{questions}
+\bibliography{../lecture_notes/calcul_sto}
+\bibliographystyle{plain}
+\end{document}

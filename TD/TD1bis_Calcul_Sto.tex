@@ -1,0 +1,289 @@
+\documentclass[11pt, answers]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsopn, color, tikz, mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{tipa}
+\usepackage{hyperref}
+
+
+% Style
+\setlength\parindent{0pt}
+\shadedsolutions
+
+% Define course info
+\def\semester{Semestre 2}
+\def\course{Calcul stochastique M1 DUAS}
+\def\name{P.-O. Goffard}
+%\def\quizdate{10/5, 10/6}
+\def\hwknum{}
+%\def\title{\MakeUppercase{Homework \hwknum -- quiz \quizdate }}
+\def\title{\MakeUppercase{TD 1: Marche aléatoire et martingale en temps discret.}}
+% Distributions.
+\newcommand*{\UnifDist}{\mathsf{Unif}}
+\newcommand*{\ExpDist}{\mathsf{Exp}}
+\newcommand*{\DepExpDist}{\mathsf{DepExp}}
+\newcommand*{\GammaDist}{\mathsf{Gamma}}
+\newcommand*{\LognormalDist}{\mathsf{LogNorm}}
+\newcommand*{\WeibullDist}{\mathsf{Weib}}
+\newcommand*{\ParetoDist}{\mathsf{Par}}
+\newcommand*{\NormalDist}{\mathsf{Normal}}
+
+\newcommand*{\GeometricDist}{\mathsf{Geom}}
+\newcommand*{\NegBinomialDist}{\mathsf{NegBin}}
+\newcommand*{\BinomialDist}{\mathsf{Bin}}
+\newcommand*{\PoissonDist}{\mathsf{Poisson}}
+
+% Sets of numbers.
+\newcommand*{\RL}{\mathbb{R}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\NZ}{\mathbb{N}_0}
+% \newcommand*{\NL}{\mathbb{N}_+}
+
+\newcommand*{\cond}{\mid}
+\newcommand*{\given}{\,;\,}
+
+%Probability symbols
+\newcommand*{\Prob}{\mathbb{P}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\E}{\mathbb{E}}
+\newcommand*{\F}{\mathcal{F}}
+% Regarding spacing and abbreviations.
+\usepackage{xspace}
+
+% Acronyms
+% \@\xspace doesn't add space if next char is punctuation
+% However, these will give 2 .'s if used at end of sentence.
+\newcommand*{\eg}{e.g.\@\xspace}
+\newcommand*{\ps}{p.s.\@\xspace}
+\newcommand*{\ie}{i.e.\@\xspace}
+\newcommand*{\va}{v.a.\@\xspace}
+\newcommand*{\iid}{i.i.d.\@\xspace}
+\newcommand*{\ssi}{s.s.i.\@\xspace}
+\newcommand*{\cf}{c.f.\@\xspace}
+\newcommand*{\pdf}{p.d.f.\@\xspace}
+\newcommand*{\pmf}{p.m.f.\@\xspace}
+\newcommand*{\cdf}{c.d.f.\@\xspace}
+\newcommand*{\SMC}{\textbf{SMC}\@\xspace}
+\newcommand*{\MCMC}{\textbf{MCMC}\@\xspace}
+\newcommand*{\VF}{\textbf{VF}\@\xspace}
+
+
+\newcommand*{\iidSim}{\overset{\mathrm{i.i.d.}}{\sim}}
+\newcommand*{\bt}{\bm{\theta}}
+\newcommand*{\bTheta}{\bm{\Theta}}
+\newcommand*{\bbeta}{\bm{\beta}}
+\newcommand*{\bx}{\mathbf{x}}
+\newcommand*{\bs}{\bm{s}}
+\newcommand*{\bu}{\bm{u}}
+\newcommand*{\bn}{\bm{n}}
+
+% Roman versions of things.
+\newcommand*{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand*{\e}{\mathrm{e}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand*{\norm}[1]{\lVert{} #1\rVert}
+
+% \DeclarePairedDelimiterXPP{\ind}[1]{\ind_}{\{}{\}}{}{#1}
+\newcommand*{\ind}{\mathbb{I}}
+\def\euro{\mbox{\raisebox{.25ex}{{\it =}}\hspace{-.5em}{\sf C}}}
+  \everymath{\displaystyle}
+% \newcommand{\limsup}{\overline{\lim}\,}            % blackboard P
+% \newcommand{\liminf}{\underline{\lim}\,}            % blackboard P
+
+\begin{document}
+
+% Heading
+{\center \textsc{\Large\title}\\
+	\vspace*{1em}
+	\course -- \semester\\
+	\name\\
+	\vspace*{2em}
+	\hrule
+\vspace*{2em}}
+
+\begin{questions}
+
+\question Une urne contient $N$ boules, dont $0<a<N$ boules blanches et $b = N-a$ boules noires. A chaque pas de temps, on tire une boule au hasard dans l'urne. 
+\begin{itemize}
+\item Si la boule est blanche on remet la boule blanche et on rajoute une boule blanche. 
+\item Si cette boule est noire, on replace la boule noire dans l'urne eton rajoute une boule noire. 
+\end{itemize}
+On répète ce procédé et on s'intéresse aux processus $(Y_n)_{n\geq 0}$ et $(X_{n})_{n\geq 0 }$ qui correspondent respectivement aux nombres et à la proportion de boules blanches dans l'urne après $n$ tirage.
+\begin{parts}
+\part Exprimer $X_n$ en fonction de $Y_n$.
+\begin{solution}
+$X_n = \frac{Y_n}{N + n}$
+\end{solution}
+\part Soit $\F_n = \sigma(Y_1, \ldots, Y_n)$, calculer $\Prob(Y_{n+1} = Y_n+1|\F_n)$ et $\Prob(Y_{n+1} = Y_n|\F_n)$.
+\begin{solution}
+$\Prob(Y_{n+1} = Y_n+1|\F_n) = \frac{Y_n}{N+n}$ et $\Prob(Y_{n+1} = Y_n|\F_n) = \frac{N+n - Y_n}{N+n}$ 
+\end{solution}
+\part Montrer que $(X_n)_{n\geq0}$ est une $\F_n$-martingale. Quel conclusion intéressante au sujet de la proportion moyenne de boule blanche dans l'urne peut-on tirer de cela?
+\begin{solution}
+\begin{eqnarray*}
+\E(X_{n+1}|\F_n) &=& \E\left[\frac{Y_{n+1}}{N+n+1}|\F_n\right]\\
+&=& \frac{1}{N+n+1}\left[(Y_n + 1)\frac{Y_{n}}{N+n}+Y_n \frac{N+n - Y_{n}}{N+n}\right]\\
+&=&\frac{Y_n}{N+n} = X_n
+\end{eqnarray*}
+\end{solution}
+\part Supposons que $a=b = 1$, montrer par récurrence sur $n\geq0$ que $Y_n\sim\UnifDist(\{1, \ldots, n+1\})$ 
+\begin{solution}
+Si $a=b=1$ alors $N = 2$. On raisonne par récurrence, $Y_0=1\sim\UnifDist(\{1\})$, la propriété est vérifiée au rang $n=0$. \\
+
+\noindent Supposons la propriété vraie au rang $n$, qu'en est il au rang $n+1$?\\
+
+Par la formules des probabilités totale, on a pour $k\geq 2$,
+\begin{eqnarray*}
+\Prob(Y_{n+1} = k)&=&\sum_{l=1}^{n+1}\Prob(Y_{n+1} = k|Y_{n} = l)\frac{1}{n+1}\\
+&=&\Prob(Y_{n+1} = k|Y_{n} = k)\frac{1}{n+1}+\Prob(Y_{n+1} = k|Y_{n} = k-1)\frac{1}{n+1}\\
+&=&\frac{2+n-k}{2+n}\frac{1}{n+1}+\frac{k-1}{2+n}\frac{1}{n+1}\\
+&=&\frac{1}{n+2}
+\end{eqnarray*}
+Pour $k=1$, on a 
+\begin{eqnarray*}
+\Prob(Y_{n+1} = 1)&=&\sum_{l=1}^{n+1}\Prob(Y_{n+1} = 1|Y_{n} = l)\frac{1}{n+1}\\
+&=&\Prob(Y_{n+1} = 1|Y_{n} = 1)\frac{1}{n+1}\\
+&=&\frac{2+n-1}{2+n}\frac{1}{n+1}\\
+&=&\frac{1}{n+2}
+\end{eqnarray*}
+La propriété est ainsi vérifiée au rang $n+1$.
+\end{solution}
+\part En déduire la loi de $X_{n}$ et de $X_\infty$ après en avoir justifié l'existence.\\
+\underline{Indication:} Pour la loi de $X_\infty$, il faut étudié la limite de $\E(e^{\theta X_n})$ lorsque $n\rightarrow \infty$.
+\begin{solution}
+On a 
+$$
+\Prob\left(X_n =\frac{k}{n+2}\right) =\frac{1}{n+1},\text{ pour }k = 1,\ldots, n+1. 
+$$
+Comme $(X_n)_{n\geq0}$ est une martingale positive et bornée (par 1) alors elle converge presque sûrement.
+On a 
+$$
+\E(\e^{\theta X_n})=\frac{1}{n+1}\e^{\theta/(n+1)}\frac{1-\e^\theta}{1-\e^{\theta/(n+1)}}\rightarrow \frac{\e^\theta - 1}{\theta}\text{ lorsque }n\rightarrow\infty
+.$$
+C'est la loi uniforme (continue) sur $(0,1)$.
+\end{solution}
+\end{parts}
+\question Le processus de branchement permet de suivre l'évolution d'une population. Soit $X$ une variable aléatoire de comptage telle que
+$$
+\Prob(X = 0)>0\text{ et }\E(X)<\infty.
+$$
+$X$ correspond au nombre d'enfants d'un individu. On définit une suite (à deux indices) de variables aléatoires
+$$
+\left(X^{(n)}_r\right)_{n,r\in \N}
+$$ 
+indépendantes et distribuées comme $X$ de sorte que $X^{(n+1)}_r$ désigne le nombre de descendants (membre de la génération $n+1$) de l'individu $r$ (qui appartient à la génération $n$). Le processus $(Z_n)_{n\in \N}$ définie par 
+$$
+Z_0 =1\text{, }Z_{n} = X^{(n)}_1+\ldots+ X^{(n)}_{Z_{n-1}} 
+$$
+correspond à la taille de la génération $n$.
+\begin{parts}
+\part On note $\mu = \E(X)$, le nombre d'enfant moyen par individu. Montrer que 
+$$
+\E(Z_{n}) = \mu^n.
+$$
+En déduire la limite de $\E(Z_n)$ en fonction des valeur de $\mu$.
+\begin{solution}
+On a 
+$$
+\E(Z_{n}) = \E(\sum_i^{Z_{n-1}}X_i^{(n)})=\E[\E(\sum_i^{Z_{n-1}}X_i^{(n)}|Z_{n-1})] =\E(Z_{n-1})\mu = \ldots =  \E(Z_{0})\mu^n= \mu^n
+$$
+On en déduit que 
+$$
+\begin{cases}
+\E(Z_{n})\rightarrow \infty&\text{ si }\mu>1\\
+\E(Z_{n})\rightarrow 1&\text{ si }\mu=1\\
+\E(Z_{n})\rightarrow 0&\text{ si }\mu<1\\
+\end{cases}
+$$
+\end{solution}
+\part Montrer que 
+$$
+M_n = Z_n /\mu^n, n\geq 0
+$$
+est une martingale.
+\begin{solution}
+$$\E(M_n|\F_{n-1})=\E(Z_n|\F_{n-1})/\mu^n= Z_{n-1}\mu/\mu^n = M_{n-1}.$$
+\end{solution}
+\part Soit 
+$$
+G_X(\theta) = \E(\theta^X),
+$$
+la fonction génératrice des probabilités de $X$. Montrer que 
+$$
+G_{Z_n}(\theta) = G_{Z_{n-1}}[G_{X}(\theta)]
+$$
+puis que c'est équivalent à 
+$$
+G_{Z_n}(\theta) = G_{X}[G_{Z_{n-1}}(\theta)].
+$$
+\begin{solution}
+On a 
+\begin{eqnarray*}
+G_{Z_n}(\theta) &=&\E(\theta^{Z_n})\\
+ &=&\E(\theta^{\sum_i^{Z_{n-1}}X_i^{(n)}})\\
+ &=&\E[\E(\theta^{\sum_i^{Z_{n-1}}X_i^{(n)}}|Z_{n-1})]\\
+ &=&\E[\prod_i^{Z_{n-1}}\E(\theta^{X_i^{(n)}})]\\
+ &=&\E[\prod_i^{Z_{n-1}}\E(\theta^{X})]\\
+ &=&\E[\E(\theta^{X})^{Z_{n-1}}]\\
+ &=&\E[\E(\theta^{X})^{Z_{n-1}}]\\
+ &=&G_{Z_{n-1}}[G_{X}(\theta)].\\
+\end{eqnarray*}
+On en déduit 
+$$
+G_{Z_n}(\theta) = G_{Z_{n-1}}[G_{X}(\theta)] = G_X\circ G_X\circ\ldots G_X(\theta)=  G_{X}[G_{Z_{n-1}}(\theta)]. 
+$$
+\end{solution}
+\part Soit 
+$$
+\pi_n = \Prob(Z_n = 0),\text{ }n\geq1,
+$$
+la probabilité que la population soit éteinte à la génération $n$. Quel est le lien entre $\pi_n$ et $G_{Z_n}(\theta)$? 
+\begin{solution}
+$\pi_n = G_{Z_n}(0)$
+\end{solution}
+\part En déduire que 
+$$
+\pi_n = G_X(\pi_{n-1}).
+$$
+\begin{solution}
+On évalue $G_{Z_n}(\theta) = G_{X}[G_{Z_{n-1}}(\theta)]$ en $\theta = 0$.
+\end{solution}
+\part Montrer que $\pi_n$ est une suite convergente. Quelle est l'interprétation de $\pi=\lim \pi_n$?
+\begin{solution}
+On a $\{Z_{n-1}=0\}\subset\{Z_{n}=0\}$ donc $\pi_n\geq\pi_{n-1}$. $(\pi_n)$ est une suite croissante et bornée (par $1$), donc elle converge. Sa limite $\pi$ correspond à la probabilité que la population s'éteigne un un jour. $1-\pi$ est la probabilité que la population ne s'éteigne jamais.
+\end{solution}
+\part Quel est le lien entre $\mu=\E(X)$ et $G_X(\theta)$?
+\begin{solution}
+$\mu = G_X'(1)$
+\end{solution}
+\part Déduire des questions c),d) et f) que 
+$$
+\begin{cases}
+0< \pi<1,& \text{ si }\mu <1,\\
+\pi=1.& \text{ si }\mu \geq 1.
+\end{cases}
+$$
+\underline{Indication:} le raisonnement s'appuie sur une étude de la fonction $G_X$ sur $[0,1]$.
+\begin{solution}
+On observe que $\pi$ est solution de 
+$$
+\pi = G_X(\pi),
+$$
+en passant 
+$$
+\pi_n = G_X(\pi_{n-1}),
+$$
+à la limite. On note que $G_X(0)=\Prob(X=0)\in(0,1)$ et $G_X(1)=1$. De plus, $G_X'(\theta)\geq0$ et $G_X'(\theta)\geq0$  pour $\theta \in[0,1]$. Soit $f(\theta)=G_X(\theta)-\theta$, $f'(\theta)=G_X'(\theta)-1$ et $f'(\theta)=G_X''(\theta)$. On en déduit que $f'(\theta)\in[-1, \mu-1]$. 
+\begin{itemize}
+\item Si $\mu \leq 1$ alors $f$ est strictement croissante sur $[0, 1]$ et $f(\pi)=0$ n'a pas de solution $<1$. 
+\item Si $\mu>1$, il existe $\theta^\ast$ tel que $f(\theta^\ast)<0$ et donc $\pi\in[0,\theta^\ast]$ tel que $f(\pi)=0$.
+\end{itemize}
+\end{solution}
+
+\end{parts}
+\end{questions}
+\end{document}

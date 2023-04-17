@@ -1,0 +1,327 @@
+\documentclass[11pt, answers]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsopn, color, tikz, mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{tipa}
+\usepackage{hyperref}
+
+
+% Style
+\setlength\parindent{0pt}
+\shadedsolutions
+
+% Define course info
+\def\semester{Semestre 2}
+\def\course{Calcul stochastique M1 DUAS}
+\def\name{P.-O. Goffard}
+%\def\quizdate{10/5, 10/6}
+\def\hwknum{}
+%\def\title{\MakeUppercase{Homework \hwknum -- quiz \quizdate }}
+\def\title{\MakeUppercase{TD 1: Marche aléatoire et martingale en temps discret.}}
+% Distributions.
+\newcommand*{\UnifDist}{\mathsf{Unif}}
+\newcommand*{\ExpDist}{\mathsf{Exp}}
+\newcommand*{\DepExpDist}{\mathsf{DepExp}}
+\newcommand*{\GammaDist}{\mathsf{Gamma}}
+\newcommand*{\LognormalDist}{\mathsf{LogNorm}}
+\newcommand*{\WeibullDist}{\mathsf{Weib}}
+\newcommand*{\ParetoDist}{\mathsf{Par}}
+\newcommand*{\NormalDist}{\mathsf{Normal}}
+
+\newcommand*{\GeometricDist}{\mathsf{Geom}}
+\newcommand*{\NegBinomialDist}{\mathsf{NegBin}}
+\newcommand*{\BinomialDist}{\mathsf{Bin}}
+\newcommand*{\PoissonDist}{\mathsf{Poisson}}
+
+% Sets of numbers.
+\newcommand*{\RL}{\mathbb{R}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\NZ}{\mathbb{N}_0}
+% \newcommand*{\NL}{\mathbb{N}_+}
+
+\newcommand*{\cond}{\mid}
+\newcommand*{\given}{\,;\,}
+
+%Probability symbols
+\newcommand*{\Prob}{\mathbb{P}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\E}{\mathbb{E}}
+\newcommand*{\F}{\mathcal{F}}
+% Regarding spacing and abbreviations.
+\usepackage{xspace}
+
+% Acronyms
+% \@\xspace doesn't add space if next char is punctuation
+% However, these will give 2 .'s if used at end of sentence.
+\newcommand*{\eg}{e.g.\@\xspace}
+\newcommand*{\ps}{p.s.\@\xspace}
+\newcommand*{\ie}{i.e.\@\xspace}
+\newcommand*{\va}{v.a.\@\xspace}
+\newcommand*{\iid}{i.i.d.\@\xspace}
+\newcommand*{\ssi}{s.s.i.\@\xspace}
+\newcommand*{\cf}{c.f.\@\xspace}
+\newcommand*{\pdf}{p.d.f.\@\xspace}
+\newcommand*{\pmf}{p.m.f.\@\xspace}
+\newcommand*{\cdf}{c.d.f.\@\xspace}
+\newcommand*{\SMC}{\textbf{SMC}\@\xspace}
+\newcommand*{\MCMC}{\textbf{MCMC}\@\xspace}
+\newcommand*{\VF}{\textbf{VF}\@\xspace}
+
+
+\newcommand*{\iidSim}{\overset{\mathrm{i.i.d.}}{\sim}}
+\newcommand*{\bt}{\bm{\theta}}
+\newcommand*{\bTheta}{\bm{\Theta}}
+\newcommand*{\bbeta}{\bm{\beta}}
+\newcommand*{\bx}{\mathbf{x}}
+\newcommand*{\bs}{\bm{s}}
+\newcommand*{\bu}{\bm{u}}
+\newcommand*{\bn}{\bm{n}}
+
+% Roman versions of things.
+\newcommand*{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand*{\e}{\mathrm{e}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand*{\norm}[1]{\lVert{} #1\rVert}
+
+% \DeclarePairedDelimiterXPP{\ind}[1]{\ind_}{\{}{\}}{}{#1}
+\newcommand*{\ind}{\mathbb{I}}
+\def\euro{\mbox{\raisebox{.25ex}{{\it =}}\hspace{-.5em}{\sf C}}}
+  \everymath{\displaystyle}
+% \newcommand{\limsup}{\overline{\lim}\,}            % blackboard P
+% \newcommand{\liminf}{\underline{\lim}\,}            % blackboard P
+
+\begin{document}
+
+% Heading
+{\center \textsc{\Large\title}\\
+	\vspace*{1em}
+	\course -- \semester\\
+	\name\\
+	\vspace*{2em}
+	\hrule
+\vspace*{2em}}
+
+\begin{questions}
+\question Soit $\{X_t\text{ ; }t\in\mathbb{N}\}$ une chaine de Markov homogène d'espace d'état
+$\{1,2,3,4\}$ et de matrice de transition,
+ $$\mathbf{P}=\left(\begin{array}{cccc}
+$1$&$0$&0&0\\
+$1/10$&$3/10$&5/10&1/10\\
+$2/10$&$1/10$&6/10&1/10\\
+$0$&$0$&0&1\\
+\end{array}
+\right)$$
+\begin{parts}
+\part Soit $A=\{1,4\}$, donner $\mathbb{E}_x(\tau_A)$ pour $x\in E$
+\begin{solution}
+On a $\E_{1}(\tau_A)=\E_{4}(\tau_A)=0$ et on résout le système
+$$
+\begin{cases}
+\E_{0}(\tau_A)=1+\frac{3}{10}\E_{0}(\tau_A)+\frac{5}{10}\E_2(\tau_A)\\
+\E_{2}(\tau_A)=1+\frac{1}{10}\E_{0}(\tau_A)+\frac{6}{10}\E_2(\tau_A)
+\end{cases}
+$$
+\end{solution}
+\part On définit
+$$
+\text{F='Absorption dans l'état $4$'}
+$$
+et
+$$
+G=\text{"L'état $2$ est visité juste avant l'absorption"}
+$$
+Calculer $\mathbb{P}_x(F)$ et $\mathbb{P}_x(G)$ pour $x\in \{1,2,3,4\}$.
+\begin{solution}
+On a $\mathbb{P}_{1}(F)=0$ et $\mathbb{P}_{4}(F)=1$. On note que pour $x\in \{1,2\}$, on a
+$$
+\mathbb{P}_{x}(F) = \sum_{y\in E}\Prob_y(F)Q(x,y).
+$$
+On résout donc le sytème
+$$
+\begin{cases}
+\mathbb{P}_{0}(F)=\frac{1}{10}+\frac{3}{10}\mathbb{P}_{0}(F)+\frac{5}{10}\mathbb{P}_{2}(F)\\
+\mathbb{P}_{2}(F)=\frac{1}{10}+\frac{1}{10}\mathbb{P}_{0}(F)+\frac{6}{10}\mathbb{P}_{2}(F).
+\end{cases}
+$$
+On effectue le même raisonnement pour $\mathbb{P}_{x}(G)$.
+\end{solution}
+\part Ouvrir le fichier \texttt{absorbing$\_$time$\_$boiler.ipynb} (Illustration analyse à un pas) sur moodle
+\end{parts}
+
+\question Un joueur entre dans un casino. il paie $\$1$ pour jouer à un jeu. 
+\begin{itemize}
+	\item Il gagne et remporte $\$2$ avec probabilité $p\in(0,1)$
+	\item Il perd et remporte $\$0$ avec probabilité $q = 1-p$
+\end{itemize}
+Soit $(X_n)_{n}$ sa richesse, avec $X_0 = x\geq0$. On suppose que le joueur rentre chez lui si sa richesse tombe à $0$ ou si elle atteint un niveau $a\geq x$. Soit les temps aléatoires
+$$
+\tau_{0} = \inf\{n\geq0\text{ ; }X_n = 0\}\text{ et }\tau_{a} = \inf\{n\geq0\text{ ; }X_n = a\}.
+$$
+On suppose que $x,a\in \N$ et on souhaite calculer la probabilité 
+$$
+\psi(x,a) = \Prob_x(\tau_0<\tau_a) = \Prob(\tau_0<\tau_a|X_0 = x) .
+$$
+que le joueur rentre à la maison ruiné.
+\begin{parts}
+\part Supposons que $p\neq q$, calculer $\psi(x,a)$ via une analyse à un pas.\\
+\underline{Indications 1:} Que valent $\psi(0,a)$ et $\psi(a,a)$?\\
+\underline{Indications 2:} Combiner à l'équation issue de l'analyse à un pas avec l'équation 
+$$
+\psi(x,a) = p\psi(x,a)+q\psi(x,a).
+$$
+\underline{Indications 3:} définir la suite 
+$$
+u_x = \psi(x,a) - \psi(x-1,a),\text{ pour }x\geq1 
+$$
+\begin{solution}
+Si $x=0$ alors $\tau_0 = 0<\tau_a$ donc $\psi(0,a) = 1$. Si $x=a$ alors $\tau_a = 0<\tau_0$ et $\psi(a,a) = 0$. Supposon que $0<x<a$,
+via l'analyse à un pas on a
+\begin{equation}\label{eq:first_step}
+\psi(x,a) = p\psi(x+1,a) + q\psi(x-1,a)
+\end{equation}
+on a également
+\begin{equation}\label{eq:enonce}
+\psi(x,a) = p\psi(x,a) + q\psi(x,a)
+\end{equation} 
+Par différence entre \eqref{eq:first_step} et \eqref{eq:enonce}, il vient 
+$$
+p u_{x+1} + qu_{x} = 0,
+$$
+avec $u_x = \psi(x,a) - \psi(x-1,a),\text{ pour } x\geq 1$. On en déduit que 
+$$
+u_{x} = \frac{q}{p}u_{x-1} =\ldots= \left(\frac{q}{p}\right)^{x-1}u_{1}.
+$$
+On note que 
+$$
+\sum_{z=1}^x u_z = \psi(x,a)-1 = u_1\frac{1-(q/p)^x}{1-q/p}
+$$
+et
+$$
+\sum_{z=1}^a u_z = \psi(a,a)-1 =-1= u_1\frac{1-(q/p)^a}{1-q/p}.
+$$ 
+On a donc $u_1 = -\frac{1-q/p}{1-(q/p)^a}$ et 
+$$
+\psi(x,a) = \frac{(q/p)^x - (q/p)^a}{1-(q/p)^a}.
+$$
+
+\end{solution}
+\part Même question en supposant que $p=q$.
+\begin{solution}
+En represnant les notation précédente, on a 
+$$
+u_x = u_{x-1} = \ldots= u_1
+$$
+On en déduit que 
+$$
+\sum_{z=1}^x u_z = \psi(x,a)-1 = x u_1,
+$$
+et
+$$
+\sum_{z=1}^a u_z = \psi(a,a)-1 = - 1= a u_1.
+$$ 
+On a donc $u_1 = -1/a$ et 
+$$
+\psi(x,a) = (x-a)/a.
+$$
+\end{solution}
+\end{parts}
+\question On montre le résultat de l'exercice précédent en utilisant les martingales et le théorème du temps d'arrêt optionel
+\begin{parts}
+\part les temps $\tau_0$ et $\tau_a$ sont-ils des temps d'arrêts.
+\begin{solution}
+Vu en cours
+\end{solution}
+\part Qu'en est il pour $\tau_0\land\tau_a$? 
+\begin{solution}
+On a 
+$$
+\{\tau_0\land\tau_a \geq n\} = \{\tau_0 \geq n\}\cap\{\tau_a \geq n\}\in\F_N
+$$
+\end{solution}
+\part Montrer que $\Prob_x(\tau_a\land \tau_0 <\infty)=1$.\\
+\underline{Indication:} Soit $\tau = \tau_0\land\tau_a$, On peut montrer que $\E(\tau)<\infty$. pour ce faire, exprimez $\E(X_{\tau\land n})$ en fonction de $\E(\tau\land n)$.
+\begin{solution}
+Soit $\tau = \tau_0\land\tau_a$, on a pour $n\geq 0$,
+\begin{eqnarray*}
+\E(X_{\tau\land n}) &=& x+ \E\left(\sum_k^{\tau\land n}\xi_k\right)\\
+&=&x+ \E\left[\E\left(\sum_k^{\tau\land n}\xi_k|\tau\land n\right)\right]\\
+&=&x+ \E\left[\E\left(\sum_k^{\tau\land n}\xi_k|\tau\land n\right)\right]\\
+&=&x+ \E\left[\tau\land n\E\left(\xi\right)\right]\\
+&=&x+ \E\left(\tau\land n\right)\left(2p-1\right)
+\end{eqnarray*}
+Comme $X_{\tau\land n}\in(0,a)$ alors $\E(X_{\tau\land n})\in(0,a)$ et $\E\left(\tau\land n\right)$ est fini pour tout $n\geq 0$, en particulier pour $n\rightarrow$. Comme $\E\left(\tau\land n\right)<\infty$ alors $\Prob\left(\tau<\infty\right) = 1$.
+\end{solution}
+\part Supposons que $p=q$, montrer que $X_n$ est une martingale.
+\begin{solution}
+Soit $(\xi_i)_{i\geq 0}$ une suite \iid de \va distribuées comme $\xi$ avec 
+$$
+\Prob(\xi = 1) = p,\text{ et }\Prob(\xi = -1) = q
+$$
+On a 
+$$
+X_n = X_{n-1}+\xi_n. 
+$$
+Soit $\F_n = \sigma(\xi_1,\ldots, \xi_n)$ une filtration adpatée au processus $X$. On a 
+$$
+\E(X_n|\F_{n-1}) = X_{n-1}+ \E(\xi_n) = X{_n-1} + 2p-1 = X_{n-1}.
+$$
+$X$ est bien une $\F_n$-martingale.
+\end{solution}
+\part En déduire $\psi(x,a)$ en appliquant le théorème du temps d'arrêt optionnel au temps $\tau_a\land\tau_0$.
+\begin{solution}
+Par application du temps d'arrêt optionnel au temps $\tau_a\land\tau_0$, on a 
+$$
+x=\E(X_0)=\E(X_{\tau_a\land\tau_0}) = \E(X_{\tau_a}\ind_{\tau_a <\tau_0}+X_{\tau_0}\ind_{\tau_0 <\tau_a}) = a(1-\psi(x,a)).
+$$
+puis après ré-arrangement
+$$
+\psi(x,a) = \frac{x-a}{a}.
+$$
+\end{solution}
+\part Supposons que $p\neq q$, A quel condition $(e^{\theta^\ast X_n})_{n\geq0}$ est une martingale?
+\begin{solution}
+D'après le cours, le processus
+$$
+M_n = \exp(\theta X_n - n\kappa(\theta)),\text{ pour }n\geq1,
+$$
+où $\kappa(\theta)  = \E(\e^{\theta\xi})$, est une $\F_n$-martingale. On cherche donc $\theta^\ast$ tel que 
+$$
+\kappa(\theta) = 0.
+$$
+Ce qui est équivalent à 
+$$
+\ln(p\e^\theta+q\e^{-\theta})=0\Leftrightarrow p\e^\theta+q\e^{-\theta}= 1.
+$$
+On procède au changement de variable $u = \e^\theta$ pour aboutir à 
+$$
+pu^2-u+q = 0.
+$$
+On trouve deux racines réelles (remplace $q$ par $1-p$)
+$$
+u_1 = 1\text{ et }u_2 = \frac{q}{p}
+$$
+puis 
+$$
+\theta_1 = 0\text{ et }\theta_2 = \ln\left(\frac{q}{p}\right).
+$$
+On choisit $\theta^\ast = \ln\left(\frac{q}{p}\right)$ et le processus $(\e^{\theta^\ast X_n})_{n\geq 0}$ est une martingale.
+
+\end{solution}
+\part En déduire $\psi(x,a)$ en appliquant le théorème du temps d'arrêt optionnel au temps $\tau_a\land\tau_0$ et au processus $(e^{\theta^\ast X_n})_{n\geq0}$.
+\begin{solution}
+On applique le théorème du temps d'arrêt optionnel, on a
+$$
+\e^{\theta^\ast x} = \E(\e^{\theta^{\ast}X_0}) = \E(\e^{\theta^{\ast}X_{\tau_a\land\tau_0}}) = \psi(x,a) + [1-\psi(x,a)]\e^{\theta^{\ast}a}.
+$$
+Après ré-arrangement, il vient
+$$
+\psi(x,a) = \frac{\e^{\theta^{\ast}x} - \e^{\theta^{\ast}a}}{1 - \e^{\theta^{\ast}a}} = \frac{(q/p)^x - (q/p)^a}{1-(q/p)^a}.	
+$$
+\end{solution}
+\end{parts}
+\end{questions}
+\end{document}

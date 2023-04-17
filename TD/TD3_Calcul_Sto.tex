@@ -1,0 +1,299 @@
+\documentclass[11pts, answers]{exam}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsopn, color, tikz, mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{tipa}
+\usepackage{hyperref}
+
+
+% Style
+\setlength\parindent{0pt}
+\shadedsolutions
+
+% Define course info
+\def\semester{Semestre 2}
+\def\course{Calcul stochastique M1 DUAS}
+\def\name{P.-O. Goffard}
+%\def\quizdate{10/5, 10/6}
+\def\hwknum{}
+%\def\title{\MakeUppercase{Homework \hwknum -- quiz \quizdate }}
+\def\title{\MakeUppercase{TD 3: Chaine de Markov en temps continu}}
+% Distributions.
+\newcommand*{\UnifDist}{\mathsf{Unif}}
+\newcommand*{\ExpDist}{\mathsf{Exp}}
+\newcommand*{\DepExpDist}{\mathsf{DepExp}}
+\newcommand*{\GammaDist}{\mathsf{Gamma}}
+\newcommand*{\LognormalDist}{\mathsf{LogNorm}}
+\newcommand*{\WeibullDist}{\mathsf{Weib}}
+\newcommand*{\ParetoDist}{\mathsf{Par}}
+\newcommand*{\NormalDist}{\mathsf{Normal}}
+
+\newcommand*{\GeometricDist}{\mathsf{Geom}}
+\newcommand*{\NegBinomialDist}{\mathsf{NegBin}}
+\newcommand*{\BinomialDist}{\mathsf{Bin}}
+\newcommand*{\PoissonDist}{\mathsf{Poisson}}
+
+% Sets of numbers.
+\newcommand*{\RL}{\mathbb{R}}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\NZ}{\mathbb{N}_0}
+% \newcommand*{\NL}{\mathbb{N}_+}
+
+\newcommand*{\cond}{\mid}
+\newcommand*{\given}{\,;\,}
+
+%Probability symbols
+\newcommand*{\Prob}{\mathbb{P}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\E}{\mathbb{E}}
+\newcommand*{\F}{\mathcal{F}}
+% Regarding spacing and abbreviations.
+\usepackage{xspace}
+
+% Acronyms
+% \@\xspace doesn't add space if next char is punctuation
+% However, these will give 2 .'s if used at end of sentence.
+\newcommand*{\eg}{e.g.\@\xspace}
+\newcommand*{\ps}{p.s.\@\xspace}
+\newcommand*{\ie}{i.e.\@\xspace}
+\newcommand*{\va}{v.a.\@\xspace}
+\newcommand*{\iid}{i.i.d.\@\xspace}
+\newcommand*{\ssi}{s.s.i.\@\xspace}
+\newcommand*{\cf}{c.f.\@\xspace}
+\newcommand*{\pdf}{p.d.f.\@\xspace}
+\newcommand*{\pmf}{p.m.f.\@\xspace}
+\newcommand*{\cdf}{c.d.f.\@\xspace}
+\newcommand*{\SMC}{\textbf{SMC}\@\xspace}
+\newcommand*{\MCMC}{\textbf{MCMC}\@\xspace}
+\newcommand*{\VF}{\textbf{VF}\@\xspace}
+
+
+\newcommand*{\iidSim}{\overset{\mathrm{i.i.d.}}{\sim}}
+\newcommand*{\bt}{\bm{\theta}}
+\newcommand*{\bTheta}{\bm{\Theta}}
+\newcommand*{\bbeta}{\bm{\beta}}
+\newcommand*{\bx}{\mathbf{x}}
+\newcommand*{\bs}{\bm{s}}
+\newcommand*{\bu}{\bm{u}}
+\newcommand*{\bn}{\bm{n}}
+
+% Roman versions of things.
+\newcommand*{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand*{\e}{\mathrm{e}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\newcommand*{\norm}[1]{\lVert{} #1\rVert}
+
+% \DeclarePairedDelimiterXPP{\ind}[1]{\ind_}{\{}{\}}{}{#1}
+\newcommand*{\ind}{\mathbb{I}}
+\def\euro{\mbox{\raisebox{.25ex}{{\it =}}\hspace{-.5em}{\sf C}}}
+  \everymath{\displaystyle}
+% \newcommand{\limsup}{\overline{\lim}\,}            % blackboard P
+% \newcommand{\liminf}{\underline{\lim}\,}            % blackboard P
+
+\begin{document}
+
+% Heading
+{\center \textsc{\Large\title}\\
+	\vspace*{1em}
+	\course -- \semester\\
+	\name\\
+	\vspace*{2em}
+	\hrule
+\vspace*{2em}}
+\begin{questions}
+\question Soit $X = (X_t)_{t\geq 0}$ un processus de Markov sur $E = \{1,2,3\}$ de générateur 
+$$
+Q = \left(\begin{array}{ccc}
+-1&1&0\\
+1&-2&1\\
+2&2&-4
+\end{array}
+\right).
+$$
+\begin{parts}
+\item Donner la loi des temps de séjour dans chacun des états. Combien de temps en moyenne le processus reste-t-il dans chacun des états?
+\begin{solution}
+On note $\rho_x$ pour $x\in E$ les temps de séjour dans chacun des états. On a 
+\begin{itemize}
+	\item $\rho_1\sim\ExpDist(1)$ et $\E(\rho_1) = 1$
+	\item $\rho_2\sim\ExpDist(2)$ et $\E(\rho_2) = 1/2$
+	\item $\rho_3\sim\ExpDist(4)$ et $\E(\rho_3) = 1/4$
+\end{itemize}
+\end{solution}
+\part Donner la matrice des transitions $P$ de la chaine de Markov immergée de $X$, définie par 
+$$
+Z_n = X_{T_n}\text{, }n\geq 0,
+$$
+où les $T_n$ sont les instants de saut de $X$.
+\begin{solution}
+On a 
+$$
+P = \left(\begin{array}{ccc}
+0&1&0\\
+1/2&0&1/2\\
+1/2&1/2&0
+\end{array}\right)
+$$
+\end{solution}
+\part Le processus $X$ admet-il une loi stationnaire, si oui l'expliciter.
+\begin{solution}
+Le processus $X$ est une chaine de Markov irréductible sur un espace d'état fini, il existe donc une unique loi stationnaire qui vérifie $\pi Q = 0$ et $\sum_x \pi_x = 1$. Après résolution du système, il vient
+$$
+\pi =\left(\begin{array}{ccc} 6/11&4/11&1/11\end{array}\right)
+$$
+\end{solution}
+\end{parts}
+\question Soit un système comprenant $c$ serveur, des paquets de données arrive au rythme d'un processus de Poisson d'intensité $\lambda$. Un serveur traite un paquet de donnée en un temps exponentielle de paramètre noté $\mu$. Le processus $X$ modélise le nombre de paquets de données 
+dans le système. 
+\begin{parts}
+\part Le processus est-il un processus de naissance-mort? Si oui quel sont ces taux de naissance et de décès? 
+\begin{solution}
+Il s'agit d'un processus de naissance mort (il s'agit plus précisément d'une file d'attente de type $M/M/c$). Les taux de naissance siont constants égaux à $\lambda$. Les taux de décès sont données par 
+$$
+\mu_k = \begin{cases}
+k \mu,&\text{si } k < c,\\
+c\mu,&\text{sinon.}\\
+\end{cases}
+$$
+\end{solution}
+\part A quelle condition le processus admet-il une loi stationnaire? Auquel cas expliciter cette loi stationnaire.
+\begin{solution}
+On a 
+\begin{eqnarray}
+S&=& \sum_{x=1}^{\infty}\prod_{k = 1}^x \frac{\lambda_{k-1}}{\mu_k}\\
+&=& \sum_{x=1}^{c-1}\prod_{k = 1}^x \frac{\lambda}{k\mu} + \sum_{x=c}^{\infty}\prod_{k = 1}^{c} \frac{\lambda}{k\mu}\prod_{k = c+1}^{x} \frac{\lambda}{c\mu}\\
+&=& \sum_{x=1}^{c-1}\prod_{k = 1}^x \frac{\lambda}{k\mu} + \sum_{x=c}^{\infty} \frac{\lambda^c}{c!\mu^c}\frac{\lambda^{x-c}}{c^{x-c}\mu^{x-c}}\\
+&=& \sum_{x=1}^{c-1}\prod_{k = 1}^x \frac{\lambda}{k\mu} + \sum_{x=c}^{\infty} \frac{\lambda^x}{c!\mu^x c^{x-c}}
+\end{eqnarray}
+On en déduit qu'il existe une unique loi stationnaire si $c\mu >\lambda$, auquel cas, on a 
+$$
+S = \sum_{x=1}^{c-1}\prod_{k = 1}^x \frac{\lambda}{k\mu} + \frac{(\lambda / \mu)^c}{c!}\frac{1}{1 - \frac{\lambda}{c\mu }},
+$$
+puis $\pi(0) = (1+S)^{-1}$ et enfin 
+$$
+\pi(x) = \begin{cases}
+\frac{\pi(0)}{x!}\left(\frac{\lambda}{\mu}\right)^x,&\text{ si } x<c\\
+\frac{\pi(0)}{c!c^{x-c}}\left(\frac{\lambda}{\mu}\right)^x,&\text{ si } x\geq c.\\
+\end{cases}
+$$
+\end{solution}
+\part Sur le long terme, quelle est la probabilité que le serveur soit oisif, c'est à dire qu'il n'y ait aucun paquet de données à traiter?
+\begin{solution}
+Il s'agit de la probabilité $\pi(0)$
+\end{solution}
+\part Sur le long terme, quelle est le nombre moyen de paquets de données dans le système?\\
+\underline{Indication:} Le résultat doit être donnée avec une formule fermée, c'est à dire sans série infinie.
+\begin{solution}
+Il faut calculer l'espérance de le loi $\pi$. On a 
+\begin{eqnarray*}
+L &=& \sum_{x=1}^\infty x\pi(x)\\
+&=& \sum_{x=1}^{c-1}x \frac{\pi(0)}{x!}\left(\frac{\lambda}{\mu}\right)^x + \sum_{x=c}^{\infty} x\frac{\pi(0)}{c!c^{x-c}}\left(\frac{\lambda}{\mu}\right)^x\\
+&=& A + B
+\end{eqnarray*}
+$A$ est une somme finie, on va se concentrer sur $B$.
+\begin{eqnarray*}
+B &=& \sum_{x=c}^{\infty} x\frac{\pi(0)}{c!c^{x-c}}\left(\frac{\lambda}{\mu}\right)^x\\
+ &=& \frac{\pi(0)}{c!}\left(\frac{\lambda}{\mu}\right)^c\sum_{x=0}^{\infty} (x+c)\left(\frac{\lambda}{c\mu}\right)^x\\
+ &=& \frac{\pi(0)}{c!}\left(\frac{\lambda}{\mu}\right)^c\left[\frac{c}{1-\frac{\lambda}{c\mu}} + \frac{\lambda}{\mu c}\left(1-\frac{\lambda}{c\mu}\right)^{-2}\right]\\
+\end{eqnarray*}
+\end{solution}
+\part Sur le long terme, quel est le temps moyen d'attente de traitement d'un paquet de données venant d'arriver dans le système?
+\begin{solution}
+On applique la loi de Little, on obtient 
+$$
+W = \lambda L.
+$$
+\end{solution}
+\end{parts}
+\question Soit un processus de naissance-mort $X$ de paramètres 
+$$
+\mu_k = \mu,\text{ }\lambda_{k-1} = 0 \text{ pour }k\geq 1.
+$$
+tel que $X_0 = x_0\geq 1$.
+\begin{parts}
+\part Quel est l'espace d'état de $X_t$ sachant que $X_0 =x_0\geq 1$?
+\begin{solution}
+L'espace d'état est 
+$$
+E = \{0,\ldots, x_0\}.
+$$
+\end{solution}
+\part Quel est la loi de $X_t|X_0 = 1$?
+\begin{solution}
+Il n'y a qu'un seul individu dans la population de départ, cet individu disparaît au bout d'un temps $T_1\sim \ExpDist(\mu)$. On en déduit que 
+$$
+\Prob(X_t = 1|X_0=1) = \Prob(T>t) = \e^{-\mu t}
+$$
+La loi de $X_t|X_0 = 1$ est une loi de Bernouilli de paramètre $\e^{-\mu t}$.
+\end{solution}
+\part Quel est la loi de $X_t|X_0 = x_0$?
+\begin{solution}
+On a $X_t|X_0 = x_0\sim \BinomialDist(x_0,\e^{-\mu t})$. En effet, il y a $x_0$ individu dans la population initiale qui vont disparaître au bout de temps exponentiels \iid $T_1,\ldots, T_{x_0}$ de loi $\ExpDist(\mu)$. On peut considérer que 
+$$
+(X_t|X_0 = x_0) \overset{D}{=} \sum_{k = 1}^{x_0}Y_t^k,
+$$  
+où les $Y_t^k$ sont \iid et distribués comme $(X_t|X_0 = 1)$
+\end{solution}
+\end{parts}
+\question Soit un processus de naissance-mort $X$ de paramètres 
+$$
+\mu_k = 0,\text{ }\lambda_{k-1} = (k-1)\lambda \text{ pour }k\geq 1.
+$$
+tel que $X_0 = x_0\geq 1$.
+\begin{parts}
+\part Montrer par récurrence sur $n$ que 
+$$
+\Prob(X_t = n|X_0 = 1) = \left(1-\e^{-\lambda t}\right)^{n-1}\e^{-\lambda t}
+$$
+\begin{solution}
+On note $\phi_n(t) = \Prob(X_t = n|X_0 = 1)$. Supposons que $n=1$, on a 
+$$
+\phi_1'(t) = -\lambda \phi_1(t) 
+$$
+Comme $\phi_1(0)=1$, alors $\phi_1(t)=\e^{-\lambda t}$. La propriété est vérifiée au rang $1$. Supposons la propriété vérifiée au rang $n$, qu'en est-il au rang $n+1$? On a 
+\begin{eqnarray*}
+\phi_{n+1}'(t) &=& - \lambda (n+1) \phi_{n+1}(t) + \lambda n \phi_{n}(t)\nonumber\\
+&=& - \lambda (n+1) \phi_{n+1}(t) + \lambda n \left(1-\e^{-\lambda t}\right)^{n-1}\e^{-\lambda t}.\label{eq:eq_diff}\\
+\end{eqnarray*}
+On résout l'équation homogène avec 
+$$
+\phi_{n+1}^{h}(t) = C \e^{-\lambda(n+1)t},
+$$
+où $C$ est une constante. On applique la technique de la variation de la constante pour déterminer une solution particulière. On propose une solution de la forme
+$$
+\phi_{n+1}^{p}(t) = C(t) \e^{-\lambda(n+1)t}
+$$
+Il vient après insertion dans l'équation différentielle
+$$
+C'(t) = \lambda n (\e^{\lambda t}-1)^{n-1}\e^{\lambda t}
+$$
+On en déduit que 
+$$
+C(t) = (\e^{\lambda t}-1)^{n-1} + D.
+$$
+On prend $D = 0$. Les solutions de l'équation différentielle \eqref{eq:eq_diff} sont de la forme
+$$
+\phi_{n+1}(t)=\left[\left(\e^{\lambda t}-1\right)+ C\right]\e^{-\lambda(n+1)t}.
+$$
+Avec $\phi_{n+1}(0) = 0$, on conclut que 
+$$
+\phi_{n+1}(t)= \left(1 - \e^{-\lambda t}\right)^n\e^{-\lambda t},
+$$
+et que la propriété est vérifiée au rang $n$.
+\end{solution}
+\part Quel est la loi de $X_t|X_0 = x_0$?
+\begin{solution}
+On a 
+$$
+\Prob(X_t=n|X_0 = x_0) = \binom{n-1}{n - x_0}\left(1-\e^{-\lambda t}\right)^{n-x_0}(\e^{- \lambda t})^{x_0}
+$$
+C'est une loi binomial négative car somme de \va géométrique. 
+\end{solution}
+
+\end{parts}
+\end{questions}
+\end{document}

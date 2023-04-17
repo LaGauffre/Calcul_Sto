@@ -1,0 +1,182 @@
+\begin{thebibliography}{26}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Albrecher and Bladt(2019)]{Albrecher2019}
+Hansjörg Albrecher and Mogens Bladt.
+\newblock Inhomogeneous phase-type distributions and heavy tails.
+\newblock \emph{Journal of Applied Probability}, 56\penalty0 (4):\penalty0
+  1044--1064, dec 2019.
+\newblock \doi{10.1017/jpr.2019.60}.
+
+\bibitem[Asmussen and Albrecher(2010)]{Asmussen2010}
+S{\o}ren Asmussen and Hansjörg Albrecher.
+\newblock \emph{Ruin Probabilities}.
+\newblock {WORLD} {SCIENTIFIC}, sep 2010.
+\newblock \doi{10.1142/7431}.
+
+\bibitem[Asmussen et~al.(2019)Asmussen, Laub, and Yang]{Asmussen2019}
+S{\o}ren Asmussen, Patrick Laub, and Hailiang Yang.
+\newblock Phase-type models in life insurance:fitting and valuation of
+  equity-linked benefits.
+\newblock \emph{Risks}, 7\penalty0 (1):\penalty0 17, feb 2019.
+\newblock \doi{10.3390/risks7010017}.
+
+\bibitem[Asmussen et~al.(1996)Asmussen, Nerman, and Olsson]{Asmussen1996}
+Søren Asmussen, Olle Nerman, and Marita Olsson.
+\newblock Fitting phase-type distributions via the em algorithm.
+\newblock \emph{Scandinavian Journal of Statistics}, 23\penalty0 (4):\penalty0
+  419--441, 1996.
+\newblock ISSN 03036898, 14679469.
+\newblock URL \url{http://www.jstor.org/stable/4616418}.
+
+\bibitem[Black and Scholes(1973)]{Black1973}
+Fischer Black and Myron Scholes.
+\newblock The pricing of options and corporate liabilities.
+\newblock \emph{Journal of Political Economy}, 81\penalty0 (3):\penalty0
+  637--654, may 1973.
+\newblock \doi{10.1086/260062}.
+
+\bibitem[Bladt(2005)]{Bladt2005}
+Mogens Bladt.
+\newblock A review on phase-type distributions and their use in risk theory.
+\newblock \emph{{ASTIN} Bulletin}, 35\penalty0 (1):\penalty0 145--161, may
+  2005.
+\newblock \doi{10.1017/s0515036100014100}.
+
+\bibitem[Dobrow(2016)]{Dobrow2016}
+Robert~P. Dobrow.
+\newblock \emph{Introduction to Stochastic Processes With R}.
+\newblock John Wiley {\&} Sons, Inc, mar 2016.
+\newblock \doi{10.1002/9781118740712}.
+
+\bibitem[Donsker(1951)]{Donsker1951}
+Monroe~D. Donsker.
+\newblock An invariance principle for certain probability limit theorems.
+\newblock \emph{Mem. Amer. Math. Soc.}, 6:\penalty0 12, 1951.
+\newblock ISSN 0065-9266.
+
+\bibitem[Gall(2012)]{Gall2012}
+Jean-Francois~Le Gall.
+\newblock \emph{Mouvement brownien, martingales et calcul stochastique}.
+\newblock Springer-Verlag GmbH, September 2012.
+\newblock ISBN 9783642318986.
+\newblock URL
+  \url{https://www.ebook.de/de/product/19950852/jean_francois_le_gall_mouvement_brownien_martingales_et_calcul_stochastique.html}.
+
+\bibitem[Huynh and Ludkovski(2021)]{Huynh2021}
+Nhan Huynh and Mike Ludkovski.
+\newblock Multi-output gaussian processes for multi-population longevity
+  modelling.
+\newblock \emph{Annals of Actuarial Science}, pages 1--28, may 2021.
+\newblock \doi{10.1017/s1748499521000142}.
+
+\bibitem[Jeanblanc(2006)]{MJB06}
+Monique Jeanblanc.
+\newblock Cours de calcul stochastique master 2if evry.
+\newblock lecture notes, 2006.
+\newblock
+  \url{https://www.maths.univ-evry.fr/pages_perso/jeanblanc/cours/M2_cours.pdf}.
+
+\bibitem[Kyprianou(2013)]{Kyprianou2013}
+Andreas~E. Kyprianou.
+\newblock \emph{Gerber-Shiu Risk Theory}.
+\newblock Springer London, Limited, 2013.
+\newblock ISBN 9783319023038.
+
+\bibitem[Kyprianou(2014)]{Kyprianou2014}
+Andreas~E. Kyprianou.
+\newblock \emph{Fluctuations of lévy Processes with Applications}.
+\newblock Springer London, Limited, 2014.
+\newblock ISBN 9783642376320.
+
+\bibitem[Le~Gall(2006)]{LeGall2006}
+Jean-Fran{\c{c}}ois Le~Gall.
+\newblock \emph{Int{\'e}gration, probabilit{\'e}s et processus al{\'e}atoires}.
+\newblock Ecole Normale Sup{\'e}rieure de Paris, 2006.
+
+\bibitem[Lin and Liu(2007)]{Lin2007}
+X.~Sheldon Lin and Xiaoming Liu.
+\newblock Markov aging process and phase-type law of mortality.
+\newblock \emph{North American Actuarial Journal}, 11\penalty0 (4):\penalty0
+  92--109, oct 2007.
+\newblock \doi{10.1080/10920277.2007.10597486}.
+
+\bibitem[Little(1961)]{Little1961}
+John D.~C. Little.
+\newblock A proof for the queuing formula:{L}= $ \lambda${W}.
+\newblock \emph{Operations Research}, 9\penalty0 (3):\penalty0 383--387, jun
+  1961.
+\newblock \doi{10.1287/opre.9.3.383}.
+
+\bibitem[Ludkovski and Zail(2022)]{Ludkovski2022}
+Michael Ludkovski and Howard Zail.
+\newblock Gaussian process models for incremental loss ratios.
+\newblock \emph{Variance}, 15\penalty0 (1), 3 2022.
+
+\bibitem[Merton(1973)]{Merton1973}
+Robert~C. Merton.
+\newblock Theory of rational option pricing.
+\newblock \emph{The Bell Journal of Economics and Management Science},
+  4\penalty0 (1):\penalty0 141, 1973.
+\newblock \doi{10.2307/3003143}.
+
+\bibitem[Mikosch(1998)]{Mikosch1998}
+Thomas Mikosch.
+\newblock \emph{Elementary Stochastic Calculus, with Finance in View}.
+\newblock {WORLD} {SCIENTIFIC}, oct 1998.
+\newblock \doi{10.1142/3856}.
+
+\bibitem[Nakamoto(2008)]{Nakamoto2008}
+S.~Nakamoto.
+\newblock Bitcoin: A peer-to-peer electronic cash system.
+\newblock Available at
+  \href{https://bitcoin.org/bitcoin.pdf}{https://bitcoin.org/bitcoin.pdf},
+  2008.
+\newblock URL \url{https://bitcoin.org/bitcoin.pdf}.
+
+\bibitem[Tankov and Touzi(2010)]{Tankov2010}
+Peter Tankov and Nizar Touzi.
+\newblock Calcul stochastique en finance.
+\newblock \emph{Ecole Polytechnique Paris, D{\'e}partement de Math{\'e}matiques
+  Appliqu{\'e}es}, page 146, 2010.
+
+\bibitem[Truquet(2015)]{Truquet_stat_proc}
+Lionel Truquet.
+\newblock Statistiques des processus 3a.
+\newblock Lecture notes, 2015.
+\newblock
+  \url{https://ensai.fr/wp-content/uploads/2019/06/polystatdesprocessus2.pdf}.
+
+\bibitem[Williams(1991)]{Williams1991}
+David Williams.
+\newblock \emph{Probability with Martingales}.
+\newblock Cambridge University Press, feb 1991.
+\newblock \doi{10.1017/cbo9780511813658}.
+
+\bibitem[Wu and Wang(2018)]{Wu2018}
+Ruhao Wu and Bo~Wang.
+\newblock Gaussian process regression method for forecasting of mortality
+  rates.
+\newblock \emph{Neurocomputing}, 316:\penalty0 232--239, nov 2018.
+\newblock \doi{10.1016/j.neucom.2018.08.001}.
+
+\bibitem[Zadeh and Stanford(2014)]{Zadeh2014}
+Amin~Hassan Zadeh and David~A. Stanford.
+\newblock Bayesian and bühlmann credibility for phase-type distributions with
+  a univariate risk parameter.
+\newblock \emph{Scandinavian Actuarial Journal}, 2016\penalty0 (4):\penalty0
+  338--355, jun 2014.
+\newblock \doi{10.1080/03461238.2014.926977}.
+
+\bibitem[Zadeh et~al.(2013)Zadeh, Jones, and Stanford]{Zadeh2013}
+Amin~Hassan Zadeh, Bruce~L. Jones, and David~A. Stanford.
+\newblock The use of phase-type models for disability insurance calculations.
+\newblock \emph{Scandinavian Actuarial Journal}, 2014\penalty0 (8):\penalty0
+  714--728, mar 2013.
+\newblock \doi{10.1080/03461238.2012.761645}.
+
+\end{thebibliography}
