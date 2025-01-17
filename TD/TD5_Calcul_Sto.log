@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.23)  10 APR 2023 18:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.27)  17 JAN 2025 15:47
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **TD5_Calcul_Sto.tex
 (./TD5_Calcul_Sto.tex
@@ -844,43 +844,44 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 109
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Underfull \hbox (badness 10000) in paragraph at lines 251--254
+) [1
 
- []
-
-[1
-
-{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+ [4]
 This exam contains 5 questions with 7 parts, 0 subparts, and 0 subsubparts.
 (./TD5_Calcul_Sto.aux)
 Package rerunfilecheck Info: File `TD5_Calcul_Sto.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 23300 strings out of 478268
- 423225 string characters out of 5846346
- 712532 words of memory out of 5000000
- 41118 multiletter control sequences out of 15000+600000
+ 23306 strings out of 478268
+ 423267 string characters out of 5846347
+ 714565 words of memory out of 5000000
+ 41121 multiletter control sequences out of 15000+600000
  480629 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,15n,104p,428b,397s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 100i,15n,104p,428b,615s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 </usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
-r/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loc
-al/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
-l/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/lo
-cal/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/loca
-l/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/
-texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on TD5_Calcul_Sto.pdf (1 page, 126548 bytes).
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pf
+b></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><
+/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/lo
+cal/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
+/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
+texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/te
+xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texl
+ive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/
+texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/te
+xlive/2022/texmf-dist/fonts/type1/public/cm-super/sfcc1440.pfb></usr/local/texl
+ive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texliv
+e/2022/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on TD5_Calcul_Sto.pdf (4 pages, 192588 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 500000)
+ 124 PDF objects out of 1000 (max. 8388607)
+ 85 compressed objects within 1 object stream
+ 17 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

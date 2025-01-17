@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.23)  8 MAR 2023 16:04
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.27)  17 JAN 2025 15:47
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **TD3_Calcul_Sto.tex
 (./TD3_Calcul_Sto.tex
@@ -863,8 +863,8 @@ Package rerunfilecheck Info: File `TD3_Calcul_Sto.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  23316 strings out of 478268
- 423353 string characters out of 5846346
- 715668 words of memory out of 5000000
+ 423353 string characters out of 5846347
+ 715667 words of memory out of 5000000
  41127 multiletter control sequences out of 15000+600000
  478886 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191

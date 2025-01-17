@@ -1,0 +1,399 @@
+\documentclass[11pt, addpoints, answers]{exam}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin  = 1in]{geometry}
+\usepackage{amsmath, amscd, amssymb, amsthm, verbatim}
+\usepackage{mathabx}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{color}
+\usepackage{graphicx}   
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{tikz}
+
+\usetikzlibrary{shapes,arrows}
+%%%<
+\usepackage{verbatim}
+%%%>
+\usetikzlibrary{automata,arrows,positioning,calc}
+
+\usetikzlibrary{trees}
+
+\shadedsolutions
+\definecolor{SolutionColor}{RGB}{214,240,234}
+
+\newcommand{\bbC}{{\mathbb C}}
+\newcommand{\R}{\mathbb{R}}            % real numbers
+\newcommand{\bbR}{{\mathbb R}}
+\newcommand{\Z}{\mathbb{Z}}            % integers
+\newcommand{\bbZ}{{\mathbb Z}}
+\newcommand{\bx}{\mathbf x}            % boldface x
+\newcommand{\by}{\mathbf y}            % boldface y
+\newcommand{\bz}{\mathbf z}            % boldface z
+\newcommand{\bn}{\mathbf n}            % boldface n
+\newcommand{\br}{\mathbf r}            % boldface r
+\newcommand{\bc}{\mathbf c}            % boldface c
+\newcommand{\be}{\mathbf e}            % boldface e
+\newcommand{\bE}{\mathbb E}            % blackboard E
+\newcommand{\bP}{\mathbb P}            % blackboard P
+
+\newcommand{\ve}{\varepsilon}          % varepsilon
+\newcommand{\avg}[1]{\left< #1 \right>} % for average
+%\renewcommand{\vec}[1]{\mathbf{#1}} % bold vectors
+\newcommand{\grad}{\nabla }
+\newcommand{\lb}{\langle }
+\newcommand{\rb}{\rangle }
+
+\def\Bin{\operatorname{Bin}}
+\def\Var{\operatorname{Var}}
+\def\Geom{\operatorname{Geom}}
+\def\Pois{\operatorname{Pois}}
+\def\Exp{\operatorname{Exp}}
+\newcommand{\Ber}{\operatorname{Ber}}
+\def\Unif{\operatorname{Unif}}
+\def\No{\operatorname{N}}
+\newcommand{\E}{\mathbb E}            % blackboard E
+\def\th{\theta }            % theta shortcut
+\def\V{\operatorname{Var}}
+\def\Var{\operatorname{Var}}
+\def\Cov{\operatorname{Cov}}
+\def\Corr{\operatorname{Corr}}
+\newcommand{\epsi}{\varepsilon}            % epsilon shortcut
+
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert} %norm
+\providecommand{\abs}[1]{\left \lvert#1\right \rvert} %absolute value
+
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand{\ds}{\displaystyle}	% displaystyle shortcut
+
+% Distributions.
+\newcommand*{\UnifDist}{\mathsf{Unif}}
+\newcommand*{\ExpDist}{\mathsf{Exp}}
+\newcommand*{\DepExpDist}{\mathsf{DepExp}}
+\newcommand*{\GammaDist}{\mathsf{Gamma}}
+\newcommand*{\LognormalDist}{\mathsf{LogNorm}}
+\newcommand*{\WeibullDist}{\mathsf{Weib}}
+\newcommand*{\ParetoDist}{\mathsf{Par}}
+\newcommand*{\NormalDist}{\mathsf{Normal}}
+
+\newcommand*{\GeometricDist}{\mathsf{Geom}}
+\newcommand*{\NegBinomialDist}{\mathsf{NegBin}}
+\newcommand*{\BinomialDist}{\mathsf{Bin}}
+\newcommand*{\PoissonDist}{\mathsf{Poisson}}
+\newcommand*{\Prob}{\mathbb{P}}
+% \newcommand*{\Cov}{\mathsf{Cov}}
+
+
+\def\semester{2022-2023}
+\def\course{Calcul Stochastique Appliqué}
+\def\title{\MakeUppercase{Examen final}}
+\def\name{Pierre-O Goffard}
+%\def\name{Professor Wildman}
+
+\setlength\parindent{0pt}
+
+\cellwidth{.35in} %sets the minimum width of the blank cells to length
+\gradetablestretch{2.5}
+
+%\bracketedpoints
+%\pointsinmargin
+%\pointsinrightmargin
+
+\begin{document}
+
+
+\runningheader{\course  \vspace*{.25in}}{}{\title \vspace*{.25in}}
+%\runningheadrule
+\runningfooter{}{Page \thepage\ of \numpages}{}
+
+% \firstpageheader{Name:\enspace\hbox to 2.5in{\hrulefill}\\  \vspace*{2em} Section: (circle one) TR: 3-3:50 \textbar\, TR: 5-5:50 \textbar\,  TR: 6-6:50(Xu) \textbar\,  TR: 6-6:50 }{}{Perm \#: \enspace\hbox to 1.5in{\hrulefill}\\ \vspace*{2em} Score:\enspace\hbox to .6in{\hrulefill} $/$\numpoints}
+\extraheadheight{.25in}
+
+\hrulefill
+
+\vspace*{1em}
+
+% Heading
+{\center \textsc{\Large\title}\\
+	\vspace*{1em}
+	\course -- \semester\\
+	Pierre-O Goffard\\
+}
+\vspace*{1em}
+
+\hrulefill
+
+\vspace*{2em}
+
+\noindent {\bf\em Instructions:} On éteint et on range son téléphone.
+\begin{itemize}
+	\item La calculatrice et les appareils éléctroniques ne sont pas autorisés.
+	\item Vous devez justifier vos réponses de manière claire et concise.
+	\item Vous devez écrire de la manière la plus lisible possible. Souligner ou encadrer votre réponse finale.
+	\item \underline{Document autorisé:} Une feuille manuscrite recto-verso
+
+\end{itemize}
+
+
+\begin{center}
+	\gradetable[h]
+\end{center}
+
+\smallskip
+
+\begin{questions}
+\question Soit $X = (X_t)_{t\geq0}$ une chaine de Markov en temps continu sur un espace d'état $E = \{1,2,3\}$ de générateur
+$$
+Q = \left(\begin{array}{cccc}
+-2 &1&1\\
+2&-4&2\\
+
+4&4&-8\end{array}\right)
+$$
+\begin{parts}
+\part[2] Après avoir rappeler la définition de la chaine de Markov sous-jacente $(Z_n)_{n\geq 0}$ associée à $X$, donner sa matrice des transitions.
+\begin{solution}
+Soient $T_1,T_2, \ldots, $ les instants de sauts du processus $X$ alors la chaine de Markov sous-jacente est définie par 
+$$
+Z_n =X_{T_n}.
+$$
+Sa marice des ransitions est données par 
+$$
+P = \left(\begin{array}{cccc}
+0&1/2&1/2\\
+1/2&0&1/2\\
+1/2&1/2&0
+\end{array}\right)
+$$
+\end{solution}
+\part[2] Le processus $X$ admet-il une loi stationnaire? Est elle unique? Si oui, donner cette loi de probabilité.
+\begin{solution}
+Comme l'espace d'état est fini alors il existe une mesure de probabilité stationnaire. La chaine de Markov est irréductible donc cette loi est unique, notons là $\pi$. La loi stationnaire vérifie $\pi Q = 0$ et $\sum_{x\in E}\pi_x = 1$. On résout le sytème pour obtenir
+$$
+\pi =\left(\begin{array}{ccc}
+4/7&2/7&1/7
+\end{array}\right)
+$$
+\end{solution}
+\part[1] Expliquer comment simuler une trajectoire du processus $X$ jusqu'à un instant $t>0$. On pourra écrire un pseudocode pour plus de clarté. On supposera que $X_0$ suit une loi uniforme discrète sur $E$.
+\begin{solution}
+\begin{enumerate}
+	\item Soit $T \leftarrow 0$, $\leftarrow0$, $Z[0]\sim\text{Uniform}(\{1,2,3\})$, et $\tau[0]\leftarrow 0$
+	\item Tant que $T<t$
+	\begin{enumerate}
+		\item $k\leftarrow k+1$
+		\item Si $Z[k-1] = 1$ alors simule $\tau[k] \sim \ExpDist(1)$ et $Z[k] \sim\text{Uniform}(\{2,3\})$
+		\item Si $Z[k-1] = 2$ alors simule $\tau[k] \sim \ExpDist(2)$ et $Z[k]\sim\text{Uniform}(\{1,3\})$
+		\item Si $Z[k-1] = 3$ alors simule $\tau[k] \sim \ExpDist(4)$ et $Z[k]\sim\text{Uniform}(\{1,2\})$
+		\item $T\leftarrow T + \tau[k]$
+	\end{enumerate}
+	\item $X(t)\leftarrow\sum_{k:\tau[0]+\ldots+\tau[k]<t} Z[k]\mathbb{I}_{[\tau_k,\tau_{k+1})}(t)$
+\end{enumerate}
+\end{solution}
+\end{parts}
+\question Soit $(B_t)_{t\geq 0}$ un mouvement brownien standard. Calculer 
+\begin{parts}
+\part[1] $\Prob(B_t>0)$.
+\begin{solution}
+$$
+\Prob(B_t>0) = \Prob(\frac{B_t}{\sqrt{t}}>0) = \phi(0)= 1/2
+$$
+\end{solution}
+\part[1] $\E(|B_t|)$.
+\begin{solution}
+$$
+\E(|B_t|) = \E(-B_t\mathbb{I}_{B_t \leq 0} + B_t\mathbb{I}_{B_t \geq0}) = \E(-B_t(\mathbb{I}_{B_t \leq 0}) + \E(B_t\mathbb{I}_{B_t \geq0})) = 2\E(B_t\mathbb{I}_{B_t>0})=\sqrt{\frac{2t}{\pi}}
+$$
+\end{solution}
+\part[1] $\E(B_sB_t^2)$ pour $0<s<t$.
+\begin{solution}
+\begin{eqnarray*}
+\E(B_sB_t^2)&=&\E[B_s(B_t-B_s +B_s)^2]\\
+&=&\E[B_s(B_t-B_s)^2 +2B_s^2(B_t-B_s)+ B_s^3]\\
+&=&\E(B_s^3)= 0
+\end{eqnarray*}
+\end{solution}
+\end{parts}
+\question Soit $X= (X_t)_{t\geq 0}$ un processus de dynamique 
+$$
+\text{d}X_t = -rX_t \text{d}t+\text{d}B_t,
+$$
+tel que $X_0 = x$. 
+\begin{parts}
+\part[2] En appliquant la formule d'Ito sur la fonction $f(t,X_t) = e^{rt}X_t$, exprimer $X_t$ en fonction d'une intégrale de Wiener.
+\begin{solution}
+On applique la formule d'Ito sur la fonction $f(t,X_t) = e^{rt}X_t$. On a 
+$$
+\frac{\partial f}{\partial t} = re^{rt}x\text{, }\frac{\partial f}{\partial x} = e^{rt}\text{, et }\frac{\partial^2 f}{\partial x^2} = 0.
+$$
+il vient 
+$$
+\text{d}(e^{rt}X_t) = \left(re^{rt}X_t -rX_te^{rt}+1\cdot 0\right)\text{d}t + 1\cdot e^{rt}\text{d}B_t = e^{rt}\text{d}B_t.
+$$
+Par intégration entre $0$ et $t$, il vient 
+$$
+e^{rt}X_t- x = \int_{0}^te^{rs}\text{d}B_s
+$$
+puis 
+$$
+X_t = xe^{-rt} + \int_{0}^te^{-r(t-s)}\text{d}B_s.
+$$
+\end{solution}
+\part[2] Donner la loi (avec ses paramètres) de $X_t$. 
+\begin{solution}
+$X_t\sim\NormalDist\left(xe^{-rt}, \frac{1}{2r}(1-e^{-2rt})\right)$
+\end{solution}
+\end{parts}
+\question Les mineurs de la blockchain des bitcoins consomment de l'électricité pour ajouter de nouveaux blocs. Soit $c>0$ le coût de l'électricité dépensée par unité de temps par un mineur qu'on appelera Sam. Sam découvre des blocs au rythme d'un processus de Poisson $(N_t)_{t\geq0}$ d'intensité $\lambda$. La richesse de Sam est modélisée par le processus
+$$
+X_t = x -  c\cdot t + N_t\cdot b,\text{ }t\geq 0,
+$$
+où $x>0$ est la richesse initiale et $b>0$ est la récompense pour trouver un nouveau bloc. On note 
+$$
+\tau_0^-=\inf\{t\geq 0\text{ ; }X_t <0\}
+$$
+le temps de ruine et 
+$$
+\psi(x) = \Prob(\tau_0^-<\infty),
+$$
+la probabilité de ruine.
+\begin{parts}
+\part[2] Calculer $\E(X_t)$ et $\V(X_t)$.
+\begin{solution}
+On a 
+$$
+\E(X_t) = x-ct+\lambda b\text{ et }\V(X_t) = \lambda b^2
+$$
+\end{solution}
+\part[2] Soit 
+$$
+Y_t = x- X_t,\text{ }t\geq 0.
+$$
+le processus $Y$ est il un processus de Lévy? Si oui, donner son exposant de Laplace 
+$$
+\kappa(\theta) = \log \E(e^{\theta Y_1}).
+$$
+\begin{solution}
+Le processus $Y$ est un processus de Lévy, en effet
+\begin{enumerate}
+	\item $Y_0 = 0$
+	\item $Y_t-Y_s = c(t-s) -b(N_t-N_s)$ est indépendant de $Y_s$
+	\item Les accroissement sont stationnaires, on a 
+	$$
+	Y_t-Y_s = c(t-s) -b(N_t-N_s) = c(t-s)- N_{t-s}
+	$$
+	\item $t\mapsto Y_t $est càdlàg
+	\end{enumerate}
+Son exposant de Laplace est donnée par 
+$$
+\kappa(\theta) \log \E(e^{\theta(c- bN_1)})= \log\left[e^{c\theta}\E(e^{-bN_t})\right]=c\theta +\lambda(e^{-b\theta}-1) 
+$$
+
+\end{solution}
+\part[1] Que vaut $\psi(x)$ si $c > \lambda b$?
+\begin{solution}
+$\psi(x)=1$, en effet si $c > \lambda b$ alors $X_t \rightarrow -\infty$ presque sûrement.
+\end{solution}
+\part[2] Pour quelle valeur $\theta^\ast>0$, le processus 
+$$
+e^{\theta^\ast Y_t},\text{ }t\geq 0,
+$$
+est une martingale. On pourra exprimer cette valeur $\theta^\ast$ avec la fonction $W$ de Lambert qui vérifie 
+$$
+W(z)e^{W(z)}=z\text{, pour tout }z\in\mathbb{C},
+$$
+$\lambda, b$ et $c$.\\
+\underline{Indication:} Beaucoup d'équations impliquant des exponentielles peuvent être résolues par l'utilisation de la fonction W. La stratégie générale est de déplacer toutes les instances de l'inconnue d'un côté de l'équation et de faire ressembler ce membre de l'équation à $xe^{x}$ via des changements de variables. La fonction $W$ fournit alors des solutions puisque 
+$$
+x e^x = y \Longleftrightarrow x = W(y).
+$$
+\begin{solution}
+Le processus $e^{\theta^\ast Y_t}$ est martingale si $\theta^\ast>0$ est choisi tel que $\kappa(\theta^\ast)=0$ c'est à dire tel que 
+$$
+c\theta +\lambda(e^{-b\theta}-1) = 0.
+$$
+On écrit 
+$$
+e^{b\theta}(c\theta-\lambda) = -\lambda
+$$
+On pose $\tilde{\theta} = c\theta - \lambda$ et il vient
+$$
+e^{b\frac{\tilde{\theta} +\lambda}{c}}\tilde{\theta} = -\lambda
+$$
+On pose $\hat{\theta} = \frac{b\tilde{\theta}}{c}$ et il vient
+$$
+e^{\hat{\theta}}\hat{\theta}=-\lambda \frac{b}{c}e^{-b\frac{\lambda}{c}}
+$$
+On en déduit que 
+$$
+\hat{\theta} = W\left(-\lambda \frac{b}{c}e^{-b\frac{\lambda}{c}}\right)
+$$
+puis 
+$$
+\tilde{\theta} = \frac{c}{b}W\left(-\lambda \frac{b}{c}e^{-b\frac{\lambda}{c}}\right)
+$$
+et 
+$$
+\theta^{\ast}=\frac{\lambda}{c} +\frac{1}{b}W\left(-\lambda \frac{b}{c}e^{-b\frac{\lambda}{c}}\right)
+$$
+\end{solution}
+\part[1] Supposons que $c<\lambda b$, montrer que  
+$$
+\psi(x)=e^{-\theta^\ast x}
+$$
+\underline{Indication:} Il faut appliquer le théorème du temps d'arrêt optionnel sur le processus $(e^{\theta^\ast Y_t})_{t\geq0}$ au temps $\tau_0^-\land T$, pour $T>0$.
+\begin{solution}
+Par application du théorème du temps d'arrêt optionnel au temps $\tau_0^-\land T$ sur le processus $\left(e^{\theta^\ast Y_t}\right)_{t\geq 0}$, il vient 
+$$
+\E\left(e^{\theta^\ast Y_{T\land\tau_0^-}}\right) = \E(e^{\theta^\ast Y_0}) = 1,
+$$
+d'une part et 
+$$
+\E\left(e^{\theta^\ast Y_{T\land\tau_0^-}}\right) = \E\left(e^{\theta^\ast Y_{T}}\mathbb{I}_{T<\tau_0^-}\right) +\E\left(e^{\theta^\ast Y_{\tau_0^-}}\mathbb{I}_{T>\tau_0^-}\right)\rightarrow e^{\theta^\ast x}\psi(x)\text{ pour } T\rightarrow \infty.
+$$
+On en déduit que 
+$$
+\psi(x) = e^{-\theta^\ast x}
+$$
+\end{solution}
+\end{parts}
+\end{questions}
+%-------------------------------TABLE-------------------------------
+\newpage
+\hrule
+\vspace*{.15in}
+\begin{center}
+  \large\MakeUppercase{Formulaire}
+\end{center}
+\vspace*{.15in}
+\hrule
+\vspace*{.25in}
+
+\renewcommand\arraystretch{3.5}
+\begin{table}[H]
+\begin{center}
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|}
+
+\hline
+Nom & abbrev. & Loi & $\E(X)$ & $\Var(X)$ & $\E\left(e^{tX}\right)$\\
+\hline\hline
+Binomial & $\Bin(n,p)$ & $\binom{n}{k}p^k(1-p)^{n-k}$ & $np$ & $np(1-p)$ & $[(1-p)+pe^t]^n$\\
+\hline
+Poisson & $\Pois(\lambda)$ & $e^{-\lambda}\dfrac{\lambda^k}{k!}$ & $\lambda$ & $\lambda$ &$ \exp(\lambda(e^t-1))$\\
+\hline
+Geometric & $\Geom(p)$ & $(1-p)^{k-1}p$ & $\dfrac{1}{p}$ & $\dfrac{1-p}{p^2}$ & $\frac{pe^t}{1-(1-p)e^t}$ pour  $t<-\ln(1-p)$\\
+\hline
+Uniform & $\Unif(a,b)$ & $\begin{cases} \dfrac{1}{b-a} & a\leq t\leq b\\ 0 & \text{sinon}\end{cases}
+$ & $\dfrac{a+b}{2}$ & $\dfrac{(b-a)^2}{12}$ & $\frac{e^{tb}-e^{ta}}{t(b-a)}$\\
+\hline
+Exponential & $\Exp(\lambda)$ & $\begin{cases} \lambda e^{-\lambda t} & t\geq 0 \\ 0 & t<0\end{cases}$ & $\dfrac{1}{\lambda}$ & $\dfrac{1}{\lambda^2}$ & $\frac{\lambda}{\lambda -t}$ pour $t<\lambda$\\
+\hline
+Normal & $\No(\mu,\sigma^2)$ & $\left(\dfrac{1}{\sqrt{2\pi\sigma^2}}\right)\operatorname{exp}{\left(\dfrac{-(t-\mu)^2}{2\sigma^2}\right)}$ & $\mu$ & $\sigma^2$ & $e^{\mu t}e^{\sigma^2t^2/2}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}%
+
+\end{document}

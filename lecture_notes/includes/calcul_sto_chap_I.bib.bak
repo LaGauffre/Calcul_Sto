@@ -1,0 +1,102 @@
+@Unpublished{Nakamoto2008,
+  author        = {Nakamoto, S.},
+  note          = {Available at \href{https://bitcoin.org/bitcoin.pdf}{https://bitcoin.org/bitcoin.pdf}},
+  title         = {Bitcoin: A peer-to-peer electronic cash system},
+  year          = {2008},
+  date-added    = {2017-12-19 15:30:10 +0000},
+  date-modified = {2017-12-19 15:33:56 +0000},
+  url           = {https://bitcoin.org/bitcoin.pdf},
+}
+
+@Article{Hofstad2008,
+  author    = {Remco van der Hofstad and Michael Keane},
+  journal   = {The American Mathematical Monthly},
+  title     = {An Elementary Proof of the Hitting Time Theorem},
+  year      = {2008},
+  month     = {oct},
+  number    = {8},
+  pages     = {753--756},
+  volume    = {115},
+  doi       = {10.1080/00029890.2008.11920588},
+  publisher = {Informa {UK} Limited},
+}
+
+@Article{Renault2007,
+  author    = {Marc Renault},
+  journal   = {Mathematics Magazine},
+  title     = {Four Proofs of the Ballot Theorem},
+  year      = {2007},
+  month     = {dec},
+  number    = {5},
+  pages     = {345--352},
+  volume    = {80},
+  doi       = {10.1080/0025570x.2007.11953509},
+  publisher = {Informa {UK} Limited},
+}
+
+@Book{Williams1991,
+  author    = {David Williams},
+  publisher = {Cambridge University Press},
+  title     = {Probability with Martingales},
+  year      = {1991},
+  month     = {feb},
+  doi       = {10.1017/cbo9780511813658},
+}
+
+@Book{LeGall2006,
+  author       = {Le Gall, Jean-Fran{\c{c}}ois},
+  publisher    = {Ecole Normale Sup{\'e}rieure de Paris},
+  title        = {Int{\'e}gration, probabilit{\'e}s et processus al{\'e}atoires},
+  year         = {2006},
+  organization = {Ecole Normale Sup{\'e}rieure de Paris},
+}
+
+@Book{Mikosch1998,
+  author    = {Thomas Mikosch},
+  publisher = {{WORLD} {SCIENTIFIC}},
+  title     = {Elementary Stochastic Calculus, with Finance in View},
+  year      = {1998},
+  month     = {oct},
+  doi       = {10.1142/3856},
+}
+
+@Article{Tankov2010,
+  author  = {Tankov, Peter and Touzi, Nizar},
+  journal = {Ecole Polytechnique Paris, D{\'e}partement de Math{\'e}matiques Appliqu{\'e}es},
+  title   = {Calcul stochastique en finance},
+  year    = {2010},
+  pages   = {146},
+}
+
+@Misc{Truquet_stat_proc,
+  author       = {Lionel Truquet},
+  howpublished = {Lecture notes},
+  note         = {\url{https://ensai.fr/wp-content/uploads/2019/06/polystatdesprocessus2.pdf}},
+  title        = {Statistiques des processus 3A},
+  year         = {2015},
+}
+
+@Book{laleuf14,
+  author  = {Jean-Claude Laleuf},
+  editor  = {Ellipses},
+  title   = {Processus et intégrales stochastiques (Cours et exercices corrigés)},
+  year    = {2014},
+  address = {Paris},
+}
+
+ 
+@Article{Gerber1972,
+  author    = {Gerber, Hans U.},
+  journal   = {Operations Research},
+  title     = {Games of Economic Survival with Discrete- and Continuous-Income Processes},
+  year      = {1972},
+  issn      = {1526-5463},
+  month     = feb,
+  number    = {1},
+  pages     = {37--45},
+  volume    = {20},
+  doi       = {10.1287/opre.20.1.37},
+  publisher = {Institute for Operations Research and the Management Sciences (INFORMS)},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

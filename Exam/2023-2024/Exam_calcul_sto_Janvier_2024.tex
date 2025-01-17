@@ -1,0 +1,364 @@
+\documentclass[11pt, addpoints, answers]{exam}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin  = 1in]{geometry}
+\usepackage{amsmath, amscd, amssymb, amsthm, verbatim}
+\usepackage{mathabx}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{color}
+\usepackage{graphicx}   
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{tikz}
+
+\usetikzlibrary{shapes,arrows}
+%%%<
+\usepackage{verbatim}
+%%%>
+\usetikzlibrary{automata,arrows,positioning,calc}
+
+\usetikzlibrary{trees}
+
+\shadedsolutions
+\definecolor{SolutionColor}{RGB}{214,240,234}
+
+\newcommand{\bbC}{{\mathbb C}}
+\newcommand{\R}{\mathbb{R}}            % real numbers
+\newcommand{\bbR}{{\mathbb R}}
+\newcommand{\Z}{\mathbb{Z}}            % integers
+\newcommand{\bbZ}{{\mathbb Z}}
+\newcommand{\bx}{\mathbf x}            % boldface x
+\newcommand{\by}{\mathbf y}            % boldface y
+\newcommand{\bz}{\mathbf z}            % boldface z
+\newcommand{\bn}{\mathbf n}            % boldface n
+\newcommand{\br}{\mathbf r}            % boldface r
+\newcommand{\bc}{\mathbf c}            % boldface c
+\newcommand{\be}{\mathbf e}            % boldface e
+\newcommand{\bE}{\mathbb E}            % blackboard E
+\newcommand{\bP}{\mathbb P}            % blackboard P
+
+\newcommand{\ve}{\varepsilon}          % varepsilon
+\newcommand{\avg}[1]{\left< #1 \right>} % for average
+%\renewcommand{\vec}[1]{\mathbf{#1}} % bold vectors
+\newcommand{\grad}{\nabla }
+\newcommand{\lb}{\langle }
+\newcommand{\rb}{\rangle }
+
+\def\Bin{\operatorname{Bin}}
+\def\Var{\operatorname{Var}}
+\def\Geom{\operatorname{Geom}}
+\def\Pois{\operatorname{Pois}}
+\def\Exp{\operatorname{Exp}}
+\newcommand{\Ber}{\operatorname{Ber}}
+\def\Unif{\operatorname{Unif}}
+\def\No{\operatorname{N}}
+\newcommand{\E}{\mathbb E}            % blackboard E
+\def\th{\theta }            % theta shortcut
+\def\V{\operatorname{Var}}
+\def\Var{\operatorname{Var}}
+\def\Cov{\operatorname{Cov}}
+\def\Corr{\operatorname{Corr}}
+\newcommand{\epsi}{\varepsilon}            % epsilon shortcut
+
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert} %norm
+\providecommand{\abs}[1]{\left \lvert#1\right \rvert} %absolute value
+
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand{\ds}{\displaystyle}	% displaystyle shortcut
+
+% Distributions.
+\newcommand*{\UnifDist}{\mathsf{Unif}}
+\newcommand*{\ExpDist}{\mathsf{Exp}}
+\newcommand*{\DepExpDist}{\mathsf{DepExp}}
+\newcommand*{\GammaDist}{\mathsf{Gamma}}
+\newcommand*{\LognormalDist}{\mathsf{LogNorm}}
+\newcommand*{\WeibullDist}{\mathsf{Weib}}
+\newcommand*{\ParetoDist}{\mathsf{Par}}
+\newcommand*{\NormalDist}{\mathsf{Normal}}
+
+\newcommand*{\GeometricDist}{\mathsf{Geom}}
+\newcommand*{\NegBinomialDist}{\mathsf{NegBin}}
+\newcommand*{\BinomialDist}{\mathsf{Bin}}
+\newcommand*{\PoissonDist}{\mathsf{Poisson}}
+\newcommand*{\Prob}{\mathbb{P}}
+% \newcommand*{\Cov}{\mathsf{Cov}}
+
+
+\def\semester{2023-2024}
+\def\course{Calcul Stochastique Appliqué}
+\def\title{\MakeUppercase{Examen final}}
+\def\name{Pierre-O Goffard}
+%\def\name{Professor Wildman}
+
+\setlength\parindent{0pt}
+
+\cellwidth{.35in} %sets the minimum width of the blank cells to length
+\gradetablestretch{2.5}
+
+%\bracketedpoints
+%\pointsinmargin
+%\pointsinrightmargin
+
+\begin{document}
+
+
+\runningheader{\course  \vspace*{.25in}}{}{\title \vspace*{.25in}}
+%\runningheadrule
+\runningfooter{}{Page \thepage\ of \numpages}{}
+
+% \firstpageheader{Name:\enspace\hbox to 2.5in{\hrulefill}\\  \vspace*{2em} Section: (circle one) TR: 3-3:50 \textbar\, TR: 5-5:50 \textbar\,  TR: 6-6:50(Xu) \textbar\,  TR: 6-6:50 }{}{Perm \#: \enspace\hbox to 1.5in{\hrulefill}\\ \vspace*{2em} Score:\enspace\hbox to .6in{\hrulefill} $/$\numpoints}
+\extraheadheight{.25in}
+
+\hrulefill
+
+\vspace*{1em}
+
+% Heading
+{\center \textsc{\Large\title}\\
+	\vspace*{1em}
+	\course -- \semester\\
+	Pierre-O Goffard\\
+}
+\vspace*{1em}
+
+\hrulefill
+
+\vspace*{2em}
+
+\noindent {\bf\em Instructions:} On éteint et on range son téléphone.
+\begin{itemize}
+	\item La calculatrice et les appareils éléctroniques ne sont pas autorisés.
+	\item Vous devez justifier vos réponses de manière claire et concise.
+	\item Vous devez écrire de la manière la plus lisible possible. Souligner ou encadrer votre réponse finale.
+	\item \underline{Document autorisé:} Une feuille manuscrite recto-verso
+
+\end{itemize}
+
+
+\begin{center}
+	\gradetable[h]
+\end{center}
+
+\smallskip
+
+\begin{questions}
+\question[2] Soit $(B_t)_{t\geq 0}$ un mouvement Brownien. Montrer que le processus défini par 
+$$
+X_t =  \frac{B_{c^2t}}{c}, \text{ }t\geq 0,
+$$
+pour $c>0$ est un mouvement brownien.
+\begin{solution}
+On montre qu'il s'agit d'un processus gaussien. Soient $t_1<t_2$ deux instants et $a_1, a_2\in \R$ alors 
+\begin{eqnarray*}
+a_1X_{t_1}+ a_2X_{t_2} &=&  a_1\frac{B_{c^2t_1}}{c}+ a_2\frac{B_{c^2t_2}}{c}\\
+&=&\frac{(a_1+a_2)}{c}B_{c^2t_1}+ \frac{a_2}{c}(B_{c^2t_2}-B_{c^2t_1})\\
+\end{eqnarray*}
+est une va gaussienne comme somme de va gaussiennes indépendantes. On note que 
+$$
+\E(X_t) = 0
+$$
+et 
+$$
+C(s,t) = Cov(X_s, X_t) = \frac{Cov(B_{c^2s}, B_{c^2t})}{c^2} = \frac{c^2s\land c^2t}{c^2} = s\land t.
+$$
+$X_t$ est un processus gaussien dont la fonction de moyenne et de covariance sont identiques à celles du mouvement browninen. Il s'agit donc bien d'un mouvement brownien. 
+\end{solution}
+
+\question Soit $N = (N_t)_{t\geq 0}$ un processus de Poisson d'intensité $\lambda$ et $\mathcal{F}_t$ sa filtration. Soit 
+$$
+S_t = S_0\exp(\mu t - bN_t),\text{ } t\geq 0, 
+$$
+où $\mu, b>0$, la valeur d'un actif financier risqué. On suppose qu'il existe également un actif sans risque telle que 
+$$
+S_t^0 = S_0^0e^{rt},\text{ }t\geq0.
+$$
+On supposera que $S_0 = S_0^0 = 1$.
+\begin{parts}
+\part[1] Calculer $E(S_t)$
+\begin{solution}
+$$
+E(S_t) = S_0e^{\mu t }\E(e^{-bN_t}) = S_0\exp(\mu t + \lambda t (e^{-b} - 1) )
+$$
+\end{solution}
+\part[1] On note 
+$$
+\tilde{S}_t = e^{-rt}S_t,\text{ } t\geq 0,
+$$
+la valeur actualisée de l'actif au taux sans risque. Déterminer la valeur $\lambda^{\ast}$ de $\lambda$ pour que $(\tilde{S}_t)_{t\geq 0}$ soit une martingale. On exprimera $\lambda^\ast$ en fonction de $\mu, r$, et $b$.
+\begin{solution}
+Il faut que 
+$$
+\lambda^\ast = \frac{\mu - r}{1 - e^{-b}}. 
+$$
+\end{solution}
+\part[2] La mesure de probabilité $\mathbb{Q}$ sous laquelle $(N_t)_{t\geq 0}$ est un procesus de Poisson d'intensité $\lambda^\ast$ correspond à la probabilité risque-neutre. Donner le prix 
+$$
+\E_\mathbb{Q}\left[e^{-rT}(S_T - K)_+\right],
+$$
+où $(\cdot)_+ = \max(\cdot, 0$ est la partie positive, d'un call européen de maturité $T$ et de prix d'exercice $K$ sous $\mathbb{Q}$, en fonction de $r$, $\lambda^\ast$, $\mu$, $K$, $T$, et de 
+$$
+F(x;\lambda) = \sum_{k=0}^x\frac{\lambda^k e^{-\lambda}}{k!},\text{ }x\in \mathbb{N},
+$$
+la fonction de répartition d'une variable aléatoire de loi de Poisson de paramètre $\lambda>0$.
+\begin{solution}
+On a 
+
+$$\E_\mathbb{Q}\left[e^{-rT}(S_T - K)_+\right] = e^{-rT}S_0F(d;\lambda^\ast e^{-b}T) - KF(d,\lambda^\ast T),$$
+où 
+$$
+d = \left\lfloor \frac{\mu T -\ln(K/S_0)}{b}\right \rfloor.
+$$
+\end{solution}
+\end{parts}
+\question Soit $(B_t)_{t\geq 0}$ un mouvement Brownien et $(X_t)_{t\geq 1}$ un processus d'Itô dont la dynamique est donnée par 
+$$
+\text{d}X_t = \left(te^{-t} - \frac{t^{-\frac12}}{2}+X_t t^{-1}\right)\text{d}t+2t\text{d}B_t,
+$$
+et $X_1 = 1$.
+\begin{parts}
+\part[1] On définit le processus $Y$ par
+$$
+Y_t= \frac{X_t}{t}- t^{-\frac 12},\text{ }t\geq 1.
+$$
+Trouver l'équation différentielle stochastique vérifiée par le processus $Y$. 
+\begin{solution}
+On applique le lemme d'Ito au processus $Y_t = f(X_t, t)$. On a 
+$$
+\frac{\partial f}{\partial t} = -\frac{x}{t^2} + \frac{t^{-\frac 32}}{2}\text{, }\frac{\partial f}{\partial x} = \frac 1t\text{, et }\frac{\partial^2 f}{\partial x^2} = 0.
+$$
+On en déduit que 
+$$
+\text{d}Y_t = e^{-t}\text{d}t + 2\text{d}B_t.
+$$
+\end{solution}
+\part[1] Quel est la loi de $Y_t$ pour $t> 1$?
+\begin{solution}
+En intégrant l'équation de $Y$ entre $1$ et $t$, il vient 
+$$
+Y_t = e^{-1} - e^{-t} + 2(B_t - B_1)
+$$
+On en déduit que 
+$$
+Y_{t}\sim \text{Normal}(e^{-1} - e^{-t}, 4(t -1))
+$$
+\end{solution}
+\part[1] En déduire la loi $X_t$ pour $t> 1$.
+\begin{solution}
+On a 
+$$
+X_t = tY_t + \sqrt{t}
+$$
+On en déduit que 
+$$
+X_t\sim\text{Normal}(t(e^{-1} - e^{-t}) + \sqrt{t}, 4t^2(t-1))
+$$
+\end{solution}
+\end{parts}
+\question Soient $B = (B_t)_{t\geq0}$ un mouvement Brownien et $(\mathcal{F}_t)_{t\geq 0}$ sa filtration. 
+\begin{parts}
+\part[1] Montrer que $B$ est une martingale. (on admettra que $\E(|B_t|) <\infty$ pour tout $t\geq0$)
+\begin{solution}
+Voir le cours
+\end{solution}
+\part[2] Soient $a>0$ et $b>0$. On définit les temps d'arrêt
+$$
+\tau_a^+ = \inf\{t\geq 0 \text{ ; }B_t = a\},\text{ }\tau_b^- = \inf\{t\geq 0 \text{ ; }B_t = -b\},\text{ et }\tau = \tau_a^+\land\tau_b^-.
+$$
+On suppose qu'ils sont finis presque sûrement. Montrer que 
+$$
+\Prob(\tau = \tau_a^+) = \frac{b}{a+b}.
+$$
+\underline{Indication:} On utilise le théorème du temps d'arrêt sur $B$.
+\begin{solution}
+Par application du théorème du temps d'arrêt au temps $\tau$, il vient
+\begin{eqnarray*}
+0 = \E(B_0)&=&\E(B_\tau)\\
+&=& a \Prob(\tau = \tau_a^+) -b(1- \Prob(\tau = \tau_a^+))\\
+&=&(a+b)\Prob(\tau = \tau_a^+) - b
+\end{eqnarray*}
+On en déduit que 
+$$
+\Prob(\tau = \tau_a^+) = \frac{b}{a+b}.
+$$
+\end{solution}
+\part[1] On définit 
+$$
+M_t = \int_0^t B_u\text{d}u - \frac 13 B_t^3.
+$$
+Calculer $\E(M_t)$ pour tout $t\geq 0$
+\begin{solution}
+$0$
+\end{solution}
+\part[1] Montrer que $(M_t)_{t\geq 0}$ est une martingale. (on admettra que $\E(|M_t|) <\infty$, pour tout $t\geq0$)\\
+\underline{Indication:} On a pour $s<t$
+$$
+\E\left(\int_s^t B_u\text{d}u\Big\rvert\mathcal{F}_s\right) =\int_s^t \E\left(B_u\rvert\mathcal{F}_s\right)\text{d}u  
+= \int_s^t B_s\text{d}u = B_s\cdot (t-s)
+$$
+\begin{solution}
+Soit $s<t$, on a 
+\begin{eqnarray*}
+\E(M_t|\mathcal{F}_s) &=& \E\left(\int_0^t B_u\text{d}u - B_t^3\Big\rvert \mathcal{F}_s\right)\\
+&=& \E\left(\int_0^s B_u\text{d}u + \int_s^t B_u\text{d}u - (B_t-B_s+B_s)^3\Big\rvert \mathcal{F}_s\right)\\
+&=& \int_0^s B_u\text{d}u + B_s\cdot (t-s) -\frac 13\left(\E(B_t-B_s)^3 + B_s^3 + 3B_s(t-s)\right)\\
+&=&M_s.
+\end{eqnarray*}
+\end{solution}
+\part[1] Déduire des questions précédentes (b et d en particulier) que l'aire sous $(B_t)_{t\geq 0}$ jusqu'à $\tau$ est en moyenne égale à 
+$$
+\frac{ab(a-b)}{3}.
+$$
+\\
+
+\underline{Indication:} On utilise le théorème du temps d'arrêt optionnel au temps $\tau$ sur le processus $(M_t)_{t\geq 0}$.
+\begin{solution}
+\begin{eqnarray*}
+0=\E(M_0) &=&\E(M_\tau) =\E\left(\int_{0}^\tau B_u\text{d}u\right) -\frac{1}{3}\E(B_\tau^3) \\
+\end{eqnarray*}
+On déduit que 
+$$
+\E\left(\int_{0}^\tau B_u\text{d}u\right) = \frac{1}{3}\left(a^3\frac{b}{a+b}-b^3\frac{a}{a+b}\right)= ab(a-b)/3
+$$
+\end{solution}
+\end{parts}
+
+\end{questions}
+%-------------------------------TABLE-------------------------------
+\newpage
+\hrule
+\vspace*{.15in}
+\begin{center}
+  \large\MakeUppercase{Formulaire}
+\end{center}
+\vspace*{.15in}
+\hrule
+\vspace*{.25in}
+
+\renewcommand\arraystretch{3.5}
+\begin{table}[H]
+\begin{center}
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|}
+
+\hline
+Nom & abbrev. & Loi & $\E(X)$ & $\Var(X)$ & $\E\left(e^{tX}\right)$\\
+\hline\hline
+Binomial & $\Bin(n,p)$ & $\binom{n}{k}p^k(1-p)^{n-k},\text{ }k = 1,\ldots, n$ & $np$ & $np(1-p)$ & $[(1-p)+pe^t]^n$\\
+\hline
+Poisson & $\Pois(\lambda)$ & $e^{-\lambda}\dfrac{\lambda^k}{k!},\text{ }k\geq 0$ & $\lambda$ & $\lambda$ &$ \exp(\lambda(e^t-1))$\\
+\hline
+Geometric & $\Geom(p)$ & $(1-p)^{k-1}p,\text{ }k\geq 1$ & $\dfrac{1}{p}$ & $\dfrac{1-p}{p^2}$ & $\frac{pe^t}{1-(1-p)e^t}$ pour  $t<-\ln(1-p)$\\
+\hline
+Uniform & $\Unif(a,b)$ & $\begin{cases} \dfrac{1}{b-a} & a\leq t\leq b\\ 0 & \text{sinon}\end{cases}
+$ & $\dfrac{a+b}{2}$ & $\dfrac{(b-a)^2}{12}$ & $\frac{e^{tb}-e^{ta}}{t(b-a)}$\\
+\hline
+Exponential & $\Exp(\lambda)$ & $\begin{cases} \lambda e^{-\lambda t} & t\geq 0 \\ 0 & t<0\end{cases}$ & $\dfrac{1}{\lambda}$ & $\dfrac{1}{\lambda^2}$ & $\frac{\lambda}{\lambda -t}$ pour $t<\lambda$\\
+\hline
+Normal & $\No(\mu,\sigma^2)$ & $\left(\dfrac{1}{\sqrt{2\pi\sigma^2}}\right)\operatorname{exp}{\left(\dfrac{-(t-\mu)^2}{2\sigma^2}\right)}$ & $\mu$ & $\sigma^2$ & $e^{\mu t}e^{\sigma^2t^2/2}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}%
+
+\end{document}

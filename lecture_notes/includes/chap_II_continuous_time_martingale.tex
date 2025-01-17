@@ -1,5 +1,5 @@
 % !TEX root = ../main_lecture_notes.tex
-\chapter{Processus et martingale en temps continu}\label{chap:processus_markov}
+\chapter{Processus et martingale en temps continu}\label{chap:processus_levy}
 On étend les notions de temps d'arrêt et de martingale aux processus à temps continu. Nous introduisons la notion de processus de Lévy qui sont l'équivalent de la marche aléatoire en temps continu. L'exemple fil rouge sera un modèle de gestion des risques des compagnies d'assurances basé sur le processus de Poisson composé. 
 \section{Le modèle de ruine de Cramer-Lundberg}\label{sec:cramer-lundberg}
 L'objectif est de proposer un modèle pour l'évolution de la richesse d'une compagnie d'assurance au cours du temps via un processus $X:=(X_t)_{t\geq0}$, avec $t\in\RL_+$. Une compagnie d'assurance détient un capital initial $x\geq0$, perçoit des primes de la part des assurés au taux $c>0$ et paie de temps à autre une indemnisation. Le nombre de sinistres jusqu'à l'instant $t$ est donnée par un processus de comptage $N:=(N_t)_{t\geq0}$. 
@@ -68,7 +68,22 @@ Un processus de Poisson $(N_t)_{t\geq0}$ d'intensité $\lambda$ est un processus
 \begin{remark}\label{def_renewal_process}
 Le processus de Poisson appartient à la famille des processus de renouvellement qui sont des processus de comptage dont les temps inter-arrivée sont \iid.
 \end{remark}
-Dans le modèles considéré, l'arrivée des sinistres est modélisée par un processus de Poison $(N_t)_{t\geq0}$ d'intensité $\lambda>0$. Pour chaque sinistre une indemnisation est versée aux assurés. ces indemnisation forment une suite $(U_n)_{n\geq0}$ de \va \iid et positives. Finalement la richesse de la compagnie d'asssurance est donnée par 
+\begin{prop}
+Soit $(N_t)_{t\geq 0}$ un processus de comptage, il y a équivalence entre les deux assertions suivantes:
+\begin{itemize}
+    \item[(i)] $(N_t)_{t\geq0}$ est un processus de Poisson d'intensité $\lambda$
+    \item[(ii)] Les accroissements de $(N_t)_{t\geq 0}$ sont
+    \begin{itemize}
+        \item indépendants, c'est à dire $N_{t}-N_{s}$ et $N_s$ sont indépendants pour tous $s\leq t$,
+        \item stationnaires c'est à dire que 
+        $$
+        N_t - N_s = N_{t-s}\sim\text{Pois}(\lambda\cdot(t-s)).
+        $$
+    \end{itemize}
+\end{itemize}
+On note que $N_t\sim\text{Pois}(\lambda t)$ et que $\lambda$ correspond au nombre moyen de sauts par unité de temps. 
+\end{prop}
+Dans le modèle considéré, l'arrivée des sinistres est modélisée par un processus de Poison $(N_t)_{t\geq0}$ d'intensité $\lambda>0$. Pour chaque sinistre une indemnisation est versée aux assurés. ces indemnisation forment une suite $(U_n)_{n\geq0}$ de \va \iid et positives. Finalement la richesse de la compagnie d'asssurance est donnée par 
 \begin{equation}\label{eq:cramer_lundberg_modele}
 X_t = x + ct - \sum_{k=1}^{N_t}U_k,\text{ }t\geq 0.
 \end{equation}
@@ -102,11 +117,11 @@ Une suite $(X_t)_{t\in \RL_+}$ de variable aléatoires (\va) sur $\Omega$ est un
 \begin{remark}
 La filtration $\F_t$ associée à un processus $(X_t)_{t\geq 0}$ est l'information qu'il faut détenir pour pouvoir tracer la trajectoire du processus jusqu'à l'instant $t\geq 0$. Pour le processus de comptage, il s'agit des instants de saut 
 $$
-\F_t = \sigma[T_k\ind_{T_k \leq t})_{k\geq 0}].
+\F_t = \sigma[(\ind_{T_k \leq t})_{k\geq 0}].
 $$
 Pour le processus de richesse il faut ajouter la taille des sauts
 $$
-\F_t=\sigma[(T_k\ind_{T_k \leq t}, U_k)_{k\geq 0}].
+\F_t=\sigma[(U_k\ind_{T_k \leq t})_{k\geq 0}].
 $$
 \end{remark}
 % \begin{definition}\label{def:processus_egaux}
@@ -116,18 +131,18 @@ $$
 % $$
 % \end{definition}
 \subsection{Propriétés fonctionnelles}
-Soit $\omega\in\Omega$,  est une trajectoire ou réalisation. Il s'agit d'une fonction du temps $t\mapsto X_t(\omega)$ dont on peut étudié les propriétés comme la monotonie, la continuité, et la dérivabilité 
+Soit $\omega\in\Omega$,  est une trajectoire ou réalisation. Il s'agit d'une fonction du temps $t\mapsto X_t(\omega)$ dont on peut étudier les propriétés comme la monotonie, la continuité, et la dérivabilité 
 \begin{itemize}
   \item Un processus $X$ est croissant la fonction $t\mapsto X_t$ est croissante presque surement (\ps).
   \item Un processus $X$ est continu à droite, continu, dérivable, de classe $\mathcal{C}^2$, $\ldots$ si  $t\mapsto X_t$ vérifie la propriété considéré.
 \end{itemize}
 \begin{ex}
-Les trajectoires des processus de comptages sont continue à droite et limité à gauche (càdlàg), cela signifie que 
+Les trajectoires des processus de comptages sont continues à droite et limitées à gauche (càdlàg), cela signifie que 
 \begin{itemize}
     \item $\underset{s\uparrow t}{\lim}X_s$ existe
     \item $\underset{s\downarrow t}{\lim}X_s$ existe et est telle que $\underset{s\downarrow t}{\lim}X_s = X_t$ 
 \end{itemize}
-La fitration $\F_{T_{i}}$ jusqu'à un instant de saut $T_i$ implique la continuité juste après le saut. Sinon la trajectoire est continue par morceaux. Même remarque pour le processus de richesse.
+La fitration $\F_{T_{i}}$ jusqu'à un instant de saut $T_i$ implique la continuité juste après le saut. Sinon la trajectoire est continue par morceaux. Même remarque pour le processus de richesse. Nous supposerons que les processus considéré dans ce chapitre sont càdlàg.
 \end{ex}
 \section{Temps d'arrêt}\label{sec:temps_arret_contd}
 Soit $(\Omega,\F, \F_t,\Prob)$ un espace de probabilité filtré.
@@ -154,7 +169,7 @@ $$
     \begin{equation}\label{eq:hitting_time}
     \{\tau_a>t\} = \{X_s\leq a\text{ ; }s\leq t\} = \bigcap_{s\in\Q\leq t}\{X_s\geq a\}\in\F_t.
     \end{equation}
-    L'hypothèse de continuité à droite est ici primordiale pour définir une suite de rationnelle $s_n\rightarrow s$ tel que $X_{s_n}\rightarrow X_s$ presque sûrement. On passe à la limite \eqref{eq:hitting_time} et la statbilité des tribus par intersection dénombrable permet de conclure.
+    L'hypothèse de continuité à droite est ici primordiale pour définir une suite de rationnelle $s_n\rightarrow s$ tel que $X_{s_n}\rightarrow X_s$ presque sûrement. On passe à la limite \eqref{eq:hitting_time} et la stabilité des tribus par intersection dénombrable permet de conclure.
     \item le temps de dernier passage 
         $$
     T_a = \sup\{t\geq 0\text{ ; }X_t>a\}
@@ -167,34 +182,34 @@ $$
     est un temps d'arrêt.
 \end{enumerate}
 \end{ex}
-\begin{prop}
-Si $\tau$ et $\sigma$ sont des temps d'arrêt tels que $\sigma<\tau$ alors
-$$
-\F_\sigma\subset\F_\tau
-$$
-\end{prop}
-\begin{proof}
-Soit $A\in\F_\sigma$, montrons que $A\in\F_\tau$. Pour tout $t\geq 0$, on a 
-$$
-A\cap\{\tau\leq t\} = A\cap\{\tau\leq t\}\cap\{\sigma\leq t\}.
-$$
-puisque $\sigma\leq \tau$. 
-\begin{itemize}
-\item $\{\tau\leq t\}\in\F_t$ car $\tau$ est un $\F_t$-temps d'arrêt,
-\item $A\cap\{\sigma\leq t\}\in\F_t$ car $\sigma$ est $\F_t$-temps d'arrêt et $A\in\F_\sigma\subset\F_t$
-\end{itemize}
-On en déduit 
-$$
-A\cap\{\tau\leq t\}\cap\{\sigma\leq t\}\in\F_t.
-$$
-\end{proof}
-\begin{prop}
-Soit $X$ un processus $\F_t$-adapté et continu à droite. Soit $\tau$ un $\F_t$-temps d'arrêt. La \va
-$$
-X_\tau\ind_{\tau<\infty}\text{ est }\F_\tau\text{-mesurable}.
-$$
-On rappelle que la \va vérifie $X_\tau(\omega) = X_{\tau(\omega)}(\omega)$
-\end{prop}
+% \begin{prop}
+% Si $\tau$ et $\sigma$ sont des temps d'arrêt tels que $\sigma<\tau$ alors
+% $$
+% \F_\sigma\subset\F_\tau
+% $$
+% \end{prop}
+% \begin{proof}
+% Soit $A\in\F_\sigma$, montrons que $A\in\F_\tau$. Pour tout $t\geq 0$, on a 
+% $$
+% A\cap\{\tau\leq t\} = A\cap\{\tau\leq t\}\cap\{\sigma\leq t\}.
+% $$
+% puisque $\sigma\leq \tau$. 
+% \begin{itemize}
+% \item $\{\tau\leq t\}\in\F_t$ car $\tau$ est un $\F_t$-temps d'arrêt,
+% \item $A\cap\{\sigma\leq t\}\in\F_t$ car $\sigma$ est $\F_t$-temps d'arrêt et $A\in\F_\sigma\subset\F_t$
+% \end{itemize}
+% On en déduit 
+% $$
+% A\cap\{\tau\leq t\}\cap\{\sigma\leq t\}\in\F_t.
+% $$
+% \end{proof}
+% \begin{prop}
+% Soit $X$ un processus $\F_t$-adapté et continu à droite. Soit $\tau$ un $\F_t$-temps d'arrêt. La \va
+% $$
+% X_\tau\ind_{\tau<\infty}\text{ est }\F_\tau\text{-mesurable}.
+% $$
+% On rappelle que la \va vérifie $X_\tau(\omega) = X_{\tau(\omega)}(\omega)$
+% \end{prop}
 \section{Martingale}\label{sec:temps_arret_contd}
 Soit $(\Omega,\F, \F_t,\Prob)$ un espace de probabilité filtré, et $X$ un processus $\F_t$-adapté.
 \begin{definition}\label{def:martingale_contd}
@@ -214,64 +229,73 @@ Soit $(N_t)_{t\geq 0}$ un processus de Poisson et $(U_i)_{i\geq 0}$ une suite de
 \begin{definition}
 $X$ est une $\F_t$-sous martingale (resp. sur martingale) si 
 $$
- \E(X_t|\F_s) \geq\text{ (resp. }\leq) X_s
+ \E(X_t|\F_s) \geq X_s\text{ (resp. }\leq X_s) 
 $$
 \end{definition}
 Une martingale est un processus constant en moyenne, une sous martingale est un processus croissant en moyenne, et une sur martingale est un processus décroissant en moyenne.
-\begin{prop}
-Soit $T> 0$ un horizon de temps, si $X$ est une $\F_t-$martingale alors le processus $(X_t)_{t\leq T}$ est complétement déterminé par sa valeur terminale au sens où 
+\begin{theo}
+Soit $X$ une martingale et $\tau$ un temps d'arrêt, alors le processus $(X_{\tau\land t})_{t\geq 0}$ est une martingale. De plus, si $\tau$ est borné alors 
 $$
-X_t = \E(X_T|\F_t).
-$$
-\end{prop}
-\begin{definition}[martingale fermée]\label{def:closed_martingale}
-Une martingale $X$ est fermée, s'il existe $Z\in\mathcal{L}^1
-(\Omega,\F, \Prob)$ ($\E(|Z|)<\infty$) telle que 
-$$
-X_t  =\E(Z|\F_t),\text{ pour tout }t\geq 0
-$$
-
-\end{definition}
-\begin{definition}[Uniforme intégrabilité]\label{def:UI}
-Un processus $X$ est uniformément intégrable si les deux conditions suivantes sont vérifiées
-\begin{enumerate}
-    \item $\exists M> 0$, tel que $\E|X_t|<M$ pour tout $t\geq 0$
-    \item $\forall \epsilon> 0$, $\exists \delta> 0$ tel que $\forall A\in\F$ tel que $\Prob(A)<\delta$, on a $\E\left(|X_t|\ind_A\right)<\epsilon$ pour tout $t\geq $0
-\end{enumerate}
-\end{definition}
-\begin{theo}\label{theo:martingale_convergence}
-Soit $X$ une martingale. Les assertions suivantes sont équivalentes:
-\begin{enumerate}
-    \item $X$ est une martingale fermée
-    \item $X$ converge presque sûrement et dans $\mathcal{L}^1$ vers $X_\infty$
-    \item $X$ est uniformément intégrable
-\end{enumerate}
-\end{theo}
-\begin{theo}[du temps d'arrêt optionnel Doob]\label{theo:doob_stopping_theorem}
-Soient $X$ une $\F_t$-martingale, $\tau$ et $\sigma$ deux temps d'arrêt tel que $\sigma\leq \tau$ \ps. Supposons que $X$ soit UI ou que les temps d'arrêt soient finis \ps. Alors on a 
-$$
-\E(X_{\tau}|\F_\sigma) = X_\sigma.
-$$
-En particulier, 
-$$
-\E(X_{\infty}|\F_\sigma) = X_\sigma.
-$$
-et 
-$$
-\E(X_0) = \E(X_{\sigma}) =\E(X_{\infty}).
+\E(X_\tau) = \E(X_0).
 $$
 \end{theo}
 \begin{remark}
-
-\begin{enumerate}
-    \item Lorsque $X$ n'est pas UI, une technique classique consiste à considérer le temps d'arrêt $\tau\land t$ puis à faire tendre $t$ vers $\infty$
-    \item Si la martingale est UI alors elle est fermé par $X_\infty$ et on peut considérer des temps d'arrêt infini. On a 
-    $$
-    \E(X_\infty|\F_\sigma) = X_\sigma.
-    $$
-\end{enumerate}
+Lorsque $\tau$ n'est pas bornée, une technique classique consiste à considérer le temps d'arrêt $\tau\land t$ puis à faire tendre $t$ vers $\infty$
 \end{remark}
-Pour un exposé plus exhaustif avec notamment toutes les preuves, le lecteur peut consulter l'ouvrage de \citet[Chapitre 3]{Gall2012}\footnote{\url{http://raphaelducatez.neowordpress.fr/wp-content/uploads/sites/20439/2019/02/Jean-Francois_Le_Gall_auth._Mouvement_brownienb-ok.cc_.pdf}}.
+% \begin{prop}
+% Soit $T> 0$ un horizon de temps, si $X$ est une $\F_t-$martingale alors le processus $(X_t)_{t\leq T}$ est complétement déterminé par sa valeur terminale au sens où 
+% $$
+% X_t = \E(X_T|\F_t).
+% $$
+% \end{prop}
+% \begin{definition}[martingale fermée]\label{def:closed_martingale}
+% Une martingale $X$ est fermée, s'il existe $Z\in\mathcal{L}^1
+% (\Omega,\F, \Prob)$ ($\E(|Z|)<\infty$) telle que 
+% $$
+% X_t  =\E(Z|\F_t),\text{ pour tout }t\geq 0
+% $$
+
+% \end{definition}
+% \begin{definition}[Uniforme intégrabilité]\label{def:UI}
+% Un processus $X$ est uniformément intégrable si les deux conditions suivantes sont vérifiées
+% \begin{enumerate}
+%     \item $\exists M> 0$, tel que $\E|X_t|<M$ pour tout $t\geq 0$
+%     \item $\forall \epsilon> 0$, $\exists \delta> 0$ tel que $\forall A\in\F$ tel que $\Prob(A)<\delta$, on a $\E\left(|X_t|\ind_A\right)<\epsilon$ pour tout $t\geq $0
+% \end{enumerate}
+% \end{definition}
+% \begin{theo}\label{theo:martingale_convergence}
+% Soit $X$ une martingale. Les assertions suivantes sont équivalentes:
+% \begin{enumerate}
+%     \item $X$ est une martingale fermée
+%     \item $X$ converge presque sûrement et dans $\mathcal{L}^1$ vers $X_\infty$
+%     \item $X$ est uniformément intégrable
+% \end{enumerate}
+% \end{theo}
+% \begin{theo}[du temps d'arrêt optionnel Doob]\label{theo:doob_stopping_theorem}
+% Soient $X$ une $\F_t$-martingale, $\tau$ et $\sigma$ deux temps d'arrêt tel que $\sigma\leq \tau$ \ps. Supposons que $X$ soit UI ou que les temps d'arrêt soient finis \ps. Alors on a 
+% $$
+% \E(X_{\tau}|\F_\sigma) = X_\sigma.
+% $$
+% En particulier, 
+% $$
+% \E(X_{\infty}|\F_\sigma) = X_\sigma.
+% $$
+% et 
+% $$
+% \E(X_0) = \E(X_{\sigma}) =\E(X_{\infty}).
+% $$
+% \end{theo}
+% \begin{remark}
+
+% \begin{enumerate}
+%     \item Lorsque $X$ n'est pas UI, une technique classique consiste à considérer le temps d'arrêt $\tau\land t$ puis à faire tendre $t$ vers $\infty$
+%     \item Si la martingale est UI alors elle est fermé par $X_\infty$ et on peut considérer des temps d'arrêt infini. On a 
+%     $$
+%     \E(X_\infty|\F_\sigma) = X_\sigma.
+%     $$
+% \end{enumerate}
+% \end{remark}
+Des résultat de convergences plus avancés, analogue au temps discret, sont présentés en annexe de ce chapitre. Pour un exposé plus exhaustif avec notamment toutes les preuves, on peut consulter l'ouvrage de \citet[Chapitre 3]{Gall2012}\footnote{\url{http://raphaelducatez.neowordpress.fr/wp-content/uploads/sites/20439/2019/02/Jean-Francois_Le_Gall_auth._Mouvement_brownienb-ok.cc_.pdf}} et \citet[Chapitre 5]{laleuf14}. 
 \section{Processus de Lévy}\label{sec:levy}
 \subsection{Définitions}
 L'équivalent des marches aléatoires en temps continu sont les processus de Lévy. Soit $(\Omega,\F,\F_t,\Prob)$ un espace de probabilité filtré et $X$ un processus $\F_t-$adapté.
@@ -313,7 +337,7 @@ X_t = x +ct-\sum_{i = 1}^{N_t}U_i,\text{ }t\geq 0.
 $$
 Soit $T_1,T_2,\ldots$ les instants de sauts du processus de Poisson et $\Delta T_1,\Delta T_2,\ldots, $ les temps inter-arrivées. Si on observe le processus de richesse aux instants de saut, on définit un processus de richesse à temps discret avec 
 $$
-Y_n = X_{T_n} = x +cT_n -\sum_{i = 1}^{N_{T_n}}U_i = x +c\sum_{i = 1}^{n}\Delta T_i -\sum_{i = 1}^{n}U_i = x +\sum_{i = 1}^{n}(c\Delta T_i -U_i),\text{ }n\geq 0 .
+Y_n = X_{T_n} = x +cT_n -\sum_{i = 1}^{N_{T_n}}U_i = x +c\sum_{i = 1}^{n}\Delta T_{i-1} -\sum_{i = 1}^{n}U_i = x +\sum_{i = 1}^{n}(c\Delta T_{i-1} -U_i),\text{ }n\geq 0 .
 $$
 Il s'agit d'un marche aléatoire, identique à celle étudié dans la \cref{sec:ruin_discret}.
 \end{remark}
@@ -367,7 +391,7 @@ $$
 $$
 On peut alors considérer une suite $(t_n)_{n\geq 0}\in \Q$ tel que $t_n\downarrow t\in \RL$ puis passer à la limite 
 $$
-\kappa_{t_n}(\theta) = t_n\kappa(\theta)\text{ pour }t\in\Q.
+\kappa_{t_n}(\theta) = t_n\kappa(\theta)\text{ pour }t_n\in\Q.
 $$
 Tout cela est possible grâce à la continuité à droite des trajectoires du processus.
 \end{proof}
@@ -390,7 +414,7 @@ soit $s\leq t$, On a
 \end{proof}
 Cette martingale est très pratique pour résoudre des problèmes de premier passage pour des processus de Lévy, conjointement avec la propriété de Markov forte.
 \begin{theo}\label{theo:levy_strong_markov}
-Soit $\tau$ un temps d'arrêt tel que $\tau<\infty$ presque sûrement. Le processus $\tilde{X}$ défini par 
+Soit $\tau$ un temps d'arrêt borné. Le processus $\tilde{X}$ défini par 
 $$
 \tilde{X}_t = X_{\tau + t}-X_{\tau},t\geq 0,
 $$
@@ -474,4 +498,31 @@ $$
 
 \end{proof}
 Il s'agit d'un résultat fondateur de théorie de la ruine, voir l'ouvrage de référence de \citet{Asmussen2010} et l'application de la théorie de la fluctuation au processus de Cramer-Lundberg, voir \citet{Kyprianou2013}\footnote{\url{https://people.bath.ac.uk/ak257/GSZurich-Guanajuato.pdf}}. 
+\section{Annexe: Convergence des martingales en temps continu}\label{app:convergence_martingale_continu}
+L'hypothèse que les trajectoires des processus soient càdlàg est important pour pouvoir généraliser les résultats obtenus en temps discret au cas continu. On peut ainsi créer une des suites $(q_n)_{n\in\mathbb{N}}\in \Q_+$ tel que $q_n\rightarrow t$ et $X_{q_n}\rightarrow X_t$ presque sûrement. 
+\begin{theo}
+Si $X$ est une S-martingale bornée dans $L^1$ (c'est à dire $\underset{t\geq0}{\sup}\,\E(|X_t|)<\infty$) alors $(X_t)_{t\geq 0}$ converge presque sûrement vers une \va $X_\infty$ intégrable.
+\end{theo}
+\begin{proof}
+Soient $a,b\in \Q$, on note $M((X_{q})_{q\in \Q^+}, a, b) = \underset{S}{\sup}\, M((X_{q})_{q\in \Q^+}, a, b)$, où $S$ est l'ensemble des suites finies croissantes de $\Q^+$ le nombre de traversée montantes de l'intervalle $(a,b)$ du processus (à temps discret) $X_{q})_{q\in \Q^+}$. On a 
+$$
+(b-a)\E[M((X_{q})_{q\in \Q^+}, a, b)]\leq \underset{t\geq 0}{\sup}\,\E(|X_t|) + |a|, 
+$$
+puis $M((X_{q})_{q\in \Q^+}, a, b)<\infty$ presque sûrement. Si la trajectoire $t\mapsto X_t(\omega)$  n'a pas de limite dans $\bar{\mathbb{R}}$ lorsque $t\rightarrow \infty$ et comme $t\mapsto X_t(\omega)$ est continue à droite, il existe une suite de nombres rationnels $(q_n)_{n\in\mathbb{N}}$ telle que $q_n\rightarrow \infty$ et 
+$$
+\underset{n}{\liminf} X_{q_n}(\omega) <\underset{n}{\limsup} X_{q_n}(\omega).
+$$
+Il existe $a,b\in\Q_+$ tels que 
+$$
+\underset{n}{\liminf} X_{q_n}(\omega) \leq a<b\leq<\underset{n}{\limsup} X_{q_n}(\omega), 
+$$
+et donc $M((X_{q})_{q\in \Q^+}, a, b)(\omega)<\infty$ alors $\omega$ appartient à un senmbre de mesure nulle. Enfin la limite $X_\infty$ est intégrable et donc finie presque sûrement. En effet, pour tout suite $(t_n)_{n\geq 0}\in\mathbb{R}_+$ telle que $t_n\rightarrow +\infty$, on a 
+$$
+\E(|X_\infty|) =\E(\lim |X_{t_n}|) = \E(\liminf |X_{t_n}|)\leq \liminf\E( |X_{t_n}|)\leq \underset{t}{\sup}\E(|X_t|) <\infty.
+$$
+\end{proof}
+
+
+\bibliography{includes/calcul_sto_chap_II}
+\bibliographystyle{plainnat}
 \newpage

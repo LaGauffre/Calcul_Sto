@@ -1,0 +1,376 @@
+\documentclass[11pt, addpoints, answers]{exam}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin  = 1in]{geometry}
+\usepackage{amsmath, amscd, amssymb, amsthm, verbatim}
+\usepackage{mathabx}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{color}
+\usepackage{graphicx}   
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{tikz}
+
+\usetikzlibrary{shapes,arrows}
+%%%<
+\usepackage{verbatim}
+%%%>
+\usetikzlibrary{automata,arrows,positioning,calc}
+
+\usetikzlibrary{trees}
+
+\shadedsolutions
+
+\definecolor{SolutionColor}{RGB}{214,240,234}
+
+\newcommand{\bbC}{{\mathbb C}}
+\newcommand{\R}{\mathbb{R}}            % real numbers
+\newcommand{\bbR}{{\mathbb R}}
+\newcommand{\Z}{\mathbb{Z}}            % integers
+\newcommand{\bbZ}{{\mathbb Z}}
+\newcommand{\bx}{\mathbf x}            % boldface x
+\newcommand{\by}{\mathbf y}            % boldface y
+\newcommand{\bz}{\mathbf z}            % boldface z
+\newcommand{\bn}{\mathbf n}            % boldface n
+\newcommand{\br}{\mathbf r}            % boldface r
+\newcommand{\bc}{\mathbf c}            % boldface c
+\newcommand{\be}{\mathbf e}            % boldface e
+\newcommand{\bE}{\mathbb E}            % blackboard E
+\newcommand{\bP}{\mathbb P}            % blackboard P
+
+\newcommand{\ve}{\varepsilon}          % varepsilon
+\newcommand{\avg}[1]{\left< #1 \right>} % for average
+%\renewcommand{\vec}[1]{\mathbf{#1}} % bold vectors
+\newcommand{\grad}{\nabla }
+\newcommand{\lb}{\langle }
+\newcommand{\rb}{\rangle }
+
+\def\Bin{\operatorname{Bin}}
+\def\Var{\operatorname{Var}}
+\def\Geom{\operatorname{Geom}}
+\def\Pois{\operatorname{Pois}}
+\def\Exp{\operatorname{Exp}}
+\newcommand{\Ber}{\operatorname{Ber}}
+\def\Unif{\operatorname{Unif}}
+\def\No{\operatorname{N}}
+\newcommand{\E}{\mathbb E}            % blackboard E
+\def\th{\theta }            % theta shortcut
+\def\V{\operatorname{Var}}
+\def\Var{\operatorname{Var}}
+\def\Cov{\operatorname{Cov}}
+\def\Corr{\operatorname{Corr}}
+\newcommand{\epsi}{\varepsilon}            % epsilon shortcut
+
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert} %norm
+\providecommand{\abs}[1]{\left \lvert#1\right \rvert} %absolute value
+
+\DeclareMathOperator{\lcm}{lcm}
+\newcommand{\ds}{\displaystyle}	% displaystyle shortcut
+
+% Distributions.
+\newcommand*{\UnifDist}{\mathsf{Unif}}
+\newcommand*{\ExpDist}{\mathsf{Exp}}
+\newcommand*{\DepExpDist}{\mathsf{DepExp}}
+\newcommand*{\GammaDist}{\mathsf{Gamma}}
+\newcommand*{\LognormalDist}{\mathsf{LogNorm}}
+\newcommand*{\WeibullDist}{\mathsf{Weib}}
+\newcommand*{\ParetoDist}{\mathsf{Par}}
+\newcommand*{\NormalDist}{\mathsf{Normal}}
+
+\newcommand*{\GeometricDist}{\mathsf{Geom}}
+\newcommand*{\NegBinomialDist}{\mathsf{NegBin}}
+\newcommand*{\BinomialDist}{\mathsf{Bin}}
+\newcommand*{\PoissonDist}{\mathsf{Poisson}}
+\newcommand*{\Prob}{\mathbb{P}}
+% \newcommand*{\Cov}{\mathsf{Cov}}
+
+
+\def\semester{2024-2025}
+\def\course{Calcul Stochastique Appliqué}
+\def\title{\MakeUppercase{Examen final}}
+\def\name{Pierre-O Goffard}
+%\def\name{Professor Wildman}
+
+\setlength\parindent{0pt}
+
+\cellwidth{.35in} %sets the minimum width of the blank cells to length
+\gradetablestretch{2.5}
+
+%\bracketedpoints
+%\pointsinmargin
+%\pointsinrightmargin
+
+\begin{document}
+
+
+\runningheader{\course  \vspace*{.25in}}{}{\title \vspace*{.25in}}
+%\runningheadrule
+\runningfooter{}{Page \thepage\ of \numpages}{}
+
+% \firstpageheader{Name:\enspace\hbox to 2.5in{\hrulefill}\\  \vspace*{2em} Section: (circle one) TR: 3-3:50 \textbar\, TR: 5-5:50 \textbar\,  TR: 6-6:50(Xu) \textbar\,  TR: 6-6:50 }{}{Perm \#: \enspace\hbox to 1.5in{\hrulefill}\\ \vspace*{2em} Score:\enspace\hbox to .6in{\hrulefill} $/$\numpoints}
+\extraheadheight{.25in}
+
+\hrulefill
+
+\vspace*{1em}
+
+% Heading
+{\center \textsc{\Large\title}\\
+	\vspace*{1em}
+	\course -- \semester\\
+	Pierre-O Goffard\\
+}
+\vspace*{1em}
+
+\hrulefill
+
+\vspace*{2em}
+
+\noindent {\bf\em Instructions:} On éteint et on range son téléphone.
+\begin{itemize}
+	\item La calculatrice et les appareils éléctroniques ne sont pas autorisés.
+	\item Vous devez justifier vos réponses de manière claire et concise.
+	\item Vous devez écrire de la manière la plus lisible possible. Souligner ou encadrer votre réponse finale.
+	\item \underline{Document autorisé:} Une feuille manuscrite recto-verso
+
+\end{itemize}
+
+
+\begin{center}
+	\gradetable[h]
+\end{center}
+
+\smallskip
+
+\begin{questions}
+\question 
+\begin{parts}
+\part[1] Soit $(N_t)_{t\geq 0}$ un processus de Poisson d'intensité $\lambda>0$, calculer (en détaillant) 
+$$
+\text{Cov}(N_t, N_s),\text{ pour }s,t >0.
+$$ 
+\begin{solution}
+ Supposons $t> s$,
+\begin{eqnarray*}
+\text{Cov}(N_t, N_s)&=& \text{Cov}(N_t, N_s)\\
+&=&\text{Cov}(N_t-N_s +N_s, N_s)\\
+&=&\text{Cov}(N_t-N_s, N_s) + \text{Cov}(N_s, N_s)\\
+&=&0 + \lambda\cdot s.\\
+\end{eqnarray*}
+Si $s> t$, alors $\text{Cov}(N_t, N_s) = \lambda\cdot t$, on en déduit que 
+$$
+\text{Cov}(N_t, N_s) = \lambda\cdot s\land t
+$$
+\end{solution}
+\part[2] Soit $(B_t)_{t\geq 0}$ un mouvement Brownien. Montrer que le processus défini par 
+$$
+X_t =  t\cdot B_{1/t}, \text{ }t>0,
+$$
+est un mouvement brownien.
+\begin{solution}
+On montre qu'il s'agit d'un processus gaussien. Soient $t_1<t_2$ deux instants et $a_1, a_2\in \R$ alors 
+\begin{eqnarray*}
+a_1X_{t_1}+ a_2X_{t_2} &=&  a_1t_1B_{1/t_1}+ a_2t_2B_{1/t_2}\\
+&=&  a_1t_1(B_{1/t_1} - B_{1/t_2} + B_{1/t_2})+ a_2t_2B_{1/t_2}\\
+&=&  a_1t_1(B_{1/t_1} - B_{1/t_2})+ (a_1t_1+a_2t_2)B_{1/t_2}\\
+\end{eqnarray*}
+est une va gaussienne comme somme de va gaussiennes indépendantes. On note que 
+$$
+\E(X_t) = 0
+$$
+et pour $s < t $
+$$
+C(s,t) = Cov(X_s, X_t) = Cov(sB_{1/s}, tB_{1/t}) = ts \left(\frac 1s\land \frac1t\right) = s.
+$$
+On remarque que pour $t < s$, $C(s,t) = t$. $X_t$ est donc un processus gaussien dont la fonction de moyenne et de covariance sont identiques à celles du mouvement browninen. Il s'agit donc bien d'un mouvement brownien. 
+\end{solution}
+\end{parts}
+
+
+\question Soit $(B_t)_{t\geq 0}$ le mouvement Brownien et $(\mathcal{F}_t)_{t\geq 0}$ sa filtration. On définit le processus $Y_t$ par 
+$$
+Y_t = \mu\cdot t + \sigma\cdot B_t,
+$$
+avec $\mu, \sigma>0$.
+\begin{parts}
+% \part[2] Montrer que $(Y_t)_{t\geq 0}$ est un processus gaussien. Donner sa fonction moyenne et sa fonction de covariance.
+\part[2] Montrer que $(B_t)_{t\geq 0}$ est une $\mathcal{F}_t-$martingale (3 conditions à vérifier)
+\begin{solution}
+\begin{itemize}
+	\item[(i)] $(B_t)_{t\geq 0}$ est $\mathcal{F}_t-$adapté
+	\item[(ii)] On a 
+	$$
+	\mathbb{E}(|B_t|) = 2\mathbb{E}(B_t\mathbb{I}_{B_t>0}) = \sqrt{\frac{2t}{\pi}} <\infty\text{ pour tout }t>0.
+	$$ 
+	\item[(iii)] On a pour $s<t$
+	\begin{eqnarray*}
+	\mathbb{E}(B_t|\mathcal{F}_s) &=&\mathbb{E}(B_t-B_s+ B_s|\mathcal{F}_s)\\
+	&=&\mathbb{E}(B_t-B_s)+ \mathbb{E}(B_s|\mathcal{F}_s)\\
+&=&0+B_s = B_s.
+	\end{eqnarray*}
+\end{itemize}
+$(B_t)_{t\geq 0}$ est bien une $\mathcal{F}_t-$martingale.
+\end{solution}
+% \part[1] Montrer que 
+% $$
+% X_t  = B_t^2 - t
+% $$ 
+% est une martingale.
+% \begin{solution}
+% Voir le cours
+% \end{solution}
+\part[2] On définit le temps d'arrêt
+$$
+\tau_a = \inf\{t\geq 0\text{ ; }Y_t = a\}, \text{ pour }a>0,
+$$
+que l'on supposera borné. Calculer $\E(\tau_a)$ en appliquant le théorème du temps d'arrêt optionnel à une martingale bien choisie.
+\begin{solution}
+Voir le TD4
+\end{solution}
+% \part[2] Calculer $\mathbb{V}(\tau_a)$ en appliquant le théorème du temps d'arrêt optionnel à une martingale bien choisie.
+% \begin{solution}
+% Voir le TD4
+% \end{solution}
+\end{parts}
+\question Soit $(B_t)_{t\geq 0}$ le mouvement Brownien et 
+$$
+Z_t = \int_0^t B_s\text{d}s, \text{ }t\geq 0.
+$$
+\begin{parts}
+\part[2] En appliquant la formule d'Ito à $f(t,B_t) = t\cdot B_t$, montrer que $Z_t$ est une variable aléatoire gaussienne pour tout $t>0$.
+\begin{solution}
+Par application de la formule d'Ito à 
+$$
+f(t, B_t) = t\cdot B_t,
+$$
+il vient 
+$$
+\frac{\partial f}{\partial t} = B_t,\text{ }\frac{\partial f}{\partial x} = t\text{ et }\frac{\partial^2 f}{\partial x^2} = 0,
+$$
+puis
+$$
+\text{d}\left(t\cdot B_t\right) = \left(t\cdot B_t + 0 \cdot t + \frac{1}{2}\cdot 0 \right)\text{d}t + t\text{d}B_t.
+$$
+En intégrant entre $0$ et $t$, on obtient
+$$
+t\cdot B_t = \int_0^t B_s\text{d}s + \int_0^ts\text{d}B_s
+$$
+et finalement 
+$$
+\int_0^t B_s\text{d}s = t\cdot B_t - \int_0^t s \text{d}B_s.
+$$
+On ne peut pas conclure directement que $\int_0^t B_s\text{d}s$ est une variable aléatoire gaussienne car $t\cdot B_t$ et $\int_0^t s\text{d}B_s$ sont corrélées. Pour conclure, il faut écrire 
+$$
+\int_0^t B_s\text{d}s = t\int_0^t\text{d}B_s - \int_0^ts\text{d}B_s= \int_0^t(t-s)\text{d}B_s,
+$$
+qui est un va gaussienne pour tout $t\geq 0$.
+\end{solution}
+\part[2] Calculer $\mathbb{E}(Z_t)$ et $\mathbb{V}(Z_t)$.
+\begin{solution}
+On a
+$$
+\mathbb{E}(X_t)=0
+$$
+et 
+$$
+\mathbb{V}(X_t) = \int^t_0(s-t)^2\text{d}s = \frac{t^3}{3}.
+$$
+\end{solution}
+\end{parts}
+\question Soit $(X_t)_{t\geq 0}$ un processus de naissance-mort dont les taux de naissance et de mort sont donnés respectivement par 
+$$
+\lambda_{x-1} = \lambda\text{ et }\mu_{x} = x\cdot \mu,\text{ pour }x\geq 1.
+$$
+\begin{parts}
+\part[2] Déterminer la loi stationnaire du processus. 
+\begin{solution}
+Une loi réversible $(\pi_x)_{x\geq 0}$ existe si 
+$$
+S = \sum_{x\geq 1}\prod_{k = 1}
+^x\frac{\lambda_{x-1}}{\mu_x} <\infty
+$$
+On vérifie que 
+$$
+S = \sum_{x\geq 1}\frac{1}{x!}\left(\frac{\lambda}{\mu}\right)^x =(e^{\lambda/\mu} -1) <\infty.
+$$
+On en déduit que 
+$$
+\pi_0 = e^{-\lambda/\mu}\text{ et }\pi_x = \frac{e^{-\lambda/\mu}}{x!}\left(\frac{\lambda}{\mu}\right)^x.
+$$
+La loi de stationnaire est une loi de Poisson de paramètre $\lambda/\mu$
+\end{solution}
+\part[2] Donner sa moyenne et sa variance.  
+\begin{solution}
+Comme $X_{\infty}\sim\text{Pois}(\lambda/\mu)$ alors
+$$
+\mathbb{E}(X_{\infty}) = \mathbb{V}(X_{\infty}) = \lambda / \mu.
+$$
+\end{solution}
+\end{parts}
+\question[2] Soit $(\xi_i)_{i\geq 1}$ une suite de variables aléatoires \textit{i.i.d.} de loi 
+$$
+\mathbb{P}(\xi =1) = p\text{, et }\mathbb{P}(\xi =-1) = 1-p
+$$
+Soit $(Z_n)_{n\geq 0}$ la marche aléatoire sur $\mathbb{Z}$ définie par 
+$$
+Z_0 = 0,\text{ }Z_{n+1} = Z_n + \xi_{n+1},\text{ pour } n\geq 1,
+$$
+et $(\mathcal{F}_n)_{n\geq 0}$ sa filtration. Montrer que le processus défini par
+$$
+X_n = \left(\frac{1-p}{p}\right)^{Z_n},\text{ }n\geq 0
+$$
+est une $\mathcal{F}_n-$martingale (3 conditions à vérifier).
+\begin{solution}
+\begin{itemize}
+	\item[(i)] Comme $Z_n$ est $\mathcal{F}_n-$mesurable alors $X_n$ est $\mathcal{F}_n-$mesurable en tant que fonction continue de $Z_n$.
+	\item[(ii)] On a 
+	$$
+	\mathbb{E}(|X_n|) = \mathbb{E}\left[\left(\frac{1-p}{p}\right)^{Z_n}\right] = \mathbb{E}\left[\left(\frac{1-p}{p}\right)^{\xi_1}\right]^n = 1<\infty.
+	$$   
+	\item[(iii)] On a 
+	$$
+	\mathbb{E}(X_{n+1}|\mathcal{F}_n) = \mathbb{E}\left[X_{n} \cdot\left(\frac{1-p}{p}\right)^\xi_{n+1}|\mathcal{F}_n \right]  = X_n\cdot\mathbb{E}\left[\left(\frac{1-p}{p}\right)^\xi_{n+1})\right] = X_n.
+	$$
+\end{itemize}
+$(X_n)_{n\geq0}$ est bien une $\mathcal{F}_n-$martingale.
+\end{solution}
+\end{questions}
+%-------------------------------TABLE-------------------------------
+\newpage
+\hrule
+\vspace*{.15in}
+\begin{center}
+  \large\MakeUppercase{Formulaire}
+\end{center}
+\vspace*{.15in}
+\hrule
+\vspace*{.25in}
+
+\renewcommand\arraystretch{3.5}
+\begin{table}[H]
+\begin{center}
+\footnotesize
+\begin{tabular}{|c|c|c|c|c|c|}
+
+\hline
+Nom & abbrev. & Loi & $\E(X)$ & $\Var(X)$ & $\E\left(e^{tX}\right)$\\
+\hline\hline
+Binomial & $\Bin(n,p)$ & $\binom{n}{k}p^k(1-p)^{n-k},\text{ }k = 1,\ldots, n$ & $np$ & $np(1-p)$ & $[(1-p)+pe^t]^n$\\
+\hline
+Poisson & $\Pois(\lambda)$ & $e^{-\lambda}\dfrac{\lambda^k}{k!},\text{ }k\geq 0$ & $\lambda$ & $\lambda$ &$ \exp(\lambda(e^t-1))$\\
+\hline
+Geometric & $\Geom(p)$ & $(1-p)^{k-1}p,\text{ }k\geq 1$ & $\dfrac{1}{p}$ & $\dfrac{1-p}{p^2}$ & $\frac{pe^t}{1-(1-p)e^t}$ pour  $t<-\ln(1-p)$\\
+\hline
+Uniform & $\Unif(a,b)$ & $\begin{cases} \dfrac{1}{b-a} & a\leq t\leq b\\ 0 & \text{sinon}\end{cases}
+$ & $\dfrac{a+b}{2}$ & $\dfrac{(b-a)^2}{12}$ & $\frac{e^{tb}-e^{ta}}{t(b-a)}$\\
+\hline
+Exponential & $\Exp(\lambda)$ & $\begin{cases} \lambda e^{-\lambda t} & t\geq 0 \\ 0 & t<0\end{cases}$ & $\dfrac{1}{\lambda}$ & $\dfrac{1}{\lambda^2}$ & $\frac{\lambda}{\lambda -t}$ pour $t<\lambda$\\
+\hline
+Normal & $\No(\mu,\sigma^2)$ & $\left(\dfrac{1}{\sqrt{2\pi\sigma^2}}\right)\operatorname{exp}{\left(\dfrac{-(t-\mu)^2}{2\sigma^2}\right)}$ & $\mu$ & $\sigma^2$ & $e^{\mu t}e^{\sigma^2t^2/2}$\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}%
+
+\end{document}

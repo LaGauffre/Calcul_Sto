@@ -4,7 +4,9 @@
 %% Language and font encodings
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[square,sort&compress]{natbib}    
+\usepackage[square,sort&compress, sectionbib]{natbib}    
+% \usepackage[]{natbib}
+% \usepackage{chapterbib} 
 \usepackage{booktabs}
 \usepackage[french,english]{babel}
 %% Sets page size and margins
@@ -31,7 +33,7 @@
 	urlcolor        = magenta           % External links color
 ]{hyperref}
 \usepackage{algorithm}
-% \usepackage{algorithmic}
+\usepackage{chapterbib}
 \usepackage{algorithmicx}
 \usepackage{listings}
 \usepackage{algcompatible}
@@ -181,7 +183,7 @@
 \makeatother
 \begin{document}
 % \frontmatter
-\title{Calcul Stochastic appliqué\\
+\title{Calcul Stochastique appliqué\\
 [0.2em]\smaller{}M1 DUAS - Université de Strasbourg}
 \author{Pierre-O Goffard}
 
@@ -198,14 +200,7 @@
 \input{includes/chap_VI_financial_math}
 
 
-% \input{includes/introduction}
-% \input{includes/consensus_protocol}
-% \input{includes/security}
-% \input{includes/decentralization}
-% \input{includes/efficiency}
 
-\bibliography{calcul_sto}
-\bibliographystyle{plainnat}
 
 \end{document}
 

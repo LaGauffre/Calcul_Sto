@@ -1,67 +1,69 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\numberline {1}Marche aléatoire et Martingale à temps discret}{3}{chapter.1}%
-\contentsline {section}{\numberline {1.1}La marche aléatoire et le problème de la double dépense}{3}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Blockchain, cryptomonnaie et double dépense}{3}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}La marche aléatoire sur $\mathbb {Z}$}{5}{subsection.1.1.2}%
-\contentsline {subsection}{\numberline {1.1.3}Filtration, chaine de Markov et temps d'arrêt}{5}{subsection.1.1.3}%
-\contentsline {subsection}{\numberline {1.1.4}Loi invariante, récurrence et loi stationnaire}{11}{subsection.1.1.4}%
-\contentsline {section}{\numberline {1.2}Une marche aléatoire plus générale et le modèle de ruine à temps discret}{14}{section.1.2}%
+\contentsline {chapter}{\numberline {1}Marche aléatoire et Martingale à temps discret}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Le problème de ruine du parieur}{4}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}La marche aléatoire sur $\mathbb {Z}$}{4}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Filtration, chaine de Markov et temps d'arrêt}{5}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Loi invariante, récurrence et loi stationnaire}{11}{subsection.1.1.3}%
+\contentsline {section}{\numberline {1.2}Une marche aléatoire plus générale et le modèle de ruine à temps discret}{15}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}Définition}{15}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}Martingale à temps discret}{15}{subsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.2.3}Probabilité de ruine dans le modèle de risque à temps discret}{18}{subsection.1.2.3}%
-\contentsline {chapter}{\numberline {2}Processus et martingale en temps continu}{20}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Le modèle de ruine de Cramer-Lundberg}{20}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Généralités sur les processus en temps continu}{22}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Définitions}{22}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Propriétés fonctionnelles}{22}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Temps d'arrêt}{23}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Martingale}{24}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Processus de Lévy}{25}{section.2.5}%
-\contentsline {subsection}{\numberline {2.5.1}Définitions}{25}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Application à l'étude du processus de Cramer-Lundberg}{28}{subsection.2.5.2}%
-\contentsline {chapter}{\numberline {3}Chaine de Markov en temps continu}{30}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Definition}{30}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Propriétés}{31}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Le générateur infinitésimal}{34}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Comportement asymptotique}{38}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Processus de naissance-mort}{40}{section.3.5}%
-\contentsline {section}{\numberline {3.6}Théorie des files d'attente et loi de Little}{41}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Chaine de Markov subordonnée à un processus de Poisson}{43}{section.3.7}%
-\contentsline {section}{\numberline {3.8}Loi \textit {phase-type}}{45}{section.3.8}%
-\contentsline {chapter}{\numberline {4}Mouvement brownien}{49}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Un peu d'histoire}{49}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Définition}{51}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Le principe d'invariance et le lien avec la marche aléatoire sur $\mathbb {Z}$}{51}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Le mouvement Brownien en tant que processus gaussien}{52}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Propriétés}{55}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Transformation du mouvement brownien}{55}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Propriétés de Markov}{56}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Propriété de Martingale}{57}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Variante du mouvement Brownien et application}{59}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Le mouvement brownien avec dérive}{59}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Le mouvement brownien géométrique}{60}{subsection.4.4.2}%
-\contentsline {subsection}{\numberline {4.4.3}Le pont brownien}{60}{subsection.4.4.3}%
-\contentsline {chapter}{\numberline {5}Intégrale stochastique}{62}{chapter.5}%
-\contentsline {section}{\numberline {5.1}l'intégrale de Wiener}{62}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}L'espace $\mathcal {L}^2([0,T],\mathbb {R})$}{62}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Intégrale d'une fonction en escalier}{63}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Cas général}{64}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}L'intégrale de Wiener vue comme un processus gaussien}{65}{subsection.5.1.4}%
-\contentsline {section}{\numberline {5.2}L'intégrale d'Ito}{67}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Cas des processus étagés}{68}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Cas général}{68}{subsection.5.2.2}%
-\contentsline {section}{\numberline {5.3}Equation différentielle stochastique}{71}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Processus d'Ito et lemme d'Ito}{71}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Schéma d'Euler-Maruyama}{74}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}Changement de probabilité et théorème de Girsanov}{75}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Changement de probabilité}{75}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Theorème de Girsanov}{75}{subsection.5.4.2}%
-\contentsline {chapter}{\numberline {6}Applications en mathématique financière}{78}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Un premier modèle de mathématique financière}{78}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Notions de finance de marché}{78}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Le modèle binomial}{79}{subsection.6.1.2}%
-\contentsline {subsection}{\numberline {6.1.3}Le modèle de Cox-Ross-Rubinstein}{82}{subsection.6.1.3}%
-\contentsline {section}{\numberline {6.2}Le modèle de Black-Scholes-(Merton)}{86}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Le Set up}{86}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}La formule de Black-Scholes}{86}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}Interprétation via la probabilité risque-neutre}{88}{subsection.6.2.3}%
+\contentsline {section}{\numberline {1.3}Introduction aux mathématiques financières}{20}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Le modèle binomial}{20}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Le modèle de Cox-Ross-Rubinstein}{23}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}Annexes: Approximation normal dans le modèle de Cox-Rubinstein-Ross}{25}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Annexes: Blockchain, cryptomonnaie et double dépense}{26}{section.1.5}%
+\contentsline {section}{\numberline {1.6}Annexes: Convergence des Martingales}{28}{section.1.6}%
+\contentsline {chapter}{\numberline {2}Processus et martingale en temps continu}{33}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Le modèle de ruine de Cramer-Lundberg}{33}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Généralités sur les processus en temps continu}{35}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Définitions}{35}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Propriétés fonctionnelles}{36}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Temps d'arrêt}{36}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Martingale}{37}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Processus de Lévy}{38}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Définitions}{38}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Application à l'étude du processus de Cramer-Lundberg}{40}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}Annexe: Convergence des martingales en temps continu}{42}{section.2.6}%
+\contentsline {chapter}{\numberline {3}Chaine de Markov en temps continu}{44}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Definition}{44}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Propriétés}{45}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Le générateur infinitésimal}{47}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Comportement asymptotique}{52}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Processus de naissance-mort}{54}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Théorie des files d'attente et loi de Little}{55}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Chaine de Markov subordonnée à un processus de Poisson}{57}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Loi \textit {phase-type}}{58}{section.3.8}%
+\contentsline {chapter}{\numberline {4}Mouvement brownien}{63}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Un peu d'histoire}{63}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Définition}{65}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Le principe d'invariance et le lien avec la marche aléatoire sur $\mathbb {Z}$}{65}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Le mouvement Brownien en tant que processus gaussien}{66}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Propriétés}{69}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Transformation du mouvement brownien}{69}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Propriétés de Markov}{70}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Propriété de Martingale}{72}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Variante du mouvement Brownien et application}{74}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Le mouvement brownien avec dérive}{74}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Le mouvement brownien géométrique}{74}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Le pont brownien}{74}{subsection.4.4.3}%
+\contentsline {chapter}{\numberline {5}Intégrale stochastique}{77}{chapter.5}%
+\contentsline {section}{\numberline {5.1}l'intégrale de Wiener}{77}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}L'espace $\mathcal {L}^2([0,T],\mathbb {R})$}{77}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Intégrale d'une fonction en escalier}{78}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Cas général}{79}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}L'intégrale de Wiener vue comme un processus gaussien}{80}{subsection.5.1.4}%
+\contentsline {section}{\numberline {5.2}L'intégrale d'Ito}{81}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Cas des processus étagés}{82}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Cas général}{82}{subsection.5.2.2}%
+\contentsline {section}{\numberline {5.3}Equation différentielle stochastique}{85}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Processus d'Ito et lemme d'Ito}{85}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Schéma d'Euler-Maruyama}{88}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}Changement de probabilité et théorème de Girsanov}{88}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Changement de probabilité}{88}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Theorème de Girsanov}{89}{subsection.5.4.2}%
+\contentsline {section}{\numberline {5.5}Application aux maths-fi: Le modèle de Black-Scholes-(Merton)}{90}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}Le Set up}{90}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}La formule de Black-Scholes}{91}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Interprétation via la probabilité risque-neutre}{93}{subsection.5.5.3}%
+\contentsline {section}{\numberline {5.6}Annexe: Espace Gaussien}{94}{section.5.6}%

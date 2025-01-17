@@ -72,7 +72,7 @@ On a bien $\E(\xi)=0$ et $\V(\xi) = 1$. Soit $(X_t)_{t\geq 0}$ défini par
 $$
 X_t = \begin{cases}
 Z_t,&\text{ si }t\in \N\\
-Z_{\lfloor t\rfloor} + \xi_{\lfloor t\rfloor}(t-\lfloor t\rfloor),&\text{ sinon.}
+Z_{\lfloor t\rfloor} + \xi_{\lfloor t\rfloor +1 }(t-\lfloor t\rfloor),&\text{ sinon.}
 \end{cases}  
 $$ 
 La version normalisée du processus 
@@ -86,12 +86,12 @@ $$
 et 
 \begin{eqnarray*}
 \V(X_t^{(n)}) &=& \V\left(\frac{X_{tn}}{\sqrt{n}}\right)\\
-&=& \frac{\V(Z_{\lfloor tn\rfloor})}{n}+\frac{\V(\xi_{\lfloor tn\rfloor +1})}{n}(tn-\lfloor tn\rfloor)\\
-&=&\frac{\lfloor tn\rfloor}{n}+\frac{1}{n}(tn-\lfloor tn\rfloor) =  t
+&=& \frac{\V(Z_{\lfloor tn\rfloor})}{n}+\frac{\V(\xi_{\lfloor tn\rfloor +1})}{n}(tn-\lfloor tn\rfloor)^2\\
+&=&\frac{\lfloor tn\rfloor}{n}+\frac{1}{n}(tn-\lfloor tn\rfloor)^2\rightarrow  t\text{ pour }n\rightarrow \infty.
 \end{eqnarray*}
 L'application du théorème centrale limite permet de montrer que 
 $$
-X_t^{(n)}\overset{\mathcal{D}}{\rightarrow}\NormalDist(0,t),\text{ lorsque }t\rightarrow \infty.
+X_t^{(n)}\overset{\mathcal{D}}{\rightarrow}\NormalDist(0,t),\text{ lorsque }n\rightarrow \infty.
 $$
 La propriété de Markov forte de la marche aléatoire permet d'établir l'indépendance des incréments du processus $X_t^{(n)}$. 
 \end{ex}
@@ -121,9 +121,9 @@ X = (X_1\text{ }\ldots\text{ } X_n) \sim\text{M-}\NormalDist(\mu,\Sigma)
 $$
 On procède en trois étapes
 \begin{enumerate}
-  \item Trouver une matrice $A$ telle que $A \,^tA = \Sigma$ (via une décomposition de Cholesky\footnote{\url{https://en.wikipedia.org/wiki/Cholesky_decomposition}} par exemple)
+  \item Trouver une matrice $A$ telle que $A \,^tA = \Sigma$ (via une décomposition de Cholesky\footnote{\url{https://en.wikipedia.org/wiki/Cholesky_decomposition}}. par exemple). $\Sigma$ est une matrice symétrique semi-définie positive.
   \item Simuler $Z_1,\ldots, Z_n\overset{\text{\iid}}{\sim}\NormalDist(0,1)$
-  \item Poser $X = \mu + AZ$
+  \item Poser $X = \mu + AZ$, on peut vérifier que la matrice de variance-covariance est bien $\Sigma$\footnote{Il faut utiliser les propriétés de la covariance entre deux vecteurs aléatoires, voir par exemple \url{https://en.wikipedia.org/wiki/Covariance}}
 \end{enumerate}
 \end{remark}
 \begin{ex}\label{ex:conditional_distribution_Bt}
@@ -173,7 +173,7 @@ Le mouvement Brownien est un cas particulier de processus gaussien.
 \begin{definition}
 Le processus $(X_t)_{t\geq 0}$ est un processus gaussien si pour tout $n\in\N$, $t_1,\ldots, t_n\in \RL_+$ le vecteur
 $$
-(\begin{array}{ccc}X_{t_1}\ldots &X_{t_n}\end{array})
+(\begin{array}{ccc}X_{t_1}&\ldots &X_{t_n}\end{array})
 $$
 suit une loi normale multivarié. Le processus gaussien est caractérisé par 
 \begin{itemize}
@@ -201,10 +201,11 @@ Soit $(B_t)_{t\geq0}$ un mouvement brownien. Considérons des instants $t_1<\ldo
 $$
 a_1B_{t_1}+\ldots + a_n B_{t_n} = (a_1+\ldots + a_n)B_{t_1}+(a_2+\ldots + a_n)(B_{t_2}-B_{t_1)}+\ldots+(a_{n-1}+ a_{n})(B_{t_{n-1}}- B_{t_{n-2}})+ a_k(B_{t_n}- B_{t_{n-1}}).
 $$
-Les $B_{t_i}- B_{t_{i-1}}$ sont des variables aléatoires gaussiennes indépendantes donc leur combinaisons linéaires également. \\
-
-$(i)\Rightarrow (ii)$ \\
-Commençons par calculer la fonction de covariance du mouvement brownien $B$. On a 
+Les $B_{t_i}- B_{t_{i-1}}$ sont des variables aléatoires gaussiennes indépendantes donc leur combinaisons linéaires également. On note que 
+$$
+m(t) = \E(B_t) = 0
+$$
+La fonction de covariance du mouvement brownien $B$ est donnée par
 $$\Cov(B_t, B_s) = \E(B_sB_t)$$
 pour $s,t>0$. Supposons que $t>s$, il vient 
 \begin{eqnarray*}
@@ -218,7 +219,8 @@ Si $s<t$ alors $\E(B_sB_t) = t$ par symétrie. On en déduit que
 $$
 \Cov(B_t, B_s) = t\land s.
 $$
-Soit un processus brownien $B:=(B_t)_{t\geq 0}$, tel que $B_0 = 0$, est un processus gaussien de fonction de moyenne $m(t) = 0$ et de fonction de covariance $C(s,t) = s\land t$ pour tout $s,t\geq 0$. Nous devons vérifier que ce processus est à accroissements stationnaires et indépendants. Comme $B$ est un processus gaussien alors $B_{t+s}- B_t$ suit une loi normale de moyenne 
+$(ii)\Rightarrow (i)$
+Soit $B:=(B_t)_{t\geq 0}$ un processus gaussien, tel que $B_0 = 0$, de fonction de moyenne $m(t) = 0$ et de fonction de covariance $C(s,t) = s\land t$ pour tout $s,t\geq 0$. Nous devons vérifier que ce processus est à accroissements stationnaires et indépendants. Comme $B$ est un processus gaussien alors $B_{t+s}- B_t$ suit une loi normale de moyenne 
 $$
 \E(B_{t+s}- B_t) =\E(B_{t+s})- \E(B_t) = 0
 $$
@@ -248,6 +250,7 @@ Les processus gaussiens sont des outils très utiles en apprentissage statistiqu
   \item Pour prédire des taux de mortalité voir \citet{Huynh2021} et \citet{Wu2018},
   \item Pour le provisionnement voir \citet{Ludkovski2022}.
 \end{itemize}
+Pour des explications sur la regression par processus gaussien, voir \url{https://arxiv.org/html/2009.10862v5}
 \end{remark}
 \section{Propriétés}
 \subsection{Transformation du mouvement brownien}
@@ -255,14 +258,14 @@ Les processus gaussiens sont des outils très utiles en apprentissage statistiqu
 Si $B$ est un mouvement brownien alors les processus définis par 
 \begin{enumerate}
   \item $-B_t$
-  \item $\frac{B_{c^2 t}}{c}$
-  \item $t B_{1/t}$ 
-  \item $B_{t+s}-B_s$ pour tout $s\geq 0$
+  \item $\frac{B_{c^2 t}}{c}$, pour $c\neq 0$,
+  \item $t B_{1/t}$, pour $t> 0$,
+  \item $B_{t+s}-B_s$ pour tout $s\geq 0$,
 \end{enumerate}
 sont aussi des mouvements browniens.
 \end{prop}
 \begin{proof}
-Ces processus sont des processus gaussien, il suffit alors de vérifier que la fonction de moyenne et de covariance vérifient respectivement
+Ces processus sont des processus gaussiens, il suffit alors de vérifier que la fonction de moyenne et de covariance vérifient respectivement
 $$
 m(t) = 0,\text{ et }C(s,t)=s\land t,\text{ pour }s,t\geq 0.
 $$
@@ -323,9 +326,13 @@ $$
 \end{prop}
 \begin{proof}
 Par la propriété de Markov forte le processus $B_{t+\tau_a}-a$ est un mouvement brownien. On en déduit que 
-$$
-\Prob(B_t > a | \tau_a < t) = \Prob(B_t - B_{\tau_a} > 0 | \tau_a < t) =\Prob(B_t >0) = 1/2
-$$
+\begin{eqnarray*}
+\Prob(B_t > a | \tau_a < t) &=& \Prob(B_t - B_{\tau_a} > 0 | \tau_a < t)\\
+&=&\frac{ \E(\mathbb{I}_{B_t - B_{\tau_a} > 0}\mathbb{I}_{\tau_a < t})}{\Prob(\tau_a < t)}\\
+&=&\E\left[\int_0^t\mathbb{I}_{B_t - B_{s} > 0}f_{\tau_a}(s)\text{d}s\right]/ \Prob(\tau_a < t)\\
+&=&\int_0^t\Prob(B_t - B_{s} > 0)f_{\tau_a}(s)\text{d}s/ \Prob(\tau_a < t)\\
+&=&\int_0^t\frac{1}{2}f_{\tau_a}(s)\text{d}s/ \Prob(\tau_a < t) = \frac{1}{2}
+\end{eqnarray*}
 car le processus à partir du temps $\tau_a$ se comporte comme un mouvement brownien qui aurrait initialisé au niveau $a$. On note que 
 $$
 \Prob(B_t > a | \tau_a < t) = \frac{\Prob(B_t>a)}{\Prob(\tau_a <t)}
@@ -334,9 +341,9 @@ puis
 \begin{eqnarray*}
 \Prob(\tau_a <t) &=&2\Prob(B_t>a)\\
  &=&2\Prob(B_t / \sqrt{t} >a/\sqrt{t})\\
- &=&2(1-\phi(a/\sqrt{t}))
+ &=&2(1-\phi(a/\sqrt{t})),
 \end{eqnarray*}
-On obtient la densité en dérivant par rapport à t.
+où $\phi$ est la fonction de répartition de la loi normale centrée-réduite. On obtient la densité en dérivant par rapport à t.
 \end{proof}
 
 \subsection{Propriété de Martingale}
@@ -456,7 +463,7 @@ Le processus $(\tilde{B}_t)_{t\geq 0}$ est le processus réfléchi en $a$ à par
 \caption{Une trajectoire du mouvement brownien $(B_t)_{t\geq 0}$ et de son processus réfléchi $(\tilde{B}_t)_{t\geq0}$.}
 \label{fig:trajectory_reflected_bm}
 \end{figure}
-La \cref{fig:trajectory_reflected_bm} montre la bijection entre les trajectoires de $B_t$ qui vont du niveau $a$ au niveau $b$ et celles qui vont de $a$ à $2a - b$ entre $\tau_a$ et $t$. Le processus réfléchi à partir de $\tau_a$ se comporte comme un mouvement brownien issu de $a$ après $\tau_a$. On a 
+La \cref{fig:trajectory_reflected_bm} montre la bijection entre les trajectoires de $B_t$ qui vont du niveau $a$ au niveau $b$ et celles qui vont de $a$ à $2a - b$ entre $\tau_a$ et $t$. Le processus réfléchi à partir de $\tau_a$ se comporte comme un mouvement brownien issu de $a$ après $\tau_a$. Les processus $B_t$ et $\tilde{B}_t$ ont exactement la même loi de probabilité. Cela permet d'écrire
 \begin{eqnarray*}
 \Prob(\tau_a\leq t, B_t \leq  b)&=&\Prob(\tau_a\leq t, \tilde{B}_t \geq  2a-b)\\
 &=&\Prob(\tau_a\leq t, B_t \geq  2a-b)\\
@@ -499,50 +506,47 @@ est le mouvement brownien géométrique.
 \end{definition}
 Le mouvement brownien géométrique est utilisé pour modéliser le prix des actifs financier. Il est toujours positif et conduit à des rendements $S_t/S_{t-1}$ \iid de loi lognormal, ce qui signifie que les log rendements vérifient 
 $$
-\log \left(\frac {S_t }{S_{t-1}}\right)\sim\NormalDist(\mu, \sigma).
+\log \left(\frac {S_t }{S_{t-1}}\right)\sim\NormalDist(\mu, \sigma^2).
 $$ 
 \subsection{Le pont brownien}
 \begin{definition}
 Soit $(B_t)_{t\geq 0}$ un mouvement brownien. Le processus 
 $$
-X_t = B_t| B_1 = 0\text{ pour }0\leq t\leq 1,
+X_t = B_t - tB_1\text{ pour }0\leq t\leq 1,
 $$
 est un pont brownien. 
 \end{definition}
-Le pont brownien est un processus gaussien. En effet, 
-$$
-B_t|B_1 = 0\sim \NormalDist\left(0, t(1-t)\right)
-$$
-La fonction de moyenne est donnée par
-$$
-m(t) = 0.
-$$
-La fonction de covariance, pour $s< t$ est donnée par 
-\begin{eqnarray*}
-C(s,t)&=&\Cov(X_s, X_t)\\
-&=&\E(X_s X_t)\\
-&=&\E(B_s B_t|B_1 = 0)\\
-&=&\E(\E(B_s B_t|B_t)|B_1 = 0)\\
-&=&\E(B_t\E(B_s |B_t)|B_1 = 0)\\
-&=&\E\left(B_t\frac{s}{t}B_t|B_1 = 0\right)\\
-&=&\frac{s}{t}\E\left(B_t^2|B_1 = 0\right)\\
-&=&\frac{s}{t}t(1-t)\\
-&=&s-st\\
-\end{eqnarray*}
-par symétrie $C(s,t) = t-st$ si $t<s$. On en déduit que 
-$$
-C(s,t) = s\land t - st
-$$
+% Le pont brownien est un processus gaussien. En effet, 
+% $$
+% B_t|B_1 = 0\sim \NormalDist\left(0, t(1-t)\right)
+% $$
+% La fonction de moyenne est donnée par
+% $$
+% m(t) = 0.
+% $$
+% La fonction de covariance, pour $s< t$ est donnée par 
+% \begin{eqnarray*}
+% C(s,t)&=&\Cov(X_s, X_t)\\
+% &=&\E(X_s X_t)\\
+% &=&\E(B_s B_t|B_1 = 0)\\
+% &=&\E(\E(B_s B_t|B_t)|B_1 = 0)\\
+% &=&\E(B_t\E(B_s |B_t)|B_1 = 0)\\
+% &=&\E\left(B_t\frac{s}{t}B_t|B_1 = 0\right)\\
+% &=&\frac{s}{t}\E\left(B_t^2|B_1 = 0\right)\\
+% &=&\frac{s}{t}t(1-t)\\
+% &=&s-st\\
+% \end{eqnarray*}
+% par symétrie $C(s,t) = t-st$ si $t<s$. On en déduit que 
+% $$
+% C(s,t) = s\land t - st
+% $$
 \begin{prop}
-Le processus défini par 
-$$
-X_t = B_t - tB_1,\text{ }0\leq t\leq 1,
-$$
-est un pont brownien.
+Le pont brownien est un processus gaussien de fonction de moyenne $m(t) = 0$ et de fonction de covariance $C(s,t) = s\land t - ts$.
 \end{prop}
 \begin{proof}
-On montre que $X_t$ est un processus gaussien dont la fonction de moyenne et de covariance est la même que celle du pont brownien. 
+Voir TD 4 exo 2.
 \end{proof}
+On note que $X_0 = X_1 = 0$ et que $\mathbb{V}(X_t) = t - t^2$ (voir TD4 exo 2).
 \begin{ex}
 Le pont brownien apparait dans le test d'adéquation à la loi uniforme de Kolmogorv-Smirnov. Supposons que nous soyons en présence d'un échantillon $U_1,\ldots, U_n$ d'observation comprise entre $0$ et $1$. Nous souhaitons tester l'adéquation de la loi $\UnifDist([0,1])$. Nous comparons donc la fonction de répartition empirique 
 $$
@@ -562,3 +566,63 @@ X_t\sim\NormalDist(0, t(1-t)),\text{ pour }n\rightarrow \infty.
 $$
 de plus $X_0 = 0$ et $X_1 = 0$. On peut montrer que le $X_t$ converge effectivement vers un pont brownien en utilisant le principe d'invariance de Donsker. Le test repose alors sur la loi de $\sup_{0\leq t\leq 1} X_t$, le maximum atteint par le pont brownien.
 \end{ex}
+
+\begin{thebibliography}{8}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Dobrow(2016)]{Dobrow2016}
+Robert~P. Dobrow.
+\newblock \emph{Introduction to Stochastic Processes With R}.
+\newblock John Wiley {\&} Sons, Inc, mar 2016.
+\newblock \doi{10.1002/9781118740712}.
+
+\bibitem[Donsker(1951)]{Donsker1951}
+Monroe~D. Donsker.
+\newblock An invariance principle for certain probability limit theorems.
+\newblock \emph{Mem. Amer. Math. Soc.}, 6:\penalty0 12, 1951.
+\newblock ISSN 0065-9266.
+
+\bibitem[Gall(2012)]{Gall2012}
+Jean-Francois~Le Gall.
+\newblock \emph{Mouvement brownien, martingales et calcul stochastique}.
+\newblock Springer-Verlag GmbH, September 2012.
+\newblock ISBN 9783642318986.
+\newblock URL
+  \url{https://www.ebook.de/de/product/19950852/jean_francois_le_gall_mouvement_brownien_martingales_et_calcul_stochastique.html}.
+
+\bibitem[Huynh and Ludkovski(2021)]{Huynh2021}
+Nhan Huynh and Mike Ludkovski.
+\newblock Multi-output gaussian processes for multi-population longevity
+  modelling.
+\newblock \emph{Annals of Actuarial Science}, pages 1--28, may 2021.
+\newblock \doi{10.1017/s1748499521000142}.
+
+\bibitem[Jeanblanc(2006)]{MJB06}
+Monique Jeanblanc.
+\newblock Cours de calcul stochastique master 2if evry.
+\newblock lecture notes, 2006.
+\newblock
+  \url{https://www.maths.univ-evry.fr/pages_perso/jeanblanc/cours/M2_cours.pdf}.
+
+\bibitem[Le~Gall(2006)]{LeGall2006}
+Jean-Fran{\c{c}}ois Le~Gall.
+\newblock \emph{Int{\'e}gration, probabilit{\'e}s et processus al{\'e}atoires}.
+\newblock Ecole Normale Sup{\'e}rieure de Paris, 2006.
+
+\bibitem[Ludkovski and Zail(2022)]{Ludkovski2022}
+Michael Ludkovski and Howard Zail.
+\newblock Gaussian process models for incremental loss ratios.
+\newblock \emph{Variance}, 15\penalty0 (1), 3 2022.
+
+\bibitem[Wu and Wang(2018)]{Wu2018}
+Ruhao Wu and Bo~Wang.
+\newblock Gaussian process regression method for forecasting of mortality
+  rates.
+\newblock \emph{Neurocomputing}, 316:\penalty0 232--239, nov 2018.
+\newblock \doi{10.1016/j.neucom.2018.08.001}.
+
+\end{thebibliography}

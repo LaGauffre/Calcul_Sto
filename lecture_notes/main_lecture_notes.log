@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.10.23)  10 APR 2023 20:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.9.27)  6 JAN 2025 16:10
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  %&-line parsing enabled.
 **main_lecture_notes.tex
 (./main_lecture_notes.tex
@@ -412,38 +412,42 @@ Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 \@float@every@algorithm=\toks28
 \c@algorithm=\count309
 )
+(/usr/local/texlive/2022/texmf-dist/tex/latex/cite/chapterbib.sty
+\c@inputfile=\count310
+Package: chapterbib 2010/09/18  v 1.17
+)
 (/usr/local/texlive/2022/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count310
-\c@ALG@rem=\count311
-\c@ALG@nested=\count312
+\c@ALG@line=\count311
+\c@ALG@rem=\count312
+\c@ALG@nested=\count313
 \ALG@tlm=\skip60
 \ALG@thistlm=\skip61
-\c@ALG@Lnr=\count313
-\c@ALG@blocknr=\count314
-\c@ALG@storecount=\count315
-\c@ALG@tmpcounter=\count316
+\c@ALG@Lnr=\count314
+\c@ALG@blocknr=\count315
+\c@ALG@storecount=\count316
+\c@ALG@tmpcounter=\count317
 \ALG@tmplength=\skip62
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count317
+\lst@mode=\count318
 \lst@gtempboxa=\box54
 \lst@token=\toks29
-\lst@length=\count318
+\lst@length=\count319
 \lst@currlwidth=\dimen193
-\lst@column=\count319
-\lst@pos=\count320
+\lst@column=\count320
+\lst@pos=\count321
 \lst@lostspace=\dimen194
 \lst@width=\dimen195
-\lst@newlines=\count321
-\lst@lineno=\count322
+\lst@newlines=\count322
+\lst@lineno=\count323
 \lst@maxwidth=\dimen196
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count323
-\lst@skipnumbers=\count324
+\c@lstnumber=\count324
+\lst@skipnumbers=\count325
 \lst@framebox=\box55
 )
 (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.cfg
@@ -503,14 +507,14 @@ ode.tex
 \pgf@yd=\dimen264
 \w@pgf@writea=\write3
 \r@pgf@reada=\read3
-\c@pgf@counta=\count325
-\c@pgf@countb=\count326
-\c@pgf@countc=\count327
-\c@pgf@countd=\count328
+\c@pgf@counta=\count326
+\c@pgf@countb=\count327
+\c@pgf@countc=\count328
+\c@pgf@countd=\count329
 \t@pgf@toka=\toks34
 \t@pgf@tokb=\toks35
 \t@pgf@tokc=\toks36
-\pgf@sys@id@count=\count329
+\pgf@sys@id@count=\count330
 
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
@@ -528,8 +532,8 @@ File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
 code.tex
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfsyssoftpath@smallbuffer@items=\count330
-\pgfsyssoftpath@bigbuffer@items=\count331
+\pgfsyssoftpath@smallbuffer@items=\count331
+\pgfsyssoftpath@bigbuffer@items=\count332
 )
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
 code.tex
@@ -558,7 +562,7 @@ Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen265
-\pgfmath@count=\count332
+\pgfmath@count=\count333
 \pgfmath@box=\box57
 \pgfmath@toks=\toks37
 \pgfmath@stack@operand=\toks38
@@ -583,7 +587,7 @@ code.tex)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
 erarithmetics.code.tex)))
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count333
+\c@pgfmathroundto@lastzeros=\count334
 )) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfint.code.tex)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
 de.tex
@@ -621,7 +625,7 @@ File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfpic=\box58
 \pgf@hbox=\box59
 \pgf@layerbox@main=\box60
-\pgf@picture@serial@count=\count334
+\pgf@picture@serial@count=\count335
 )
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
 ate.code.tex
@@ -656,8 +660,8 @@ File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 e.tex
 File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@max=\dimen289
-\pgf@sys@shading@range@num=\count335
-\pgf@shadingcount=\count336
+\pgf@sys@shading@range@num=\count336
+\pgf@shadingcount=\count337
 )
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
 e.tex
@@ -724,7 +728,7 @@ Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@plot@mark@count=\count337
+\pgf@plot@mark@count=\count338
 \pgfplotmarksize=\dimen294
 )
 \tikz@lastx=\dimen295
@@ -739,19 +743,19 @@ File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \tikz@figbox@bg=\box64
 \tikz@tempbox=\box65
 \tikz@tempbox@bg=\box66
-\tikztreelevel=\count338
-\tikznumberofchildren=\count339
-\tikznumberofcurrentchild=\count340
-\tikz@fig@count=\count341
+\tikztreelevel=\count339
+\tikznumberofchildren=\count340
+\tikznumberofcurrentchild=\count341
+\tikz@fig@count=\count342
 
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
 e.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfmatrixcurrentrow=\count342
-\pgfmatrixcurrentcolumn=\count343
-\pgf@matrix@numberofcolumns=\count344
+\pgfmatrixcurrentrow=\count343
+\pgfmatrixcurrentcolumn=\count344
+\pgf@matrix@numberofcolumns=\count345
 )
-\tikz@expandcount=\count345
+\tikz@expandcount=\count346
 
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytopaths.code.tex
@@ -759,15 +763,15 @@ File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
 (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count346
-\calc@Bcount=\count347
+\calc@Acount=\count347
+\calc@Bcount=\count348
 \calc@Adimen=\dimen303
 \calc@Bdimen=\dimen304
 \calc@Askip=\skip63
 \calc@Bskip=\skip64
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count348
+\calc@Ccount=\count349
 \calc@Cskip=\skip65
 )
 (/usr/local/texlive/2022/texmf-dist/tex/latex/pgfplots/pgfplots.sty
@@ -779,8 +783,8 @@ Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 \t@pgfplots@tokb=\toks43
 \t@pgfplots@tokc=\toks44
 \pgfplots@tmpa=\dimen305
-\c@pgfplots@coordindex=\count349
-\c@pgfplots@scanlineindex=\count350
+\c@pgfplots@coordindex=\count350
+\c@pgfplots@scanlineindex=\count351
 
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric
 .code.tex))
@@ -798,13 +802,13 @@ liststructure.code.tex)
 liststructureext.code.tex)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
 array.code.tex
-\c@pgfplotsarray@tmp=\count351
+\c@pgfplotsarray@tmp=\count352
 )
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
 matrix.code.tex)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
 shared.code.tex
-\c@pgfplotstable@counta=\count352
+\c@pgfplotstable@counta=\count353
 \t@pgfplotstable@a=\toks45
 )
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
@@ -817,7 +821,7 @@ ta.code.tex))
 .code.tex)
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplot
 s.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count353
+\c@pgfplotslibrarysurf@no=\count354
 
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots
 .surfshading.pgfsys-pdftex.def)))
@@ -854,7 +858,7 @@ s.code.tex
 \pgfdecoratedinputsegmentcompleteddistance=\dimen308
 \pgfdecoratedinputsegmentremainingdistance=\dimen309
 \pgf@decorate@distancetomove=\dimen310
-\pgf@decorate@repeatstate=\count354
+\pgf@decorate@repeatstate=\count355
 \pgfdecorationsegmentamplitude=\dimen311
 \pgfdecorationsegmentlength=\dimen312
 )
@@ -870,7 +874,7 @@ s/tikzlibrarydecorations.pathreplacing.code.tex
 brarydecorations.pathreplacing.code.tex))
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplo
 ts.contourlua.code.tex)
-\pgfplots@numplots=\count355
+\pgfplots@numplots=\count356
 \pgfplots@xmin@reg=\dimen313
 \pgfplots@xmax@reg=\dimen314
 \pgfplots@ymin@reg=\dimen315
@@ -901,12 +905,12 @@ Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
 (/usr/local/texlive/2022/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2022/01/29 v0.5u Pdfpages driver for pdfTeX (AM)
 )
-\pdfpages@includegraphics@status=\count356
+\pdfpages@includegraphics@status=\count357
 \AM@pagebox=\box68
 \AM@global@opts=\toks46
-\AM@pagecnt=\count357
+\AM@pagecnt=\count358
 \AM@toc@title=\toks47
-\c@AM@survey=\count358
+\c@AM@survey=\count359
 \AM@templatesizebox=\box69
 )
 (/usr/local/texlive/2022/texmf-dist/tex/generic/tikzducks/tikzducks.sty
@@ -917,7 +921,7 @@ Package: expl3 2022-02-24 L3 programming layer (loader)
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count359
+\l__color_backend_stack_int=\count360
 \l__pdf_internal_box=\box70
 ))
 (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
@@ -1036,7 +1040,7 @@ File: tikzlibraryautomata.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 s/tikzlibrarymatrix.code.tex
 File: tikzlibrarymatrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )
-\c@algorithmicH=\count360
+\c@algorithmicH=\count361
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/kpfonts/kpfonts.sty
 Package: kpfonts  2010/08/20 v3.31
@@ -1045,10 +1049,10 @@ Package: kpfonts  2010/08/20 v3.31
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 LaTeX Font Info:    Changing ? sub-encoding to TS1/0 on input line 78.
 )
-\c@mv@rm=\count361
-\c@mv@boldrm=\count362
-\c@mv@sf=\count363
-\c@mv@boldsf=\count364
+\c@mv@rm=\count362
+\c@mv@boldrm=\count363
+\c@mv@sf=\count364
+\c@mv@boldsf=\count365
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 354.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/jkp/m/n on input line 354.
@@ -1343,18 +1347,18 @@ Package: microtype 2022/03/14 v3.0d Micro-typographical refinements (RS)
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count365
+\etb@tempcnta=\count366
 )
 \MT@toks=\toks48
 \MT@tempbox=\box91
-\MT@count=\count366
+\MT@count=\count367
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1027.
 LaTeX Info: Redefining \leftprotrusion on input line 1028.
 LaTeX Info: Redefining \rightprotrusion on input line 1036.
 LaTeX Info: Redefining \textls on input line 1195.
 \MT@outer@kern=\dimen325
 LaTeX Info: Redefining \textmicrotypecontext on input line 1781.
-\MT@listname@count=\count367
+\MT@listname@count=\count368
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/microtype/microtype-pdftex.def
 File: microtype-pdftex.def 2022/03/14 v3.0d Definitions specific to pdftex (RS)
@@ -1370,14 +1374,14 @@ File: microtype.cfg 2022/03/14 v3.0d microtype main configuration file (RS)
 ))
 (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
-\c@tracingmulticols=\count368
+\c@tracingmulticols=\count369
 \mult@box=\box92
 \multicol@leftmargin=\dimen326
-\c@unbalance=\count369
-\c@collectmore=\count370
-\doublecol@number=\count371
-\multicoltolerance=\count372
-\multicolpretolerance=\count373
+\c@unbalance=\count370
+\c@collectmore=\count371
+\doublecol@number=\count372
+\multicoltolerance=\count373
+\multicolpretolerance=\count374
 \full@width=\dimen327
 \page@free=\dimen328
 \premulticols=\dimen329
@@ -1427,32 +1431,32 @@ Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
 \@tempa=\box132
 \@tempa=\box133
 \@tempa=\box134
-\c@minrows=\count374
-\c@columnbadness=\count375
-\c@finalcolumnbadness=\count376
+\c@minrows=\count375
+\c@columnbadness=\count376
+\c@finalcolumnbadness=\count377
 \last@try=\dimen332
 \multicolovershoot=\dimen333
 \multicolundershoot=\dimen334
 \mult@nat@firstbox=\box135
 \colbreak@box=\box136
-\mc@col@check@num=\count377
+\mc@col@check@num=\count378
 )
 (/usr/local/texlive/2022/texmf-dist/tex/latex/siunitx/siunitx.sty
 Package: siunitx 2022-02-15 v3.0.49 A comprehensive (SI) units package
 \l__siunitx_angle_tmp_dim=\dimen335
 \l__siunitx_angle_marker_box=\box137
 \l__siunitx_angle_unit_box=\box138
-\l__siunitx_compound_count_int=\count378
+\l__siunitx_compound_count_int=\count379
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations.sty
 Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
  (CN)
 )
-\l__siunitx_number_exponent_fixed_int=\count379
-\l__siunitx_number_min_decimal_int=\count380
-\l__siunitx_number_min_integer_int=\count381
-\l__siunitx_number_round_precision_int=\count382
-\l__siunitx_number_group_minimum_int=\count383
+\l__siunitx_number_exponent_fixed_int=\count380
+\l__siunitx_number_min_decimal_int=\count381
+\l__siunitx_number_min_integer_int=\count382
+\l__siunitx_number_round_precision_int=\count383
+\l__siunitx_number_group_minimum_int=\count384
 \l__siunitx_table_tmp_box=\box139
 \l__siunitx_table_tmp_dim=\dimen336
 \l__siunitx_table_column_width_dim=\dimen337
@@ -1462,9 +1466,9 @@ Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages
 \l__siunitx_table_after_box=\box143
 \l__siunitx_table_before_dim=\dimen338
 \l__siunitx_table_carry_dim=\dimen339
-\l__siunitx_unit_tmp_int=\count384
-\l__siunitx_unit_position_int=\count385
-\l__siunitx_unit_total_int=\count386
+\l__siunitx_unit_tmp_int=\count385
+\l__siunitx_unit_position_int=\count386
+\l__siunitx_unit_total_int=\count387
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
 Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
@@ -1530,22 +1534,22 @@ Package cleveref Info: include cross-reference names in hyperlinks on input lin
 e 7852.
 Package cleveref Info: no abbreviation of names on input line 7852.
 )
-\c@lemma=\count387
-\c@theo=\count388
-\c@coro=\count389
-\c@prop=\count390
-\c@property=\count391
-\c@remark=\count392
-\c@ex=\count393
-\c@exercise=\count394
-\c@definition=\count395
-\c@hp=\count396
+\c@lemma=\count388
+\c@theo=\count389
+\c@coro=\count390
+\c@prop=\count391
+\c@property=\count392
+\c@remark=\count393
+\c@ex=\count394
+\c@exercise=\count395
+\c@definition=\count396
+\c@hp=\count397
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
 LaTeX Font Info:    Trying to load font information for T1+jkp on input line 18
-2.
+4.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/kpfonts/t1jkp.fd
 File: t1jkp.fd 2007/01/24 Fontinst v1.928 font definitions for T1/jkp.
@@ -1556,6 +1560,12 @@ LaTeX Warning: Label `def:filtration' multiply defined.
 
 
 LaTeX Warning: Label `def:filtration@cref' multiply defined.
+
+
+LaTeX Warning: Label `eq:dp_time' multiply defined.
+
+
+LaTeX Warning: Label `eq:dp_time@cref' multiply defined.
 
 
 LaTeX Warning: Label `def:filtration' multiply defined.
@@ -1570,57 +1580,111 @@ LaTeX Warning: Label `sec:temps_arret_contd' multiply defined.
 LaTeX Warning: Label `sec:temps_arret_contd@cref' multiply defined.
 
 
-LaTeX Warning: Label `chap:processus_markov' multiply defined.
+Package natbib Warning: Citation `Asmussen2010' multiply defined.
 
 
-LaTeX Warning: Label `chap:processus_markov@cref' multiply defined.
+Package natbib Warning: Citation `Gerber1972' multiply defined.
+
+
+Package natbib Warning: Citation `Kyprianou2013' multiply defined.
+
+
+Package natbib Warning: Citation `Kyprianou2014' multiply defined.
+
+
+Package natbib Warning: Citation `laleuf14' multiply defined.
+
+
+Package natbib Warning: Citation `LeGall2006' multiply defined.
+
+
+Package natbib Warning: Citation `Mikosch1998' multiply defined.
+
+
+Package natbib Warning: Citation `Miyasawa1961' multiply defined.
+
+
+Package natbib Warning: Citation `Nakamoto2008' multiply defined.
+
+
+Package natbib Warning: Citation `Tankov2010' multiply defined.
+
+
+Package natbib Warning: Citation `Truquet_stat_proc' multiply defined.
+
+
+Package natbib Warning: Citation `Williams1991' multiply defined.
+
+
+Package natbib Warning: Citation `Asmussen2010' multiply defined.
+
+
+Package natbib Warning: Citation `Truquet_stat_proc' multiply defined.
+
+
+Package natbib Warning: Citation `Dobrow2016' multiply defined.
+
+
+Package natbib Warning: Citation `LeGall2006' multiply defined.
+
+
+Package natbib Warning: Citation `Dobrow2016' multiply defined.
+
+
+Package natbib Warning: Citation `MJB06' multiply defined.
+
+
+Package natbib Warning: Citation `Mikosch1998' multiply defined.
+
+
+Package natbib Warning: Citation `Tankov2010' multiply defined.
 
 )
 \openout1 = `main_lecture_notes.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 182.
+LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 184.
 LaTeX Font Info:    Trying to load font information for OML+jkp on input line 1
-82.
+84.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/kpfonts/omljkp.fd
 File: omljkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 182.
-LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 184.
 LaTeX Font Info:    Trying to load font information for OMS+jkp on input line 1
-82.
+84.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/kpfonts/omsjkp.fd
 File: omsjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 182.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 182.
-LaTeX Font Info:    ... okay on input line 182.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 182.
-LaTeX Font Info:    ... okay on input line 182.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 182.
-LaTeX Font Info:    ... okay on input line 182.
-LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 184.
 LaTeX Font Info:    Trying to load font information for OMX+jkp on input line 1
-82.
+84.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/kpfonts/omxjkp.fd
 File: omxjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 182.
-LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 182.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 184.
 LaTeX Font Info:    Trying to load font information for U+jkpexa on input line 
-182.
+184.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/kpfonts/ujkpexa.fd
 File: ujkpexa.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 182.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 182.
-LaTeX Font Info:    ... okay on input line 182.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 182.
-LaTeX Font Info:    ... okay on input line 182.
-LaTeX Info: Redefining \degres on input line 182.
-LaTeX Info: Redefining \up on input line 182.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 184.
+LaTeX Font Info:    ... okay on input line 184.
+LaTeX Info: Redefining \degres on input line 184.
+LaTeX Info: Redefining \up on input line 184.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1658,16 +1722,16 @@ LaTeX Info: Redefining \up on input line 182.
 
 (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count397
+\scratchcounter=\count398
 \scratchdimen=\dimen342
 \scratchbox=\box146
-\nofMPsegments=\count398
-\nofMParguments=\count399
+\nofMPsegments=\count399
+\nofMParguments=\count400
 \everyMPshowfont=\toks56
-\MPscratchCnt=\count400
+\MPscratchCnt=\count401
 \MPscratchDim=\dimen343
-\MPnumerator=\count401
-\makeMPintoPDFobject=\count402
+\MPnumerator=\count402
+\makeMPintoPDFobject=\count403
 \everyMPtoPDFconversion=\toks57
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1684,7 +1748,7 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 182.
+Package hyperref Info: Link coloring ON on input line 184.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -1696,16 +1760,16 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count403
+\c@section@level=\count404
 )
-LaTeX Info: Redefining \ref on input line 182.
-LaTeX Info: Redefining \pageref on input line 182.
-LaTeX Info: Redefining \nameref on input line 182.
+LaTeX Info: Redefining \ref on input line 184.
+LaTeX Info: Redefining \pageref on input line 184.
+LaTeX Info: Redefining \nameref on input line 184.
  (./main_lecture_notes.out) (./main_lecture_notes.out)
 \@outlinefile=\write4
 \openout4 = `main_lecture_notes.out'.
 
-\c@lstlisting=\count404
+\c@lstlisting=\count405
 
 Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.18} (current compat level: 1.14).
@@ -1718,18 +1782,18 @@ Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-LaTeX Info: Redefining \microtypecontext on input line 182.
-Package microtype Info: Applying patch `item' on input line 182.
-Package microtype Info: Applying patch `toc' on input line 182.
-Package microtype Info: Applying patch `eqnum' on input line 182.
-Package microtype Info: Applying patch `footnote' on input line 182.
+LaTeX Info: Redefining \microtypecontext on input line 184.
+Package microtype Info: Applying patch `item' on input line 184.
+Package microtype Info: Applying patch `toc' on input line 184.
+Package microtype Info: Applying patch `eqnum' on input line 184.
+Package microtype Info: Applying patch `footnote' on input line 184.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 182.
+LaTeX Info: Redefining \showhyphens on input line 184.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1744,7 +1808,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 182.
+or `english'. on input line 184.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/translations/translations-basic-d
 ictionary-french.trsl
@@ -1752,9 +1816,9 @@ File: translations-basic-dictionary-french.trsl (french translation file `trans
 lations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `french'. on input line 182.
+or `french'. on input line 184.
 LaTeX Font Info:    Trying to load font information for OT1+jkp on input line 1
-90.
+92.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/kpfonts/ot1jkp.fd
 File: ot1jkp.fd 2007/08/30 Fontinst v1.928 font definitions for OT1/jkp.
@@ -1764,25 +1828,25 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for U+jkpsya on input line 
-190.
+192.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/kpfonts/ujkpsya.fd
 File: ujkpsya.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsyb on input line 
-190.
+192.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/kpfonts/ujkpsyb.fd
 File: ujkpsyb.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpmia on input line 
-190.
+192.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/kpfonts/ujkpmia.fd
 File: ujkpmia.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsyc on input line 
-190.
+192.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/kpfonts/ujkpsyc.fd
 File: ujkpsyc.fd 2006/08/15 v1.0
@@ -1794,7 +1858,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.31 ...line {4}Mouvement brownien}{49}{chapter.4}
+l.32 ...omportement asymptotique}{52}{section.3.4}
                                                   % [1
 
 ])
@@ -1802,7 +1866,7 @@ l.31 ...line {4}Mouvement brownien}{49}{chapter.4}
 \openout5 = `main_lecture_notes.toc'.
 
 
-(./includes/chap_I_random_walk.tex [2]
+(./includes/chap_I_random_walk.tex [2] [3]
 Chapter 1.
 LaTeX Font Info:    Trying to load font information for TS1+jkp on input line 7
 .
@@ -1813,8 +1877,20 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `jkp' (encoding: TS1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 108.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 108.
+
+[4
+
+] [5] [6] [7]
 LaTeX Font Info:    Trying to load font information for T1+jkptt on input line 
-60.
+468.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/kpfonts/t1jkptt.fd
 File: t1jkptt.fd 2007/01/26 Fontinst v1.928 font definitions for T1/jkptt.
@@ -1823,25 +1899,9 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `jkptt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-
-Underfull \hbox (badness 10000) in paragraph at lines 14--61
-
- []
-
-[3
-
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 106.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 106.
-
-[4] [5] [6] [7] [8] [9] [10] [11] [12]
+ [8]
 LaTeX Font Info:    Trying to load font information for OT1+jkpss on input line
- 597.
+ 512.
 
 (/usr/local/texlive/2022/texmf-dist/tex/latex/kpfonts/ot1jkpss.fd
 File: ot1jkpss.fd 2007/07/16 Fontinst v1.928 font definitions for OT1/jkpss.
@@ -1850,9 +1910,54 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `jkpss' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
- [13]
-[14] [15] [16] [17] [18] [19])
-(./includes/chap_II_continuous_time_martingale.tex
+ [9] [10]
+[11] [12] [13]
+LaTeX Font Info:    Font shape `T1/jkptt/m/it' in size <10> not available
+(Font)              Font shape `T1/jkptt/m/sl' tried instead on input line 802.
+
+ [14] [15] [16] [17] [18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 1146--1148
+
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 1175--1176
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1177--1178
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1186--1187
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1188--1189
+
+ []
+
+[21] [22]
+<../Figures/traj_CRR.pdf, id=576, 462.52798pt x 346.89601pt>
+File: ../Figures/traj_CRR.pdf Graphic file (type pdf)
+<use ../Figures/traj_CRR.pdf>
+Package pdftex.def Info: ../Figures/traj_CRR.pdf  used on input line 1278.
+(pdftex.def)             Requested size: 416.83289pt x 312.63756pt.
+ [23] [24 <../Figures/traj_CRR.pdf>] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 1386--1433
+
+ []
+
+[26] [27] [28] [29] [30] [31] (./main_lecture_notes.bbl
+Underfull \hbox (badness 6220) in paragraph at lines 58--64
+[]\T1/jkp/m/n/10 (+20) S. Nakamoto.  Bit-coin: A peer-to-peer elec-tronic cash 
+sys-tem.  Avail-able at
+ []
+
+) [32]) (./includes/chap_II_continuous_time_martingale.tex
 Chapter 2.
 
 Overfull \hbox (7.47437pt too wide) in paragraph at lines 10--12
@@ -1866,63 +1971,171 @@ kpmia/m/it/10 ^^A[]\OML/jkp/m/it/10 ; []$
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[20
+[33
 
-] [21] [22] [23] [24]
-Underfull \hbox (badness 10000) in paragraph at lines 274--274
+] [34] [35] [36]
+Underfull \hbox (badness 10000) in paragraph at lines 298--298
 [][][][][]$\T1/jkptt/m/n/8 http : / / raphaelducatez . neowordpress . fr / wp-[
 ]content / uploads / sites / 20439 / 2019 / 02 / Jean-[]Francois _ Le _
  []
 
-[25] [26] [27] [28] [29]) (./includes/chap_III_markov_process.tex
-Chapter 3.
-[30
+[37] [38] [39] [40] [41]
+Overfull \hbox (3.61093pt too wide) in paragraph at lines 502--503
+\T1/jkp/m/n/10 (-20) L'hypothèse que les tra-jec-toires des pro-ces-sus soient 
+càdlàg est im-por-tant pour pou-voir généraliser
+ []
 
-] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
+(./main_lecture_notes.bbl
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Asmussen
+2010}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8 ...Asmussen and Albrecher(2010)]{Asmussen2010}
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Gerber19
+72}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.14 \bibitem[Gerber(1972)]{Gerber1972}
+                                       
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Kypriano
+u2013}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.23 \bibitem[Kyprianou(2013)]{Kyprianou2013}
+                                             
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Kypriano
+u2014}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.29 \bibitem[Kyprianou(2014)]{Kyprianou2014}
+                                              [42]
+pdfTeX warning (ext4): destination with the same identifier (name{cite.laleuf14
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.35 \bibitem[Laleuf(2014)]{laleuf14}
+                                     
+pdfTeX warning (ext4): destination with the same identifier (name{cite.LeGall20
+06}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.41 \bibitem[Le~Gall(2006)]{LeGall2006}
+                                        
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Mikosch1
+998}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.46 \bibitem[Mikosch(1998)]{Mikosch1998}
+                                         
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Miyasawa
+1961}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.52 \bibitem[Miyasawa(1961)]{Miyasawa1961}
+                                           
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Nakamoto
+2008}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.57 \bibitem[Nakamoto(2008)]{Nakamoto2008}
+                                           
+Underfull \hbox (badness 6220) in paragraph at lines 58--64
+[]\T1/jkp/m/n/10 (+20) S. Nakamoto.  Bit-coin: A peer-to-peer elec-tronic cash 
+sys-tem.  Avail-able at
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Tankov20
+10}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.65 \bibitem[Tankov and Touzi(2010)]{Tankov2010}
+                                                 
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Truquet_
+stat_proc}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.71 \bibitem[Truquet(2015)]{Truquet_stat_proc}
+                                               
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Williams
+1991}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.78 \bibitem[Williams(1991)]{Williams1991}
+                                           ) [43])
+(./includes/chap_III_markov_process.tex
+Chapter 3.
+[44
+
+] [45] [46]
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
-[32]
-<../Figures/traj_registration.pdf, id=691, 462.52798pt x 346.89601pt>
-File: ../Figures/traj_registration.pdf Graphic file (type pdf)
-<use ../Figures/traj_registration.pdf>
-Package pdftex.def Info: ../Figures/traj_registration.pdf  used on input line 1
-39.
-(pdftex.def)             Requested size: 250.10226pt x 187.58041pt.
- [33 <../Figures/traj_registration.pdf>] [34] [35] [36] [37] [38]
-LaTeX Font Info:    Font shape `T1/jkptt/m/it' in size <10> not available
-(Font)              Font shape `T1/jkptt/m/sl' tried instead on input line 527.
-
- [39]
-[40] [41]
-Overfull \hbox (8.61981pt too wide) in alignment at lines 674--678
+[47] [48] [49] [50] [51] [52] [53] [54]
+Overfull \hbox (8.61981pt too wide) in alignment at lines 675--679
  [][][] []
  []
 
-[42] [43] [44] [45] [46] [47] [48]) (./includes/chap_IV_mb.tex
+[55] [56] [57] [58] [59] [60] [61]
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Asmussen
+2010}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1046 ...ussen and Albrecher(2010)]{Asmussen2010}
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Truquet_
+stat_proc}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1094 \bibitem[Truquet(2015)]{Truquet_stat_proc}
+                                                  [62])
+(./includes/chap_IV_mb.tex
 Chapter 4.
-[49
+[63
 
-] [50]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 49.
-
+] [64]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 49.
 
-[51] [52] [53]
-Underfull \hbox (badness 10000) in paragraph at lines 203--205
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 49.
+
+[65] [66] [67] [68] [69] [70] [71] [72] [73] [74]
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Dobrow20
+16}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.577 \bibitem[Dobrow(2016)]{Dobrow2016}
+                                        
+Underfull \hbox (badness 10000) in paragraph at lines 590--596
+[]\T1/jkp/m/n/10 (+20) Jean-Francois Le Gall.  \T1/jkp/m/it/10 (+20) Mou-ve-men
+t brown-ien, mar-tin-gales et cal-cul stochas-tique\T1/jkp/m/n/10 (+20) .
  []
 
-[54] [55] [56] [57]
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Underfull \hbox (badness 4713) in paragraph at lines 590--596
+\T1/jkp/m/n/10 (+20) Springer-Verlag GmbH, Septem-ber 2012.  ISBN 9783642318986
+.  URL [][]$\T1/jkptt/m/n/10 https :
+ []
 
-[58] [59] [60]) (./includes/chap_V_stochastic_calculus.tex [61]
+
+Underfull \hbox (badness 10000) in paragraph at lines 590--596
+\T1/jkptt/m/n/10 / / www . ebook . de / de / product / 19950852 / jean _ franco
+is _ le _ gall _ mouvement _ brownien _
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{cite.LeGall20
+06}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.611 \bibitem[Le~Gall(2006)]{LeGall2006}
+                                          [75])
+(./includes/chap_V_stochastic_calculus.tex [76]
 Chapter 5.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -1936,122 +2149,86 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 24.
 
-[62
+[77
 
-] [63] [64] [65] [66] [67] [68] [69] [70] [71] [72] [73] [74] [75] [76])
-(./includes/chap_VI_financial_math.tex [77]
-Chapter 6.
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-
- []
-
-[78
-
-]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[79]
-Underfull \hbox (badness 10000) in paragraph at lines 92--94
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--122
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
-
- []
-
-[80]
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
-
- []
-
-[81] [82]
-<../Figures/traj_CRR.pdf, id=1177, 433.62pt x 289.08pt>
-File: ../Figures/traj_CRR.pdf Graphic file (type pdf)
-<use ../Figures/traj_CRR.pdf>
-Package pdftex.def Info: ../Figures/traj_CRR.pdf  used on input line 228.
-(pdftex.def)             Requested size: 416.83289pt x 277.90181pt.
- [83 <../Figures/traj_CRR.pdf>] [84] [85]
-Overfull \hbox (21.78836pt too wide) in paragraph at lines 353--355
+] [78] [79] [80] [81] [82] [83] [84] [85] [86] [87] [88] [89] [90]
+Overfull \hbox (21.78836pt too wide) in paragraph at lines 668--670
 \T1/jkp/m/n/10 (-20) le cou-ple $\OT1/jkp/m/n/10 (-20) (\OML/jkp/m/it/10 a[]; b
 []\OT1/jkp/m/n/10 (-20) )[]$ \T1/jkp/m/n/10 (-20) est une stratégie d'investiss
 ement. Nous sup-posons que la stratégie d'investissment
  []
 
-[86] [87] [88] [89]) (./main_lecture_notes.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 63--69
-[]\T1/jkp/m/n/10 (+20) Jean-Francois Le Gall.  \T1/jkp/m/it/10 (+20) Mou-ve-men
-t brown-ien, mar-tin-gales et cal-cul stochas-tique\T1/jkp/m/n/10 (+20) .
- []
+[91] [92] [93] [94] [95]
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Dobrow20
+16}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.919 \bibitem[Dobrow(2016)]{Dobrow2016}
+                                        
+pdfTeX warning (ext4): destination with the same identifier (name{cite.MJB06}) 
+has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.925 \bibitem[Jeanblanc(2006)]{MJB06}
+                                      
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Mikosch1
+998}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.939 \bibitem[Mikosch(1998)]{Mikosch1998}
+                                          
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Tankov20
+10}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.947 ...bitem[Tankov and Touzi(2010)]{Tankov2010}
+                                                  )
+(./includes/chap_VI_financial_math.tex)
 
+Package natbib Warning: There were multiply defined citations.
 
-Underfull \hbox (badness 4713) in paragraph at lines 63--69
-\T1/jkp/m/n/10 (+20) Springer-Verlag GmbH, Septem-ber 2012.  ISBN 9783642318986
-.  URL [][]$\T1/jkptt/m/n/10 https :
- []
+[96] (./main_lecture_notes.aux
 
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
 
-Underfull \hbox (badness 10000) in paragraph at lines 63--69
-\T1/jkptt/m/n/10 / / www . ebook . de / de / product / 19950852 / jean _ franco
-is _ le _ gall _ mouvement _ brownien _
- []
-
-[90
-
-]
-Underfull \hbox (badness 6220) in paragraph at lines 134--140
-[]\T1/jkp/m/n/10 (+20) S. Nakamoto.  Bit-coin: A peer-to-peer elec-tronic cash 
-sys-tem.  Avail-able at
- []
-
-) [91] (./main_lecture_notes.aux)
+)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `main_lecture_notes.out' has not changed.
-(rerunfilecheck)             Checksum: 6273570465CAF550DE46A8619DA6CE2E;14669.
+(rerunfilecheck)             Checksum: 92234B185AC67C5A12E15A880B8CEBAB;15388.
  ) 
 Here is how much of TeX's memory you used:
- 52159 strings out of 478268
- 1178895 string characters out of 5846346
- 1594750 words of memory out of 5000000
- 68149 multiletter control sequences out of 15000+600000
- 719995 words of font info for 784 fonts, out of 8000000 for 9000
+ 52327 strings out of 478268
+ 1181836 string characters out of 5846347
+ 1596552 words of memory out of 5000000
+ 68272 multiletter control sequences out of 15000+600000
+ 729504 words of font info for 821 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,17n,89p,7150b,1252s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.en
 c}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpbit8a.pfb></usr/local/texl
-ive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/
-2022/texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2022/
-texmf-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2022/texmf-
-dist/fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2022/texmf-dist/f
-onts/type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2022/texmf-dist/fonts/
-type1/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/typ
-e1/public/kpfonts/jkpmite.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/p
-ublic/kpfonts/jkpmn8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/publi
-c/kpfonts/jkpmne.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/kpf
-onts/jkpssmn8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/kpfon
-ts/jkpsy.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkp
-syb.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.p
-fb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb
-></usr/local/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
-Output written on main_lecture_notes.pdf (92 pages, 473448 bytes).
+ive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpbmi.pfb></usr/local/texlive/2
+022/texmf-dist/fonts/type1/public/kpfonts/jkpbn8a.pfb></usr/local/texlive/2022/
+texmf-dist/fonts/type1/public/kpfonts/jkpbne.pfb></usr/local/texlive/2022/texmf
+-dist/fonts/type1/public/kpfonts/jkpex.pfb></usr/local/texlive/2022/texmf-dist/
+fonts/type1/public/kpfonts/jkpmi.pfb></usr/local/texlive/2022/texmf-dist/fonts/
+type1/public/kpfonts/jkpmia.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1
+/public/kpfonts/jkpmit8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/pu
+blic/kpfonts/jkpmite.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public
+/kpfonts/jkpmn8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/kpf
+onts/jkpmne.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/
+jkpssmn8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jk
+psy.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpsyb.p
+fb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpsyc.pfb></
+usr/local/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb></us
+r/local/texlive/2022/texmf-dist/fonts/type1/public/kpfonts/jkpttmn8a.pfb>
+Output written on main_lecture_notes.pdf (97 pages, 499897 bytes).
 PDF statistics:
- 1448 PDF objects out of 1728 (max. 8388607)
- 1276 compressed objects within 13 object streams
- 490 named destinations out of 1000 (max. 500000)
- 180263 words of extra memory for PDF output out of 184870 (max. 10000000)
+ 1514 PDF objects out of 1728 (max. 8388607)
+ 1343 compressed objects within 14 object streams
+ 506 named destinations out of 1000 (max. 500000)
+ 180274 words of extra memory for PDF output out of 184870 (max. 10000000)
 

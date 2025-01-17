@@ -42,7 +42,7 @@ Le processus de Poisson $N$ d'intensité $\lambda$ est un processus de Markov su
 &=&\frac{\Prob(N_{s+t} - N_s = j-i, N_s =i)}{\Prob(N_s =i)}\\
 &=&\frac{\Prob(N_{s+t} - N_s = j-i)\Prob(N_s =i)}{\Prob(N_s =i)}\\
 &=&\Prob(N_{s+t} - N_s = j-i)\\
-&=&\Prob(N_{t} = j-i) = p_t(i,j) = \frac{e^{-\lambda t}(\lambda t)^{i-j}}{(j-i)!}.b\\
+&=&\Prob(N_{t} = j-i) = p_t(i,j) = \frac{e^{-\lambda t}(\lambda t)^{i-j}}{(j-i)!}.\\
 \end{eqnarray*} 
 Les matrices des transitions est de dimension infini 
 $$
@@ -68,8 +68,8 @@ L'idée est de montrer que la loi de $T_x$ du processus $X$ est sans mémoire. O
 &=&\Prob(X_u =x,0\leq u\leq s+t| X_u =x,0\leq u\leq s)\\
 &=&\Prob(X_u =x,s\leq u\leq s+t| X_u =x,0\leq u\leq s)\\
 &=&\Prob(X_u =x,s\leq u\leq s+t| X_s =x)\text{ (Propriété de Markov)}\\
-&=&\Prob(T_x>s+t| X_s =x)\\
-&=&\Prob(T_x>t| X_0 =x). \text{ (Homogénéité dans le temps)}\\
+&=&\Prob(X_u =x,0\leq u\leq t| X_0 =x)\text{ (Homogénéité dans le temps)}\\
+&=&\Prob(T_x>t| X_0 =x). \\
 \end{eqnarray*}
 La seule distribution sur $\RL_+$ vérifiant cette propriété est la loi exponentielle.
 \end{proof}
@@ -78,10 +78,10 @@ Supposons que $T_x\sim\ExpDist(q_x)$,
 	\item Si $q_x = 0$ alors le processus reste pour toujours dans l'état $x$ qui est dit absorbant
 	\item Si $q_x = \infty$ alors le processus quitte l'état $x$ tout de suite après l'avoir atteint. Le processus peut alors effectuer un nombre de transition infini sur un intervalle de temps fini. Un tel processus est dit explosif.
 \end{itemize}
-La question est alors de savoir quel est l'état visité après l'état $x$. L'interprétation est la suivante: 
+Supposons que $q_x\in(0,\infty)$. La question est alors de savoir quel est l'état visité après l'état $x$. L'interprétation est la suivante: 
 \begin{itemize}
 	\item Le processus démarre dans l'état $x\in E$
-	\item Soit $T_{x,y}\sim\ExpDist[q(x,y)]$ pour $y\in E$ tel que $y\neq x$. Les paramètres $q(x,y)$ sont les taux de transitions
+	\item Soit $T_{x,y}\sim\ExpDist[q(x,y)]$ pour $y\in E$ tel que $y\neq x$. Les paramètres $q(x,y)$ sont les taux de transitions. Si il est impossible d'aller de $x$ à $y$ directement alors $q(x,y) = 0$ et $T_{x,y} = \infty$.
 	\item L'état visité après $x$ est $y^\ast = \underset{y\neq x}{\argmin} T_{x,y}$.
 	\item La première alarme exponentielle qui sonne indique l'état d'arrivée du processus.
 	\item On note que $T_x = \underset{y\neq x}{\min} T_{x,y}\sim\ExpDist[\sum_{y\neq x}q(x,y)]$, ce qui implique que $q_x = \sum_{y\neq x}q(x,y)$
@@ -101,8 +101,9 @@ p(x,y) = q(x,y)/ q_x,\text{ pour }y\in E.
 $$
 Le processus $X$ s'écrit dès lors 
 $$
-X_t = \sum_{n=0}^\infty Z_n\ind_{T_n\leq t<T_{n+1}}.
+X_t = \sum_{n=0}^\infty Z_n\ind_{T_n\leq t<T_{n+1}},
 $$
+et $Z$ est la chaine dite immergée de $X$. 
 \begin{ex}\label{ex:registration}
 Les étudiants doivent s'inscrire à l'université et une file d'attente se forment devant la scolarité. Le responsable de scolarité a besoin d'un temps aléatoire, de loi exponentielle, pour s'occuper de chaque étudiant avec en moyenne un temps de service de $5$min. Les étudiants arrivent au bureau de la scolarité suivant un processus de Poisson au rythme de un étudiant toutes les $4$ minutes. La file d'attente ne peut contenir plus de quatre étudiants, si un étudiant arrive alors que $4$ étudiants sont déjà dans la file alors l'étudiant se décourage et fait demi tour. Il reviendra plus tard. L'étudiant en train de parler à la responsable de la scolarité fait parti de la file d'attente. Les temps d'arrivée des étudiants et les temps de service sont mutuellement indépendants.\\
 
@@ -133,13 +134,13 @@ $$
 ;
 \end{tikzpicture}
 \end{center}
-Une trajectoire du processus $X$ sur une durée de $1$ heure est donnée sur la \cref{fig:traj_registration}.
-\begin{figure}[h!]
-\centering
-\includegraphics[width = 0.6\textwidth]{../Figures/traj_registration.pdf}
-\caption{Un exemple de trajectoire du processus $X$}
-\label{fig:traj_registration}
-\end{figure}
+% Une trajectoire du processus $X$ sur une durée de $1$ heure est donnée sur la \cref{fig:traj_registration}.
+% \begin{figure}[h!]
+% \centering
+% \includegraphics[width = 0.6\textwidth]{../Figures/traj_registration.pdf}
+% \caption{Un exemple de trajectoire du processus $X$}
+% \label{fig:traj_registration}
+% \end{figure}
 
 
 \end{ex}
@@ -160,7 +161,7 @@ Si $X$ est un processus de Markov à saut, il existe une matrice $Q$ telle que
 \begin{enumerate}
 	\item $q(x,y)\geq 0$ pour tous $x,y\in E$ tels que $x\neq y$, et 
 	$$
-	q(x,x) = -\sum_{y\in E}q(x,y)
+	q(x,x) = -\sum_{y\neq x \in E}q(x,y)
 	$$
 	\item Si $x\neq y$, $p_h(x,y) = hq(x,y) + o(h)$ et $p_h(x,x) = 1 + hq(x,x) + o(h)$
 \end{enumerate}
@@ -171,7 +172,7 @@ $$
 \Prob_x(A) = \Prob(A|X_0  = x).
 $$
 \begin{lemma}\label{lem:T_Z}
-Soit $h,t>0$ et $m:=m(h,t)\in \N$ tel que $mh\downarrow t$ lorsque $h\downarrow0$. (par exemple $m = \lfloor t/h\rfloor+1$). Alors pour $x\neq y$, on a les deux limites suivantes
+Soit $h,t>0$ et $m:=m(h,t)\in \N$ tel que $mh\downarrow t$ lorsque $h\downarrow0$. (par exemple $m = h\lfloor t/h\rfloor+1$). Alors pour $x\neq y$, on a les deux limites suivantes
 $$
 \Prob_x( T_1>t) = \underset{h\downarrow 0}{\lim} p_h(x,x)^m
 ,\text{ et }\Prob_x(T_1\leq t, Z_1 = y) = \underset{h\downarrow0}{\lim}\frac{1-p_h(x,x)^m}{1-p_h(x,x)}p_h(x,y)
@@ -184,7 +185,7 @@ B\subset(B\cap\{T_2-T_1 > h\})\cup\{T_2 - T_1 \leq h\}.
 \end{equation}
 Nous avons l'inclusion suivante 
 $$
-\{T_1 >mh\}\subset B = \{X_0 = X_{h} = \ldots, X_{mh}\}\subset\{T_1>mh\}\cup \{T_2 - T_1\leq h\}.
+\{T_1 >mh\}\subset B = \{X_0 = X_{h} = \ldots= X_{mh}\}\subset\{T_1>mh\}\cup \{T_2 - T_1\leq h\}.
 $$
 La première inclusion est évidente. Pour la deuxième, on utilise \eqref{eq:dummy_inclusion}. On note que pour $\omega\in B\cap\{T_2-T_1 > h\}$, on ne peut avoir $T_1(\omega)\leq mh$ car sinon on aurait un saut pendant un intervalle de longueur inférieure à $h$\footnote{Faire un schéma.}. On en déduit que $B\cap\{T_2-T_1>h\}\subset\{T_1 > mh\}$ Comme $\underset{h\downarrow 0}{\lim}\Prob_x(T_2 - T_1\leq h) = \Prob(T_2 = T_1) = 0$ alors 
 \begin{eqnarray*}
@@ -194,7 +195,7 @@ La première inclusion est évidente. Pour la deuxième, on utilise \eqref{eq:du
 \end{eqnarray*}
 Pour la deuxième limite, on pose 
 $$
-A = \bigcup_{l = 1}^m\{X_0 = X_h = \ldots, X_{(l-1)h} = x,X_{lh}=y\}
+A = \bigcup_{l = 1}^m\{X_0 = X_h = \ldots= X_{(l-1)h} = x,X_{lh}=y\}
 $$ 
 On a les inclusions
 $$
@@ -221,7 +222,7 @@ Comme $\underset{h\downarrow 0}{\lim} p_h(x,x) =1$ alors on a les équivalent su
 $$
 \frac{\ln \Prob_x(T_1 > t )}{t}\sim \frac{hm\ln p_h(x,x)}{th}\sim \frac{\ln p_h(x,x)}{h}\sim \frac{p_h(x,x) - 1}{h}.
 $$
-Le quotient $\frac{p_h(x,x) - 1}{h}$ a une limite noté $- q_x$ avec $q_x = -\frac{\ln\Prob_x(T_1>t)}{t}\geq 0$. En posant $q(x,x)=-q_x$, on a bien le dévellopement limité 
+Le quotient $\frac{p_h(x,x) - 1}{h}$ a une limite noté $- q_x$ avec $q_x = -\frac{\ln\Prob_x(T_1>t)}{t}\geq 0$. En posant $q(x,x)=-q_x$, on a bien le développement limité 
 $$
 p_h(x,x) = 1 + hq(x,x) + o(h).
 $$
@@ -595,7 +596,7 @@ On définit un processus $X = (X_t)_{t\geq 0}$ qui modélise le nombre de client
 $$L = \lambda W,$$
 avec 
 \begin{itemize}
-    \item $L$ le nombre de clients moyen lorsque $t\rightarrow \infty$
+    \item $L$ le nombre de clients moyen dans le système lorsque $t\rightarrow \infty$
     \item $\lambda$ le nombre moyen de client qui arrive par unité de temps
     \item $W$ le temps moyen d'attente d'un client dans le système lorsque $t\rightarrow \infty$
 \end{itemize}
@@ -714,11 +715,11 @@ $$
 $$
 Il s'agit d'une loi géométrique de paramètre $1-\lambda / \mu$. Le nombre moyen de clients dans le système est donc 
 $$
-L = \frac{\lambda}{\lambda - \mu}
+L = \frac{\lambda}{\mu - \lambda}
 $$
 On en déduit le temps moyen passé dans le système via la loi de Little avec 
 $$
-W = \frac{L}{\lambda} = \frac{1}{\lambda - \mu}
+W = \frac{L}{\lambda} = \frac{1}{\mu - \lambda}
 $$
 On peut considérer que la file d'attente comprend tous les client du système sauf celui en train d'être servi. Le temps moyen passé $W_q$ dans la file d'attente est donné par
 $$
@@ -726,7 +727,7 @@ W_q = W - W_s,
 $$
 où $W_s$ est le temps de service moyen. Il vient 
 $$
-W_q= \frac{\lambda}{\mu(\mu - \lambda)}.
+W_q= \frac{\lambda}{\mu(\mu-\lambda)}.
 $$
 La longueur moyenne $L_q$ de la file d'attente peut être déterminé par la loi de Little en restreignant le système à la file d'attente. Il vient 
 $$
@@ -906,7 +907,7 @@ est une loi \textit{phase-type}, avec
 \end{center}
 \end{enumerate}
 \end{ex}
-Ces distributions donne une grande marche de manoeuvre à la modélisation. Leur représentation sous la forme de graph rend commode l'explication du modèles. On retrouve les lois \textit{phase type} dans de nombreux domaine d'application des probabilités. 
+Ces distributions donneNT une grande marche de manoeuvre à la modélisation. Leur représentation sous la forme de graph rend commode l'explication du modèle. On retrouve les lois \textit{phase type} dans de nombreux domaine d'application des probabilités. 
 \begin{theo}
 Soit $X$ une \va de loi $\text{PH}(\alpha, T)$, alors
 \begin{enumerate}
@@ -1026,5 +1027,92 @@ Le modèle complet est donnée par le graph suivant:
 Il ne reste plus qu'à construire la matrice $T$ :).
 
 \end{ex}
-Beaucoup d'applications en actuariat et pourtant aucun mémoire d'actuariat ne parlant de ces distributions...
+
+
+\begin{thebibliography}{11}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Albrecher and Bladt(2019)]{Albrecher2019}
+Hansjörg Albrecher and Mogens Bladt.
+\newblock Inhomogeneous phase-type distributions and heavy tails.
+\newblock \emph{Journal of Applied Probability}, 56\penalty0 (4):\penalty0
+  1044--1064, dec 2019.
+\newblock \doi{10.1017/jpr.2019.60}.
+
+\bibitem[Asmussen and Albrecher(2010)]{Asmussen2010}
+S{\o}ren Asmussen and Hansjörg Albrecher.
+\newblock \emph{Ruin Probabilities}.
+\newblock {WORLD} {SCIENTIFIC}, sep 2010.
+\newblock \doi{10.1142/7431}.
+
+\bibitem[Asmussen et~al.(2019)Asmussen, Laub, and Yang]{Asmussen2019}
+S{\o}ren Asmussen, Patrick Laub, and Hailiang Yang.
+\newblock Phase-type models in life insurance:fitting and valuation of
+  equity-linked benefits.
+\newblock \emph{Risks}, 7\penalty0 (1):\penalty0 17, feb 2019.
+\newblock \doi{10.3390/risks7010017}.
+
+\bibitem[Asmussen et~al.(1996)Asmussen, Nerman, and Olsson]{Asmussen1996}
+Søren Asmussen, Olle Nerman, and Marita Olsson.
+\newblock Fitting phase-type distributions via the em algorithm.
+\newblock \emph{Scandinavian Journal of Statistics}, 23\penalty0 (4):\penalty0
+  419--441, 1996.
+\newblock ISSN 03036898, 14679469.
+\newblock URL \url{http://www.jstor.org/stable/4616418}.
+
+\bibitem[Bladt(2005)]{Bladt2005}
+Mogens Bladt.
+\newblock A review on phase-type distributions and their use in risk theory.
+\newblock \emph{{ASTIN} Bulletin}, 35\penalty0 (1):\penalty0 145--161, may
+  2005.
+\newblock \doi{10.1017/s0515036100014100}.
+
+\bibitem[Dobrow(2016)]{Dobrow2016}
+Robert~P. Dobrow.
+\newblock \emph{Introduction to Stochastic Processes With R}.
+\newblock John Wiley {\&} Sons, Inc, mar 2016.
+\newblock \doi{10.1002/9781118740712}.
+
+\bibitem[Lin and Liu(2007)]{Lin2007}
+X.~Sheldon Lin and Xiaoming Liu.
+\newblock Markov aging process and phase-type law of mortality.
+\newblock \emph{North American Actuarial Journal}, 11\penalty0 (4):\penalty0
+  92--109, oct 2007.
+\newblock \doi{10.1080/10920277.2007.10597486}.
+
+\bibitem[Little(1961)]{Little1961}
+John D.~C. Little.
+\newblock A proof for the queuing formula:{L}= $ \lambda${W}.
+\newblock \emph{Operations Research}, 9\penalty0 (3):\penalty0 383--387, jun
+  1961.
+\newblock \doi{10.1287/opre.9.3.383}.
+
+\bibitem[Truquet(2015)]{Truquet_stat_proc}
+Lionel Truquet.
+\newblock Statistiques des processus 3a.
+\newblock Lecture notes, 2015.
+\newblock
+  \url{https://ensai.fr/wp-content/uploads/2019/06/polystatdesprocessus2.pdf}.
+
+\bibitem[Zadeh and Stanford(2014)]{Zadeh2014}
+Amin~Hassan Zadeh and David~A. Stanford.
+\newblock Bayesian and bühlmann credibility for phase-type distributions with
+  a univariate risk parameter.
+\newblock \emph{Scandinavian Actuarial Journal}, 2016\penalty0 (4):\penalty0
+  338--355, jun 2014.
+\newblock \doi{10.1080/03461238.2014.926977}.
+
+\bibitem[Zadeh et~al.(2013)Zadeh, Jones, and Stanford]{Zadeh2013}
+Amin~Hassan Zadeh, Bruce~L. Jones, and David~A. Stanford.
+\newblock The use of phase-type models for disability insurance calculations.
+\newblock \emph{Scandinavian Actuarial Journal}, 2014\penalty0 (8):\penalty0
+  714--728, mar 2013.
+\newblock \doi{10.1080/03461238.2012.761645}.
+
+\end{thebibliography}
+
 \newpage

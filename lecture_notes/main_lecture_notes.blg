@@ -2,45 +2,73 @@ This is BibTeX, Version 0.99d (TeX Live 2022)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main_lecture_notes.aux
 The style file: plainnat.bst
-Database file #1: calcul_sto.bib
-You've used 26 entries,
+Illegal, another \bibdata command---line 250 of file main_lecture_notes.aux
+ : \bibdata
+ :         {includes/calcul_sto_chap_II}
+I'm skipping whatever remains of this command
+Illegal, another \bibstyle command---line 260 of file main_lecture_notes.aux
+ : \bibstyle
+ :          {plainnat}
+I'm skipping whatever remains of this command
+Database file #1: includes/calcul_sto_chap_I.bib
+Warning--I didn't find a database entry for "Gall2012"
+Warning--I didn't find a database entry for "Dobrow2016"
+Warning--I didn't find a database entry for "Little1961"
+Warning--I didn't find a database entry for "Bladt2005"
+Warning--I didn't find a database entry for "Albrecher2019"
+Warning--I didn't find a database entry for "Lin2007"
+Warning--I didn't find a database entry for "Zadeh2013"
+Warning--I didn't find a database entry for "Asmussen2019"
+Warning--I didn't find a database entry for "Zadeh2014"
+Warning--I didn't find a database entry for "Asmussen1996"
+Warning--I didn't find a database entry for "MJB06"
+Warning--I didn't find a database entry for "Donsker1951"
+Warning--I didn't find a database entry for "Huynh2021"
+Warning--I didn't find a database entry for "Wu2018"
+Warning--I didn't find a database entry for "Ludkovski2022"
+Warning--I didn't find a database entry for "Black1973"
+Warning--I didn't find a database entry for "Merton1973"
+Warning--can't use both author and editor fields in laleuf14
+Warning--empty publisher in laleuf14
+You've used 12 entries,
             2773 wiz_defined-function locations,
-            796 strings with 9233 characters,
-and the built_in function-call counts, 10139 in all, are:
-= -- 939
-> -- 419
-< -- 25
-+ -- 149
-- -- 123
-* -- 749
-:= -- 1596
-add.period$ -- 103
-call.type$ -- 26
-change.case$ -- 111
-chr.to.int$ -- 26
-cite$ -- 52
-duplicate$ -- 517
-empty$ -- 915
-format.name$ -- 167
-if$ -- 2126
+            706 strings with 6891 characters,
+and the built_in function-call counts, 3939 in all, are:
+= -- 337
+> -- 142
+< -- 13
++ -- 54
+- -- 42
+* -- 236
+:= -- 642
+add.period$ -- 45
+call.type$ -- 12
+change.case$ -- 42
+chr.to.int$ -- 12
+cite$ -- 26
+duplicate$ -- 235
+empty$ -- 382
+format.name$ -- 58
+if$ -- 822
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 31
-newline$ -- 163
-num.names$ -- 104
-pop$ -- 229
+missing$ -- 18
+newline$ -- 77
+num.names$ -- 48
+pop$ -- 122
 preamble$ -- 1
-purify$ -- 93
+purify$ -- 38
 quote$ -- 0
-skip$ -- 359
+skip$ -- 156
 stack$ -- 0
-substring$ -- 326
-swap$ -- 53
-text.length$ -- 2
+substring$ -- 49
+swap$ -- 23
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 246
-warning$ -- 0
-while$ -- 103
+type$ -- 92
+warning$ -- 2
+while$ -- 39
 width$ -- 0
-write$ -- 384
+write$ -- 171
+(There were 2 error messages)

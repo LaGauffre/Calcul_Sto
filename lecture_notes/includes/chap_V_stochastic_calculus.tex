@@ -15,9 +15,9 @@ où $(X_t)_{t\geq 0}$ est un processus cadlag, $t\mapsto f(t)$ une fonction du t
 $$
 \omega\in\Omega\mapsto\int_0^tX_s(\omega)\text{ds}.
 $$
-Il s'agit de l'intégrale d'un fonction continu sur intervalle bornée, c'est l'aire sous la trajectoire du processus $X$ jusqu'au temps $t$. Par exemple, pour le processus de Poisson, on a 
+Il s'agit de l'intégrale d'une fonction continue sur intervalle bornée, c'est l'aire sous la trajectoire du processus $X$ jusqu'au temps $t$. Par exemple, pour le processus de Poisson, on a 
 $$
-\int_0^t N_s \text{ds} = \sum_{k=0}^{N_t} k\Delta^T_k.
+\int_0^t N_s \text{ds} = \sum_{k=0}^{N_t-1} k\Delta^T_k + N_t(t - T_{N_t}).
 $$
 L'intégrale \eqref{eq:int_sto_2} est l'intégrale de Wiener et l'intégrale \eqref{eq:int_sto_3} est celle d'Ito. Le contenu de ce chapitre s'isnpire des notes de cours de \citet{MJB06} et de l'ouvrage de \citet{Dobrow2016}.
 \section{l'intégrale de Wiener}\label{sec:wiener_integral}
@@ -33,21 +33,24 @@ L'espace de fonctions $\mathcal{L}^2([0,T],\RL)$ muni du produit scalaire
 $$
 <f,g> = \int_0^Tf(s)g(s)\text{d}s
 $$
-est un espace de Hilbert. Les espaces de Hilbert sont commodes du fait de l'existence de bases orthonormées. Il existe une suite de fonctions $(f_n)_{n\geq 0}$ tel que 
-$$
-<f_n, f_m> =\delta_{nm} =\begin{cases}1,&\text{ si }n=m,\\
-0,&\text{ sinon.}
-\end{cases}
-$$
-et 
-$$
-f = \sum_{n\geq 1}a_n f_n,\text{ }\forall f\in\mathcal{L}^2([0,T],\RL).
-$$
-Nous allons considérer ici des bases faites de fonction en escalier, c'est à dire du type
-$$
-g(t) = \sum_{i=1}^{k}= \alpha_i\ind_{(t_i,t_{i+1}]}(t), 
-$$
-où $(t_i)_{i\geq1}$ est une suite croissante de $\RL$. Pour toute fonction $f\in\mathcal{L}^2([0,T],\RL)$ il existe une suite de fonctions en escalier $(f_n)_{n\geq 0}$ tel que 
+est un espace de Hilbert, un espace veectoriel normé complet et muni d'un produit scalaire. 
+
+% Les espaces de Hilbert sont commodes du fait de l'existence de bases orthonormées. Il existe une suite de fonctions $(f_n)_{n\geq 0}$ tel que 
+% $$
+% <f_n, f_m> =\delta_{nm} =\begin{cases}1,&\text{ si }n=m,\\
+% 0,&\text{ sinon.}
+% \end{cases}
+% $$
+% et 
+% $$
+% f = \sum_{n\geq 1}a_n f_n,\text{ }\forall f\in\mathcal{L}^2([0,T],\RL).
+% $$
+% Nous allons considérer ici des bases faites de fonction en escalier, c'est à dire du type
+% $$
+% g(t) = \sum_{i=1}^{k} \alpha_i\ind_{(t_i,t_{i+1}]}(t), 
+% $$
+% où $(t_i)_{i\geq1}$ est une suite croissante de $\RL$. 
+Pour toute fonction $f\in\mathcal{L}^2([0,T],\RL)$ il existe une suite de fonctions en escalier $(f_n)_{n\geq 0}$ tel que 
 $$
 ||f-f_n||_2 = \left(\int_0^T\left[f(s)-f_n(s)\right]^2\text{d}s\right)^{1/2}\rightarrow 0\text{ pour }n\rightarrow \infty.
 $$
@@ -56,11 +59,11 @@ Soit
 $$
 f(t) = \sum_{i=1}^n\alpha_i\ind_{(t_i, t_{i+1}]},
 $$
-avec $0=t_0<t_1<\ldots <t_{n+1} = \infty$. L'intégrale de Wiener de $f$ est donnée par 
+avec $0=t_0<t_1<\ldots <t_{n+1} = T$. L'intégrale de Wiener de $f$ est donnée par 
 $$
 I_T(f) = \int_0^Tf(s)\text{d}Bs = \int_0^T\sum_{i=1}^n\alpha_i\ind_{(t_i, t_{i+1}]}\text{d}B_s = \sum_{i=1}^n\alpha_i\int_{t_i}^{t_{i+1}} \text{d}B_s = \sum_{i=1}^n\alpha_i (B_{t_{i+1}} - B_{t_i}).
 $$
-\begin{remark}
+\begin{remark}\label{rem:integrale_Riemann_Stieljes}
 On peut faire un parallèle avec l'intégrale de Riemann-Stieljes. Soient deux fonctions $F, g$ continues. L'intégrale de Riemann-Stieljes notée 
 $$
 \int_0^Tg(s)\text{d}F(s)
@@ -78,7 +81,7 @@ $$
 I_T(f)(\omega) =\int_0^Tf(s)\text{d}Bs(\omega) \approx \sum_{i=1}^nf(t_{i}^\ast) (B_{t_{i+1}}(\omega) - B_{t_i}(\omega)).
 $$
 \end{remark}
-Soit $\F_t = \sigma(B_s,s\leq t)$, l'intégrale de Wiener est une variable aléatoire su $(\Omega, \F,\F_t, \Prob )$ gaussienne d'espérance nulle et de variance donnée par
+Soit $\F_t = \sigma(B_s,s\leq t)$, l'intégrale de Wiener est une variable aléatoire sur $(\Omega, \F,\F_t, \Prob )$ gaussienne d'espérance nulle et de variance donnée par
 $$
 \V[I_T(f)]= \V\left[\sum_{i=1}^n\alpha_i (B_{t_{i+1}} - B_{t_i})\right] = \sum_{i=1}^n\alpha_i^2 \V(B_{t_{i+1}} - B_{t_i}) = \sum_{i=1}^n\alpha_i^2 (t_{i+1} - t_i)= \int_0^T f(s)^2\text{d}s.
 $$
@@ -89,23 +92,23 @@ $$
 Enfin pour deux fonctions en escalier, on a 
 \begin{eqnarray*}
 \E[I_T(f)I_T(g)] &=& \frac{1}{2}\left[\V(I_T(f)+I_T(g))-\V(I_T(f))- \V(I_T(g))\right]\\
-&=& \frac{1}{2}\left[\int_0^T(f(s)+g(s))\text{d}s-\int_0^Tf(s)^2\text{d}s- \int_0^Tg(s)^2\text{d}s\right]\\
+&=& \frac{1}{2}\left[\int_0^T(f(s)+g(s))^2\text{d}s-\int_0^Tf(s)^2\text{d}s- \int_0^Tg(s)^2\text{d}s\right]\\
 &=&\int_0^Tf(s)g(s)\text{d}s.
 \end{eqnarray*}
-L'application $f\mapsto I_T(f)$ définie une isométrie (application qui conserve les longueur\footnote{https://en.wikipedia.org/wiki/Isometry}) de $\mathcal{L}^2([0,T],\RL)$ dans $\mathcal{L}^2(\Omega,\F,\Prob)$, l'espace des \va de carré intégrable (telles que $\E(X^2)<\infty$). On a 
+L'application $f\mapsto I_T(f)$ définie une isométrie (application qui conserve les longueur\footnote{https://en.wikipedia.org/wiki/Isometry}) de $\mathcal{E}^2([0,T],\RL)$ (fonction en escalier de carré intégrable) dans $\mathcal{L}^2(\Omega,\F,\Prob)$, l'espace des \va de carré intégrable (telles que $\E(X^2)<\infty$). On a 
 $$
 <I_T(f), I_T(g)> = <f,g>.
 $$
 \subsection{Cas général}
 Pour définir $I_T(f)$ pour $f\in\mathcal{L}^2([0,T],\RL)$, on utilise l'isométrie et le lemme suivant 
 \begin{lemma}
-Soit $(X_n)_{n\geq0}$ une suite de \va $X_n\sim\NormalDist(\mu_n,\sigma_n)$ convergeant vers $X$ en norme $\mathcal{L}^2$, ce qui signifie que 
+Soit $(X_n)_{n\geq0}$ une suite de \va $X_n\sim\NormalDist(\mu_n,\sigma_n^2)$ convergeant vers $X$ en norme $\mathcal{L}^2$, ce qui signifie que 
 $$
 \E(|X_n-X|^2)\rightarrow 0\text{ pour }n\rightarrow \infty.
 $$
 Alors 
 $$
-\mu_n\rightarrow\mu\text{, } \sigma_n\rightarrow\sigma\text{, et }X\sim\NormalDist(\mu,\sigma)
+\mu_n\rightarrow\mu\text{, } \sigma_n\rightarrow\sigma\text{, et }X\sim\NormalDist(\mu,\sigma^2)
 $$
 \end{lemma}
 
@@ -113,22 +116,31 @@ Pour $f\in\mathcal{L}^2([0,T],\RL)$, soit $(f_n)_{n\geq 1}$ une suite de fonctio
 $$
 ||f_n - f||_2\rightarrow\infty
 $$
-Les \va $I_T(f_n)$ sont des \va gaussiennes. Comme $(f_n)_{n\geq 1}$ converge alors c'est une suite de Cauchy alors la suite $(I_T(f_n))_{n\geq 1}$ est de Cauchy comme $\mathcal{L}^2(\Omega, \F, \Prob)$ est complet alors la suite $(I_T(f_n))_{n\geq 1}$ converge vers une \va dans $\mathcal{L}^2(\Omega, \F, \Prob)$ qui est aussi une \va gaussienne notée $I_T(f)\sim\NormalDist\left(0,\int_0^T f^2(s)\text{d}s\right)$. Les propriétés de linéarité et d'isométrie sont conservées. On note que $I_T(f)$ est une \va mesurable par rapport à $\sigma(B_t,0\leq t\leq T)$ qui vérifie, pour $t\in[0,T]$,
-\begin{eqnarray*}
-\E(I_T(f)B_t)& =& \E\left[\int_0^T f(x)\text{d}B_s\int_0^T \ind_{[0,t]}(s)\text{d}B_s\right]\\
-&=&\int_0^Tf(s)\ind_{[0,t]}\text{ds}\\ 
-&=& \int_0^t f(s)\text{d}s.
-\end{eqnarray*}
-$I_T(f)$ est l'unique \va gaussienne $Z$ qui vérifie 
-$$
-\E(ZB_t) = \int_0^tf(s)\text{ds},\text{ }\forall t\in[0,T].
-$$
+Les \va $I_T(f_n)$ sont des \va gaussiennes. Comme $(f_n)_{n\geq 1}$ converge alors c'est une suite de Cauchy alors la suite $(I_T(f_n))_{n\geq 1}$ est de Cauchy comme $\mathcal{L}^2(\Omega, \F, \Prob)$ est complet alors la suite $(I_T(f_n))_{n\geq 1}$ converge vers une \va dans $\mathcal{L}^2(\Omega, \F, \Prob)$ qui est aussi une \va gaussienne notée $I_T(f)\sim\NormalDist\left(0,\int_0^T f^2(s)\text{d}s\right)$. L'intégrale de Wiener $f\mapsto I_T(f)$ est linéaire et définie une isométrie de de $\mathcal{L}^2([0,T],\RL)$ (fonction en escalier de carré intégrable) dans $\mathcal{L}^2(\Omega,\F,\Prob)$. 
+% $I_T(f)$ est l'unique \va gaussienne $Z$ qui vérifie 
+% $$
+% \E(ZB_t) = \int_0^tf(s)\text{ds},\text{ }\forall t\in[0,T],
+% $$
+% car $f\in\mathcal{L}^2([0,T],\RL)$.
+% \begin{remark}
+% On se rappelle de l'interprétation de la  \cref{rem:integrale_Riemann_Stieljes}, avec
+% $$
+% I_T(f)(\omega) =\int_0^Tf(s)\text{d}Bs(\omega) \approx \sum_{i=1}^nf(t_{i}^\ast) (B_{t_{i+1}}(\omega) - B_{t_i}(\omega)) = I^n_T(f)
+% $$
+% Le second membre s'interprête comme s'interprêtent comme une projection orthogonales sur une base formées par les incréments de $(B_t)_{t\geq 0}$. 
+
+% En prenant $n\rightarrow\infty$, on considère des partitions de $[0,T]$ de plus en plus fine. Ici on a à faire à une base qui n'est pas dénombrable ce qui rend l'appelation projection orthogonal abusive. 
+% \end{remark}
 \subsection{L'intégrale de Wiener vue comme un processus gaussien}
 Soit le processus 
 $$
 M_t =I_t(f)= \int_{0}^t f(s)\text{d}B_s,\text{ }t\geq 0,
 $$
-et $\mathcal{F}_t^B = \sigma(B_s,s\leq t)$ la filtration naturelle du mouvement brownien $(B_t)_{t\geq 0}$.
+et $\mathcal{F}_t^B = \sigma(B_s,s\leq t)$ la filtration naturelle du mouvement brownien $(B_t)_{t\geq 0}$. On note que, pour $s, t\geq 0$,
+$$
+M_{t+s}-M_s = \int_{s}^{s+t}f(u)\text{d}B_u\in\sigma(B_u - B_s, u\in[s, s+t]), 
+$$
+est indépendant de $M_s\in\sigma(B_u, u\leq s)$.
 \begin{theo}
 Le processus $(M_t)_{t\geq 0}$ est un processus gaussien $\mathcal{F}_t^B$-adapté, centré, de fonction de covariance donnée par 
 $$
@@ -148,20 +160,13 @@ est gaussienne (somme de deux gaussiennes indépendantes) pour tout $a_1, a_2\in
 \begin{eqnarray*}
 C(M_t, M_s)&=&\E(M_tM_s)\\
 &=&\E\left[\int_0^tf(u)\text{d}B_u\int_0^sf(v)\text{d}B_v\right]\\
-&=&\E\left[\left(\int_0^sf(u)\text{d}B_u+ \int_s^tf(u)\text{d}B_u\right) \int_0^ts(v)\text{d}B_v\right]\\
+&=&\E\left[\left(\int_0^sf(u)\text{d}B_u+ \int_s^tf(u)\text{d}B_u\right) \int_0^tf(v)\text{d}B_v\right]\\
 &=&\E\left[\left(\int_0^sf(u)\text{d}B_u\right)^2\right]+\E\left[\int_s^tf(u)\text{d}B_u\int_0^sf(v)\text{d}B_v\right]\\
 &=&\E\left[\left(\int_0^sf(u)\text{d}B_u\right)^2\right]+\E\left[\int_s^tf(u)\text{d}B_u\right]\E\left[\int_0^sf(v)\text{d}B_v\right]\\
 &=&\int_0^sf^2(u)\text{d}u,
 \end{eqnarray*}
-par symétrie on obtient 
-$$
-C(s,t) =\int_0^tf^2(u)\text{d}u \text{, si }s\geq t.
-$$
-On note également que, pour $s, t\geq 0$,
-$$
-M_{t+s}-M_s = \int_{s}^{s+t}f(u)\text{d}B_u\in\sigma(B_u - B_s, u\in[s, s+t])
-$$
-qui est indépendant de $M_s\in\sigma(B_u, u\leq s)$.
+par symétrie on obtient $C(s,t) =\int_0^tf^2(u)\text{d}u \text{, si }s\geq t.$
+
 \end{proof}
 \begin{prop}
 \begin{enumerate}
@@ -179,7 +184,12 @@ $$
 \end{prop}
 \begin{proof}
 \begin{enumerate}
-	\item On a, pour $s\leq t$,
+	\item  Le processus $(M_t)_{t\geq0}$ est $\mathcal{F}_t^B$ adapté, de plus par l'ingégalité de Cauchy-Schwarz, il vient 
+	$$
+	\E(|M_t|)\leq \E\left(M_t^2\right)^\frac 12 = \left(\int_0^t f(u)\text{d}u\right)^\frac 12 <\infty.
+	$$
+
+	On a, pour $s\leq t$,
 	\begin{eqnarray*}
 	\E(M_t|\F_s^B)&=&\E(M_t-M_s +M_s|\F_s^B)\\
 	&=&\E(M_t-M_s) +M_s\\
@@ -193,38 +203,16 @@ $$
 	&=&\int_s^t f(u)^2\text{d}u + 2\E(M_t-M_s)M_s + M_s^2 - \int_0^tf(u)^2\text{d}u\\
 	&=&M_s^2 - \int_0^sf(u)^2\text{d}u.
 	\end{eqnarray*}
-	\item On a 
+	\item On a, pour$T>\max(s,t)$,
 	\begin{eqnarray*}
-	\E\left[\int_0^tf(u)\text{d}u\int_0^sg(u)\text{d}v\right]&=&\E\left[\int_0^\infty f(u)\ind_{[0,t]}(u)\text{d}B_u\int_0^\infty g(v)\ind_{[0,s](v)}\text{d}B_v\right]\\
-	&=&\int_0^\infty f(u)g(u)\ind_{[0,t]}(u)\ind_{[0,s]}(u)\text{d}u\\
+	\E\left[\int_0^tf(u)\text{d}u\int_0^sg(u)\text{d}v\right]&=&\E\left[\int_0^T f(u)\ind_{[0,t]}(u)\text{d}B_u\int_0^T g(v)\ind_{[0,s](v)}\text{d}B_v\right]\\
+	&=&\int_0^T f(u)g(u)\ind_{[0,t]}(u)\ind_{[0,s]}(u)\text{d}u\\
 	&=&\int_0^{s\land t} f(u)g(u)\text{d}u.\\
 	\end{eqnarray*}
 \end{enumerate}
 \end{proof}
-Pour terminer une formule d'intégration par partie.
-\begin{theo}
-Soit $f\in \mathcal{L}^2(\RL_+,\RL)$, dérivable et de dérivée continue alors 
-$$
-I_t(f) = f(t)B_t - \int_0^tf'(s)B_s\text{d}s,\text{ }\forall t\geq 0.
-$$
-\end{theo}
-\begin{proof}
-Il faut vérifier que, pour $u, t\geq 0$, 
-\begin{equation}\label{eq:identity_wiener_integral}
-\E\left[B_u\int_0^tf(s)\text{d}B_s\right] = \E\left\{B_u\left[f(t)B_t - \int_0^tf'(s)B_s\text{d}s\right]\right\} = \int_0^{u\land tf(s)\text{d}s}.
-\end{equation}
-Le membre de droite donne
-$$
-\E\left[B_u\int_0^tf(s)\text{d}B_s\right] = \int_0^{t\land u}f(s)\text{d}s.\text{ (déjà démontré plus haut)}
-$$
-Le membre de gauche donne
-\begin{eqnarray*}
-\E\left\{B_u\left[f(t)B_t - \int_0^tf'(s)B_s\text{d}s\right]\right\}&=&f(t) t\land u - \E\left[B_u\int_0^tf'(s)B_s\text{d}s\right]\\
-&=&f(t) t\land u - \int_0^tf'(s)s\land u\text{d}s\\
-&=& f(t) t\land u - f(t) t\land u + \int_0^{t\land u}f(s)\text{d}s.\\
-&=&  \int_0^{t\land u}f(s)\text{d}s.
-\end{eqnarray*}
-\end{proof}
+
+
 
 % La construction de l'intégrale par rapport au mouvement Brownien repose sur le résultat suivant 
 % \begin{theo}
@@ -320,7 +308,7 @@ Les raisonnements se rapprochent de ceux effectuer pour l'intégrale de Wiener.
 \begin{ex}
 Nous souhaitons calculer $\int_0^t B_s\text{d}B_s$. Soit une subdivision de $[0,t]$ définie par 
 $$
-t_j = \frac{j}{2^n}t,\text{ }j = 1,\ldots, 2^n,
+t_j = \frac{j}{2^n}t,\text{ }j =0, 1,\ldots, 2^n,
 $$
 et un processus étagée égale à 
 $$
@@ -341,7 +329,7 @@ On a
 &=&\sum_{j=1}^{2^n}\int_{t_{j-1}}^{t_{j}}\E\left[(B_s-B_{t_{j-1}})^2\right]\text{d}s\\
 &=&\sum_{j=1}^{2^n}\int_{t_{j-1}}^{t_{j}}(s-t_{j-1})\text{d}s\\
 &=&\frac{1}{2}\sum_{j=1}^{2^n}(t_{j}-t_{j-1})^2\\
-&=&\frac{1}{2}2^n\frac{t}{2^{2n}} = t/ 2^{n+1}\rightarrow 0.
+&=&\frac{1}{2}2^n\frac{t^2}{2^{2n}} = t^2/ 2^{n+1}\rightarrow 0.
 \end{eqnarray*}
 \item On calcule 
 \begin{eqnarray*}
@@ -357,7 +345,7 @@ $$
 $$
 On peut monter que 
 $$
-\E\left[\sum_{j =1}^{2^n}(B_{t_j}- B_{t_{j-1}})^2 - t\right]\rightarrow 0
+\E\left\{\left[\sum_{j =1}^{2^n}(B_{t_j}- B_{t_{j-1}})^2 - t\right]^2\right\}\rightarrow 0,\text{ lorsque }n\rightarrow \infty.
 $$
 Soit $Z_n= \sum_{j =1}^{2^n}(B_{t_j}- B_{t_{j-1}})^2$, on note que 
 $$
@@ -366,7 +354,7 @@ $$
 Il faut donc montrer que $\V(Z_n) \rightarrow 0$. On a 
 \begin{eqnarray*}
 \V(Z_n) &=& \sum_{j = 1}^{2^n} \V\left[(B_{t_j}-B_{t_{j-1}})^2\right]\\
-&=&\sum_{j = 1}^{2^n}2\left(\frac{t}{2^n}\right)^2 = 2t\left(\frac{1}{2}\right)^n\rightarrow \infty.
+&=&\sum_{j = 1}^{2^n}2\left(\frac{t}{2^n}\right)^2 = 2t\left(\frac{1}{2}\right)^n\rightarrow 0.
 \end{eqnarray*}
 On en déduit que 
 $$
@@ -403,7 +391,7 @@ $$
 $$
 La solution est un processus défini sous forme intégrale par 
 $$
-X_t = x_0 + \mu \int_0^s X_s\text{d}s+\sigma \int X_s\text{d}B_s.
+X_t = x_0 + \mu \int_0^t X_s\text{d}s+\sigma \int_0^t X_s\text{d}B_s.
 $$
 \subsection{Processus d'Ito et lemme d'Ito}
 \begin{definition}
@@ -446,7 +434,7 @@ $$
 	comme on le verra plus tard!
 \end{enumerate}
 \end{ex}
-On parle aussi de diffusion, $\mu$ est le paramètre de dérive ou \textit{drift} et $\sigma$ est le paramètre de volatilité. Les processus d'Ito ne sont pas simple à étudier, on préfère généralement des processus dont la dynamique est donnée par
+On parle aussi de diffusion, $\mu$ est le paramètre de dérive ou \textit{drift} et $\sigma$ est le paramètre de volatilité. Les processus d'Ito ne sont pas simples à étudier, on préfère généralement des processus dont la dynamique est donnée par
 $$
 \text{d}Y_t = \tilde{\mu}(t)\text{d}t+ \tilde{\sigma}(t)\text{d}B_t,
 $$
@@ -462,9 +450,9 @@ Le lemme d'Ito permet d'établir la dynamique d'une transformation $f:[0,\infty)
 \begin{theo}
 Soit $f:[0,\infty)\times\RL\mapsto \RL$ une fonction de classe $C^2$ alors 
 $$
-df(t,X_t) = \left(\frac{\partial f}{\partial t} + \mu(t,X_t)\frac{\partial f}{\partial x}+\frac{\sigma^2(t,X_t)}{2}\frac{\partial f}{\partial x^2}\right)\text{d}t + \sigma(t,X_t)\frac{\partial f}{\partial x}\text{d}B_t.
+df(t,X_t) = \left(\frac{\partial f}{\partial t} + \mu(t,X_t)\frac{\partial f}{\partial x}+\frac{\sigma^2(t,X_t)}{2}\frac{\partial^2 f}{\partial x^2}\right)\text{d}t + \sigma(t,X_t)\frac{\partial f}{\partial x}\text{d}B_t.
 $$
-A noter que $\frac{\partial f}{\partial t}$ et $\frac{\partial f}{\partial x}$ sont les dérivées partielle de $f$ par rapport à la première et deuxième variables respectivement.
+A noter que $\frac{\partial f}{\partial t}$ et $\frac{\partial f}{\partial x}$ sont les dérivées partielles de $f$ par rapport à la première et deuxième variables respectivement.
 \end{theo}
 La formule d'Ito est issue d'un développement de Taylor de la fonction $f$. On a 
 $$
@@ -483,8 +471,7 @@ df(t,X_t) = \left(\frac{\partial f}{\partial t} + \mu(t,X_t)\frac{\partial f}{\p
 $$
 On illustre l'utilisation du lemme d'Ito pour effectuer des petits calculs intégrales
 \begin{ex}
-\begin{enumerate}
-	\item Retour sur le calcul de $\int_0^tB_s\text{d}B_s$. On applique la formule d'Ito sur $f(t, B_t) = B_t^2$. On note que 
+Calcul de $\int_0^tB_s\text{d}B_s$. On applique la formule d'Ito sur $f(t, B_t) = B_t^2$. On note que 
 	$$
 	\frac{\partial f}{\partial t} = 0,\text{ }\frac{\partial f}{\partial x} = 2x\text{ et }\frac{\partial^2 f}{\partial x^2} = 2.
 	$$
@@ -496,25 +483,7 @@ On illustre l'utilisation du lemme d'Ito pour effectuer des petits calculs inté
 	$$
 	\int_0^tB_s\text{d}B_s = \frac{1}{2}\left(B_t^2-t\right)
 	$$
-	\item Evaluation de $\int_0^t B_s^2\text{d}B_s$ et $\int_{0}^t(B_s^2 - s)\text{d}B_s$. On applique la formule d'Ito avec $f(t,B_t) = B_t^3$. On note que 
-	$$
-	\frac{\partial f}{\partial t} = 0,\text{ }\frac{\partial f}{\partial x} = 3x^2\text{ et }\frac{\partial^2 f}{\partial x^2} = 6x.
-	$$
-	L'application de la formule d'Ito renvoie
-	$$
-	\text{d}B_t^3 = \frac{1}{2}6B_t\text{d}t + 3B_t^2\text{d}B_t
-	$$
-	Par intégration entre $0$ et $t$, il vient
-	$$
-	\int_0^tB_s^2\text{d}B_s = \frac{1}{3}B_t^3-\int_{0}^tB_s\text{d}s
-	$$
-	On en déduit que 
-	\begin{eqnarray*}
-	\int_{0}^t(B_s^2 - s)\text{d}B_s&=&\int_{0}^tB_s^2 \text{d}B_s - \int_{0}^ts\text{d}B_s\\
-	&\overset{IPP}{=}&\frac{1}{3}B_t^3-\int_{0}^tB_s\text{d}s - tB_t + \int_{0}^tB_s\text{d}s\\
-	&=&\frac{1}{3}B_t^3 - tB_t.
-	\end{eqnarray*}
-\end{enumerate}
+
 \end{ex}
 On peut également s'intéresser à des EDS célèbres
 \begin{ex}
@@ -523,17 +492,17 @@ On peut également s'intéresser à des EDS célèbres
 	$$
 	\text{d}X_t = \mu X_t\text{d}t+\sigma X_t\text{d}B_t
 	$$
-	On applique la formule d'Ito avec $f(t, X_t) = \log(X_t)$. On a 
+	On applique la formule d'Ito avec $f(t, X_t) = \ln(X_t)$. On a 
 	$$
 	\frac{\partial f}{\partial t} = 0,\text{ }\frac{\partial f}{\partial x} = \frac 1x\text{ et }\frac{\partial^2 f}{\partial x^2} = -\frac{1}{x}^2.
 	$$
 	Il vient 
 	$$
-	\text{d}\log X_t = \left[0+\frac{\mu X_t}{X_t} - \frac{\sigma^2}{2X_t^2}\right]\text{d}t \frac{\sigma X_t}{X_t}\text{d}B_t
+	\text{d}\ln X_t = \left[0+\frac{\mu X_t}{X_t} - \frac{\sigma^2X_t^2}{2X_t^2}\right]\text{d}t +\frac{\sigma X_t}{X_t}\text{d}B_t
 	$$
 	puis en intégrant entre $0$ et $t$, on obtient 
 	$$
-	\log X_t - \log X_0 = \left(\mu - \frac{\sigma^2}{2}\right)t + \sigma B_t,
+	\ln X_t - \ln X_0 = \left(\mu - \frac{\sigma^2}{2}\right)t + \sigma B_t,
 	$$
 	et finalement 
 	$$
@@ -588,9 +557,9 @@ Si on munit l'espace probabilisé d'une filtration $\F_t$ et qu'on considère un
 $$
 \Q(A) = \E^\Prob(Z_T\ind_A).
 $$
-Pour que $\Prob$ et $\Q$ soitent des mesure de probabilité équivalente, c'est à dire, que 
+Pour que $\Prob$ et $\Q$ soient des mesures de probabilité équivalentes, c'est à dire, que 
 $$
-\Prob(A) = 0\Leftrightarrow \Q(A) = 0,
+\Prob(A) = 0\Leftrightarrow \Q(A) = 0,\text{ }\forall A\in\F
 $$
 Il est suffisant que $Z_T>0$. Dans ce cas $Z_T$ est la dérivée de Radon-Nikodym de $\Q$ par rapport à $\Prob$. On peut définir des probabilité équivalente à $\Prob$ restreinte à $\F_t$ (c'est à dire sur $(\Omega,\F_t, \Prob)$) pour $t\leq T$ avec 
 $$
@@ -639,18 +608,19 @@ L_t^\lambda = \exp\left(\lambda \tilde{B}_t - \lambda^2\frac{t}{2}\right),\text{
 $$
 Pour tout $s\leq t\leq T$ et tout $A\in\F_s^B$, on a 
 \begin{eqnarray*}
-\E_\Q(L_t^\lambda\ind_A) &=&\E_\Prob(Z_T^\theta L_t^\lambda\ind_A)\\ 
+\E_{\Q^\theta_T}(L_t^\lambda\ind_A) &=&\E_\Prob(Z_T^\theta L_t^\lambda\ind_A)\\ 
 &=&\E_\Prob[\E_\Prob(Z_T^\theta L_t^\lambda\ind_A|\F_t^B)]\\ 
 &=&\E_\Prob[Z_t^\theta L_t^\lambda\ind_A]\\ 
 &=& \E_\Prob\left[\exp\left(\theta B_t - \frac{\theta^2}{2}t + \lambda B_t - \theta\lambda t -\frac{\lambda^2}{2}t\right)\ind_A\right]\\ 
 &=& \E_\Prob\left[\exp\left((\theta+\lambda) B_t - \frac{(\theta+\lambda)^2}{2}t \right)\ind_A\right]\\ 
 &=& \E_\Prob\left[\exp\left((\theta+\lambda) B_s - \frac{(\theta+\lambda)^2}{2}s \right)\ind_A\right]\\
 &=& \E_\Prob\left[L^\lambda_sZ_s^\theta\ind_A\right]\\
-&=&\E_\Q\left[L^\lambda_s\ind_A\right]
+&=&\E_{\Q^\theta_T}\left[L^\lambda_s\ind_A\right] 
 \end{eqnarray*}
-Cela permet de conclure que $(L_t^\lambda)_t\geq 0$ est une martingale sous $\Q^\theta_T$. cela implique que le processus $\tilde{B}$ est un mouvement brownien sous $\Q^\theta_T$ puisque 
+Cela permet de conclure que $(L_t^\lambda)_{t\geq 0}$ est une martingale sous $\Q^\theta_T$. cela implique que le processus $\tilde{B}$ est un mouvement brownien sous $\Q^\theta_T$ puisque 
 $$
-\E^\Q\left(\exp(\lambda \tilde{B})\right) = \lambda^2\frac{t}{2},\text{ pour tout }t\geq 0.
+\E^\Q\left(\exp(\lambda \tilde{B}_t)\right) = \exp\left(\lambda^2\frac{t}{2}\right)
++,\text{ pour tout }t\geq 0.
 $$
 C'est un processus de Lévy d'exposant de Laplace $\kappa(\lambda) = \lambda^2/2$.
 \end{proof}
@@ -659,7 +629,7 @@ Considérons le mouvement brownnien géométrique dont la dynamique sous une pro
 $$
 \di X_t = \mu X_t\di t+\sigma X_t\di B_t.
 $$
-Soit $\tilde{B}_t = B_t + \frac{\mu}{\sigma},\text{ }t\geq 0$. D'après le théorème de Girsanov, $(\tilde{B}_t)_{t\geq 0}$ est un mouvement brownien sous la probabilité $\Q$ définie par 
+Soit $\tilde{B}_t = B_t + \frac{\mu}{\sigma}t,\text{ }t\geq 0$. D'après le théorème de Girsanov, $(\tilde{B}_t)_{t\geq 0}$ est un mouvement brownien sous la probabilité $\Q$ définie par 
 $$
 \Q(A) = \E^\Prob(Z_T^\theta\ind_A)\text{, }t\leq T,\text{ }A\in \F_T,
 $$
@@ -671,7 +641,313 @@ Le drift a disparu. De plus,  $(X_t)_{t\geq 0}$ est une martingale, par applicat
 $$
 X_t = X_0\exp\left(\sigma \tilde{B}_t - \frac{\sigma^2}{2}t\right).
 $$
-Le théorème de Girsanov permet de simplifier la dynamique de $X$. L'application en finance est discuté dans le \cref{chap:math_fi}.
+Le théorème de Girsanov permet de simplifier la dynamique de $X$. L'application en finance est discuté dans la \cref{sec:BS}.
+\end{ex}
+\section{Application aux maths-fi: Le modèle de Black-Scholes-(Merton)}\label{sec:BS}
+\subsection{Le Set up}
+Soit une économie comprenant deux actifs l'un risqué, l'autre non. Le prix de l'actif risqué (action ou indice boursier) est un processus $S$ défini sur un espace probabilisé filtré $(\Omega,\F, \F_t, \Prob)$ dont la dynamique est donnée 
+par 
+$$
+\text{d}S_t = \mu S_t\text{d}t + \sigma S_t \text{d}B_t,
+$$ 
+où $(B_t)_{t\geq 0}$ est un mouvement brownien standard indépendant de $S_0$ la position initiale de $X$. Par application de la formule d'Ito sur $\ln S_t$, nous obtenons 
+$$
+S_t = S_0\exp[(\mu - \sigma^2/2)t + \sigma B_t],\text{ }t\geq 0.
+$$
+De son côté l'actif sans risque (bond du trésor américain ou livret A) admet une dynamique déterministe avec 
+$$
+\di S_t^0 = r S_t^0 \di t.
+$$
+où $r>0$ désigne le rendement de l'actif sans risque. En supposant que $S^0_0 = 1$, il vient 
+$$
+S_t^0 = \e^{r t}. 
+$$
+Un portefeuille contient contient à l'instant $t\geq 0$ une certaine part d'actif risqué et d'actif non-risqué. Soit $(a_t)_{t\geq 0}$ et $(b_t)_{t\geq 0}$ deux processus $\F_t$-adapté égale au nombre d'unité d'actif risqué et d'actif sans risque contenu dans le portefeuille. La valeur du portefeuille est donnée par 
+$$
+V_t = a_t S_t + b_t S^0_t,\text{ }t\geq 0.
+$$
+le couple $(a_t, b_t)_{t\geq 0}$ est une stratégie d'investissement. Nous supposons que la stratégie d'investissment est \textit{auto-finançante}, c'est à dire que les fluctuations de la valeur du portefeuille ne sont dues qu'aux fluctuations des prix des actifs. Cette hypothèse se traduit par 
+$$
+\di V_t = a_t \di S_t + b_t \di S^0_t = (a_t\mu S_t + b_tr S_t^0)\di t  + a_t \sigma S_t \di B_t.
+$$
+Nous souhaitons donner un prix juste à une option européenne de maturité $T$ et de prix d'exercice $K$. Selon Black, Scholes and Merton, la valeur juste est caractérisée par deux hypothèses
+\begin{itemize}
+    \item L'existence d'une stratégie autofinançante permettant la réplication exacte du \textit{pay-off} de l'option. 
+    \item Si l'option était vendu à un prix autre que le prix juste alors il y aurait une opportunité d'arbitrage, soit La possibilité d'un profit infini sans aucune prise de risque.
+\end{itemize}
+\subsection{La formule de Black-Scholes}
+Prenons l'exemple d'un call européen pour lequel le \textit{pay-off} à maturité est donné par 
+$$
+(S_T-K)_+.
+$$
+L'objectif est de déterminer une stratégie autofinançante telle que 
+$$
+V_t = a_t S_t + b_t S^0_t = u(T-t, S_t),\text{ }t\in [0, T],
+$$
+où $u(\cdot, \cdot)$ est une fonction régulière ($C^2$) qui vérifie la condition terminale 
+$$
+V_T = u(0,S_T) = (S_T-K)_+.
+$$
+On applique la formule d'Ito pour obtenir 
+$$
+\text{d}V_t = \left[-\frac{\partial}{\partial t}u(T-t, S_t) + \mu S_t\frac{\partial}{\partial x}u(T-t, S_t) + \frac{\sigma^2 S_t^2}{2}\frac{\partial^2}{\partial x^2}u(T-t, S_t)\right]\text{d}t + \sigma S_t\frac{\partial}{\partial x}u(T-t, S_t)\text{d}B_t.
+$$
+On se rappelle que du fait du caractère auto-finançant de la stratégie d'investissement alors
+$$
+\di V_t = (a_t\mu S_t + b_tr S_t^0)\di t  + a_t \sigma S_t \di B_t.
+$$
+De plus comme $V_t = a_t S_t + b_t S^0_t$ alors 
+$$
+b_t = \frac{V_t - a_t S_t}{S^0_t},
+$$
+et 
+$$
+\di V_t = (a_t(\mu - r)S_t + V_t r )\di t  + a_t \sigma S_t \di B_t.
+$$
+On en déduit que 
+$$
+a_t = \frac{\partial}{\partial x}u(T-t, S_t),
+$$
+et 
+\begin{equation*}
+\frac{\partial}{\partial x}u(T-t, S_t)(\mu - r)S_t + r u(T-t, S_t) = -\frac{\partial}{\partial t}u(T-t, S_t) + \mu S_t\frac{\partial}{\partial x}u(T-t, S_t) + \frac{\sigma^2 S_t^2}{2}\frac{\partial^2}{\partial x^2}u(T-t, S_t)
+\end{equation*}
+Cette dernière égalité est en fait une équation aux dérivées partielles
+\begin{equation}\label{eq:edp_BS}
+\frac{\partial}{\partial x}u(t, x)(\mu - r)x + r u(t, x) = -\frac{\partial}{\partial t}u(t, x) + \mu x\frac{\partial}{\partial x}u(t, x) + \frac{\sigma^2 x^2}{2}\frac{\partial^2}{\partial x^2}u(t, x),
+\end{equation}
+vérifiée pour $x>0$ et $t\in[0,T]$, avec la condition terminale 
+$$
+u(0,x) = (x-K)_+.
+$$
+L'équation \eqref{eq:edp_BS} admet une solution explicite (quelle chance). En effet, 
+$$
+u(t,x) = x\phi(g(t,x)) - K\e^{-rt}\phi(h(t,x)),
+$$
+où $\phi$ est la fonction de répartition de la loi normale centrée réduite, 
+$$
+g(t,x) = \frac{\log(x/K) + (r+\sigma^2/2)t}{\sigma \sqrt{t}},
+$$
+et 
+$$
+h(t,x) = g(t,x) - \sigma\sqrt{t}.
+$$
+Le prix juste pour notre option européenne est donnée par 
+$$
+V_0 = u(T, S_0) = S_0\phi(g(T,S_0)) - K\e^{-rt}\phi(h(T,S_0)).
+$$
+C'est la formule que l'on retrouve dans les papiers de \citet{Black1973} et \citet{Merton1973}. La stratégie d'investissement permettant la réplication du \textit{pay-off} est donnée par 
+$$
+a_t = \frac{\partial}{\partial x}u(T-t, S_t),
+$$
+et 
+$$
+b_t = \frac{u(T-t, S_t) - a_t S_t}{S^0_t}.
+$$
+Pour comprendre la signification du prix juste $q = u(T, S_0)$ en terme d'arbitrage, supposons que l'option soit vendu au prix $p>q$. On applique la stratégie suivante: à $t=0$
+\begin{itemize}
+    \item Je vends l'option au prix $p$, 
+    \item J'investis $q$ dans la stratégie auto-finançante
+\end{itemize}
+Je dégage un profit initial $p-q$. A maturité si $S_T> K$ alors l'acheteur exerce l'option et ma stratégie autofinançante compense la perte $S_T-K$, sinon l'acheteur n'exerce pas l'option. Je peux dégager un profit arbitrairement grand en supposant en vendant une grande quantité d'options.
+\subsection{Interprétation via la probabilité risque-neutre}
+Nous donnons une intéprétation du juste prix du call européen dans le cadre du modèle de Black-Scholes via un changement de mesure et le théorème de Girsanov. Un prix de départ raisonable est la valeur moyenne du flux de trésorie future actualisé au taux de l'actif sans risque soit
+$$
+\e^{-rT}(S_T - K)_+ = \e^{-rT}h(S_T)
+$$
+Le prix juste ne correspond pas à l'espérance du flux futur actualisé en tout cas pas sous la probabilité $\Prob$ dite historique. Il faut introduire une autre probalité dite risque neutre $\Q$. Dans la \cref{sec:intro_math_fi}, cette probabilité était telle que le prix de l'actif actualisé était une martingale. Nous devons donc définir une probabilité pour laquelle le processus 
+$$
+\tilde{S}_t = \e^{-rt}S_t,\text{ }t\geq 0,
+$$
+est une $\Q$-martingale. Par application de la formule d'Ito, il vient 
+$$
+\text{d}\tilde{S}_t = \tilde{S}_t (\mu- r)\text{d}t + \tilde{S}_t \sigma\text{d}B_t.
+$$
+On définit $\tilde{B}_t = B_t - \frac{\mu - r}{\sigma}t,\text{ }t\geq0$. D'après le théorème de Girsanov $(\tilde{B}_t)_{t\geq 0}$ est un mouvement brownien sous la probabilité $\Q$ définie par 
+$$
+\Q(A) = \E_\Prob(Z_T^\theta\ind_A),
+$$
+où $Z_t^\theta = \e^{\theta B_t  - \theta^2 t/2}$, et $\theta = \frac{\mu - r}{\sigma}.$ Le processus $(\tilde{S}_t)_{t\geq 0}$ dont la dynamique est donnée par 
+$$
+\text{d}\tilde{S}_t = \sigma\tilde{S}_t\text{d}\tilde{B}_t,
+$$
+est une $\Q$-martingale. Si on suppose qu'il existe une stratégie auto-finançante telle que 
+$$
+V_t = a_t S_t + b_tS_t^0,
+$$
+tel que $V_T = h(S_T)$ alors la valeur du portefeuille à $T$ actualisée au temps $t$ est donnée par 
+$$
+\E(\e^{-r(T-t)}h(S_T)|\F_t),\text{ }t\in [0,T].
+$$
+Soit 
+$$
+\tilde{V_t} = \e^{-rt}V_t,\text{ }t\geq 0,
+$$
+la valeur actualisé du portefeuille. Par application de la formule d'Ito, il vient 
+\begin{eqnarray*}
+\text{d}\tilde{V_t}  &=& -r\e^{-rt}V_t\text{d}t + \e^{-rt}\text{d}V_t\\
+ &=&-r\e^{-rt}(a_t S_t + b_tS_t^0)\text{d}t + \e^{-rt}(a_t \text{d}S_t + b_t\text{d}S_t^0 )\\
+ &=&a_t(-r\e^{-rt}S_t\text{d}t + \e^{-rt}\text{d}S_t)\\
+ &=&a_t\text{d}\tilde{S}_t
+\end{eqnarray*}
+En intégrant entre $0$ et $t$, il vient
+$$
+\tilde{V}_t = \tilde{V}_0 + \int_0^ta_s\tilde{S}_s\text{d}\tilde{B}_t.
+$$
+Le processus est une $\Q$-martingale (en tant qu'intégrale d'Ito) et donc 
+$$
+\tilde{V}_t = \E^\Q(\tilde{V}_T|\F_t),\text{ }t\in [0,T].
+$$
+On en déduit que 
+$$
+V_t = \E^\Q(\e^{-r(T-t)}h(S_T)|\F_t),\text{ }t\in [0,T].
+$$
+La dynamique de $(S_t)_{t\geq 0}$ est donnée par 
+$$
+\di S_t = r S_t\di t + \sigma S_t\di  \tilde{B}_t,
+$$
+et donc 
+$$
+S_t = S_0 \e^{(r-\sigma^2 / 2)t + \sigma \tilde{B}_t }.
+$$
+
+On a alors 
+$$
+V_t = f(t, S_t) = \E^\Q\left[\e^{-r(T-t)}h\left(S_t\e^{(r-\sigma^2 / 2)(T-t) + \sigma (\tilde{B}_T - \tilde{B}_t)}\right)|\F_t\right],
+$$
+qui est l'espérance d'une fonction d'une variable aléatoire $\NormalDist(0,T-t)$. On vérifie par le calcul intégrale que l'on retrouve l'expression du prix juste de l'option avec $V_0$. Ces développements sont inspirés de l'ouvrage de \citet{Mikosch1998}.
+
+\section{Annexe: Espace Gaussien}
+On note que $I_T(f) = \int_0^T f(s)\text{d}B_s$ est une \va gaussienne mesurable par rapport à $\sigma(B_t,0\leq t\leq T)$ qui vérifie, pour $t\geq 0$,
+\begin{eqnarray*}
+\E(I_T(f)B_t)& =& \E\left[\int_0^T f(x)\text{d}B_s\int_0^T \ind_{[0,t]}(s)\text{d}B_s\right]\\
+&=&\int_0^Tf(s)\ind_{[0,t]}(s)\text{ds}\\ 
+&=&\int_0^\infty f(s)\ind_{[0,t\land T]}(s)\text{ds}\\
+&=& \int_0^{t\land T} f(s)\text{d}s.
+\end{eqnarray*}
+En fait elle est unique $\Rightarrow$ Espace Gaussien (TODO: définition et propriétés) Espace vectoriel fermé. Utile pour montrer la formule d'intégration par partie suivante.
+\begin{theo}
+Soit $f\in \mathcal{L}^2(\RL_+,\RL)$, dérivable et de dérivée continue alors 
+$$
+I_t(f) = f(t)B_t - \int_0^tf'(s)B_s\text{d}s,\text{ }\forall t\geq 0.
+$$
+\end{theo}
+\begin{proof}
+Il faut vérifier que, pour $u, t\geq 0$, 
+\begin{equation}\label{eq:identity_wiener_integral}
+\E\left[B_u\int_0^tf(s)\text{d}B_s\right] = \E\left\{B_u\left[f(t)B_t - \int_0^tf'(s)B_s\text{d}s\right]\right\} = \int_0^{u\land t}f(s)\text{d}s.
+\end{equation}
+Le membre de droite donne
+$$
+\E\left[B_u\int_0^tf(s)\text{d}B_s\right] = \int_0^{t\land u}f(s)\text{d}s.\text{ (déjà démontré plus haut)}
+$$
+Le membre de gauche donne
+\begin{eqnarray*}
+\E\left\{B_u\left[f(t)B_t - \int_0^tf'(s)B_s\text{d}s\right]\right\}&=&f(t) t\land u - \E\left[B_u\int_0^tf'(s)B_s\text{d}s\right]\\
+&=&f(t) t\land u - \int_0^tf'(s)s\land u\text{d}s\\
+% &=& f(t) t\land u - f(t) t\land u + \int_0^{t\land u}f(s)\text{d}s.\\
+% &=&  \int_0^{t\land u}f(s)\text{d}s.
+\end{eqnarray*}
+Supposons que $t \leq u$ alors 
+\begin{eqnarray*}
+\int_0^tf'(s)s\land u\text{d}s&=& \int_0^tf'(s)s\text{d}s \\
+&=& tf(t) - \int_{0}^tf(s)\text{d}s
+\end{eqnarray*}
+Supposons que $t> u$ alors
+\begin{eqnarray*}
+\int_0^tf'(s)s\land u\text{d}s&=& \int_0^uf'(s)s\text{d}s + u\int_u^tf'(s)\text{d}s\\
+&=&uf(u) - \int_{0}^uf(s)\text{d}s + u(f(t)- f(u))\\
+&=&uf(t) - \int_{0}^uf(s)\text{d}s 
+\end{eqnarray*}
+On en déduit que 
+$$
+\int_0^tf'(s)s\land u\text{d}s = f(t)t\land u - \int^{t\land u}_0f(s)\text{d}s,
+$$
+puis 
+$$
+\E\left\{B_u\left[f(t)B_t - \int_0^tf'(s)B_s\text{d}s\right]\right\} = \int^{t\land u}_0f(s)\text{d}s.
+$$
+
+\end{proof}
+\begin{ex}
+\begin{enumerate}
+\item On s'intéresse à $Y = \int sB_s\text{d}s$. La formule d'intégration par partie nous donne
+$$
+\int_0^t sB_s\text{d}s = \frac12 t^2 B_t -\int_0^t \frac12 s^2 \text{d}B_s.
+$$
+Il s'agit d'une \va gaussienne. On peut en calculer la moyenne et la variance. On a $\E(Y) = 0$  et
+\begin{eqnarray*}
+\E(Y^2) &=& \frac 14\E\left[t^4B_t^2 - 2t^2B_t\int_0^t s^2\text{d}B_s +\left(\int_0^t s^2\text{d}B_s \right)^2\right]\\
+&=& \frac 14\left[t^5-\frac23t^5 + \frac{t^5}{5}\right]=\frac{2t^5}{15}.
+\end{eqnarray*}
+\item Evaluation de $\int_0^t B_s^2\text{d}B_s$ et $\int_{0}^t(B_s^2 - s)\text{d}B_s$. On applique la formule d'Ito avec $f(t,B_t) = B_t^3$. On note que 
+	$$
+	\frac{\partial f}{\partial t} = 0,\text{ }\frac{\partial f}{\partial x} = 3x^2\text{ et }\frac{\partial^2 f}{\partial x^2} = 6x.
+	$$
+	L'application de la formule d'Ito renvoie
+	$$
+	\text{d}B_t^3 = \frac{1}{2}6B_t\text{d}t + 3B_t^2\text{d}B_t
+	$$
+	Par intégration entre $0$ et $t$, il vient
+	$$
+	\int_0^tB_s^2\text{d}B_s = \frac{1}{3}B_t^3-\int_{0}^tB_s\text{d}s
+	$$
+	On en déduit que 
+	\begin{eqnarray*}
+	\int_{0}^t(B_s^2 - s)\text{d}B_s&=&\int_{0}^tB_s^2 \text{d}B_s - \int_{0}^ts\text{d}B_s\\
+	&\overset{IPP}{=}&\frac{1}{3}B_t^3-\int_{0}^tB_s\text{d}s - tB_t + \int_{0}^tB_s\text{d}s\\
+	&=&\frac{1}{3}B_t^3 - tB_t.
+	\end{eqnarray*}
+	\end{enumerate}
 \end{ex}
 
 
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+  \bibitem[Black and Scholes(1973)]{Black1973}
+Fischer Black and Myron Scholes.
+\newblock The pricing of options and corporate liabilities.
+\newblock \emph{Journal of Political Economy}, 81\penalty0 (3):\penalty0
+  637--654, may 1973.
+\newblock \doi{10.1086/260062}.
+
+\bibitem[Dobrow(2016)]{Dobrow2016}
+Robert~P. Dobrow.
+\newblock \emph{Introduction to Stochastic Processes With R}.
+\newblock John Wiley {\&} Sons, Inc, mar 2016.
+\newblock \doi{10.1002/9781118740712}.
+
+\bibitem[Jeanblanc(2006)]{MJB06}
+Monique Jeanblanc.
+\newblock Cours de calcul stochastique master 2if evry.
+\newblock lecture notes, 2006.
+\newblock
+  \url{https://www.maths.univ-evry.fr/pages_perso/jeanblanc/cours/M2_cours.pdf}.
+
+\bibitem[Merton(1973)]{Merton1973}
+Robert~C. Merton.
+\newblock Theory of rational option pricing.
+\newblock \emph{The Bell Journal of Economics and Management Science},
+  4\penalty0 (1):\penalty0 141, 1973.
+\newblock \doi{10.2307/3003143}.
+
+\bibitem[Mikosch(1998)]{Mikosch1998}
+Thomas Mikosch.
+\newblock \emph{Elementary Stochastic Calculus, with Finance in View}.
+\newblock {WORLD} {SCIENTIFIC}, oct 1998.
+\newblock \doi{10.1142/3856}.
+
+
+
+  \bibitem[Tankov and Touzi(2010)]{Tankov2010}
+Peter Tankov and Nizar Touzi.
+\newblock Calcul stochastique en finance.
+\newblock \emph{Ecole Polytechnique Paris, D{\'e}partement de Math{\'e}matiques
+  Appliqu{\'e}es}, page 146, 2010.
+
+\end{thebibliography}
